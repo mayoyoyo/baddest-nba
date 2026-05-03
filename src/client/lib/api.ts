@@ -119,6 +119,9 @@ export interface SharedLeaderboardEntryDto {
   effectiveVoterWeight: number;
   rankPosition: number;
   totalComparisons: number;
+  viewerWins: number;
+  viewerLosses: number;
+  viewerComparisons: number;
   wins: number;
 }
 

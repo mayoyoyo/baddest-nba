@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { ensureViewer, requireAuth } from "../lib/auth.js";
+import { ensureViewer, getViewer, requireAuth } from "../lib/auth.js";
 import { getDb } from "../lib/runtime.js";
 import type { AppEnv } from "../types.js";
 import {
@@ -13,13 +13,21 @@ const leaderboardRoutes = new Hono<AppEnv>();
 
 // Shared leaderboard is public — anonymous visitors see it. Guest votes
 // are filtered out of the aggregation in the service so spam from
-// drive-by users can't move the global ranking.
+// drive-by users can't move the global ranking. If the viewer is a
+// signed-up user we layer their personal W-L on top of each row;
+// guests/anon get zeroes (viewer-agnostic cache stays clean).
 leaderboardRoutes.get("/leaderboard/shared", async (c) => {
-  return c.json(await getSharedLeaderboard(getDb(c)));
+  const viewer = await getViewer(c);
+  const viewerId =
+    viewer && viewer.user.role !== "guest" ? viewer.user.id : null;
+  return c.json(await getSharedLeaderboard(getDb(c), viewerId));
 });
 
 leaderboardRoutes.get("/shared-leaderboard", async (c) => {
-  return c.json(await getSharedLeaderboard(getDb(c)));
+  const viewer = await getViewer(c);
+  const viewerId =
+    viewer && viewer.user.role !== "guest" ? viewer.user.id : null;
+  return c.json(await getSharedLeaderboard(getDb(c), viewerId));
 });
 
 leaderboardRoutes.get("/people", requireAuth, async (c) => {

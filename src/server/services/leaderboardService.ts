@@ -122,6 +122,11 @@ export interface SharedLeaderboardEntry {
   player: PlayerMeta | null;
   rankPosition: number;
   totalComparisons: number;
+  // Viewer-specific personal record. Always present in the response;
+  // zero for anonymous viewers or for players the viewer hasn't seen.
+  viewerWins: number;
+  viewerLosses: number;
+  viewerComparisons: number;
   wins: number;
 }
 
@@ -140,6 +145,31 @@ export interface SharedLeaderboardResponse {
 }
 
 export async function getSharedLeaderboard(
+  db: DatabaseLike,
+  viewerId?: string | null,
+): Promise<SharedLeaderboardResponse> {
+  const base = await getSharedLeaderboardBase(db);
+  if (!viewerId) return base;
+
+  // Layer the viewer's personal W-L on top per request. The base
+  // leaderboard cache stays viewer-agnostic so it's safe to share
+  // across users.
+  const viewerStates = await listPersonalImageState(db, viewerId);
+  const viewerMap = new Map(viewerStates.map((row) => [row.image_id, row]));
+  return {
+    leaderboard: base.leaderboard.map((row) => {
+      const personal = viewerMap.get(row.image.id);
+      return {
+        ...row,
+        viewerWins: personal?.wins ?? 0,
+        viewerLosses: personal?.losses ?? 0,
+        viewerComparisons: personal?.comparisons ?? 0,
+      };
+    }),
+  };
+}
+
+async function getSharedLeaderboardBase(
   db: DatabaseLike,
 ): Promise<SharedLeaderboardResponse> {
   const cached = readSharedLeaderboardCache<SharedLeaderboardResponse>();
@@ -200,6 +230,9 @@ export async function getSharedLeaderboard(
         effectiveVoterWeight: row?.effectiveVoterWeight ?? 0,
         rankPosition: row?.rankPosition ?? Number.MAX_SAFE_INTEGER,
         totalComparisons: comparisonsByImage.get(image.id) ?? 0,
+        viewerWins: 0,
+        viewerLosses: 0,
+        viewerComparisons: 0,
         wins: winsByImage.get(image.id) ?? 0,
       };
     })

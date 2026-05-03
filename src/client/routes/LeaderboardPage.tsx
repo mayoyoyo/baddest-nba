@@ -196,6 +196,11 @@ function AllNbaView({
   );
 }
 
+function viewerRecordLabel(row: SharedLeaderboardEntryDto): string | null {
+  if (row.viewerComparisons <= 0) return null;
+  return `You ${row.viewerWins}-${row.viewerLosses}`;
+}
+
 function AllNbaRow({
   row,
   isMvp,
@@ -205,9 +210,12 @@ function AllNbaRow({
 }) {
   const player = row.player;
   const name = player ? `${player.first} ${player.last}` : row.image.id;
-  const teamLine = player?.team
-    ? `${player.team}${player.pos ? ` · ${player.pos}` : ""}`
-    : (player?.pos ?? "");
+  const teamLineParts: string[] = [];
+  if (player?.team) teamLineParts.push(player.team);
+  if (player?.pos) teamLineParts.push(player.pos);
+  const viewerLabel = viewerRecordLabel(row);
+  if (viewerLabel) teamLineParts.push(viewerLabel);
+  const teamLine = teamLineParts.join(" · ");
 
   return (
     <li
@@ -360,9 +368,13 @@ function matchesPills(
 function LeaderboardRow({ row }: { row: SharedLeaderboardEntryDto }) {
   const player = row.player;
   const name = player ? `${player.first} ${player.last}` : row.image.id;
-  const teamLine = player?.team
-    ? `${player.team}${player.pos ? ` · ${player.pos}` : ""}${player.jersey ? ` · #${player.jersey}` : ""}`
-    : (player?.pos ?? "");
+  const teamLineParts: string[] = [];
+  if (player?.team) teamLineParts.push(player.team);
+  if (player?.pos) teamLineParts.push(player.pos);
+  if (player?.jersey) teamLineParts.push(`#${player.jersey}`);
+  const viewerLabel = viewerRecordLabel(row);
+  if (viewerLabel) teamLineParts.push(viewerLabel);
+  const teamLine = teamLineParts.join(" · ");
 
   return (
     <li className="flex items-center gap-3 px-3 py-2.5">
