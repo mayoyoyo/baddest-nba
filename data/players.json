@@ -1,0 +1,5792 @@
+[
+  {
+    "id": 1630173,
+    "first": "Precious",
+    "last": "Achiuwa",
+    "slug": "precious-achiuwa",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "9",
+    "pos": "F"
+  },
+  {
+    "id": 203500,
+    "first": "Steven",
+    "last": "Adams",
+    "slug": "steven-adams",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "12",
+    "pos": "C"
+  },
+  {
+    "id": 1628389,
+    "first": "Bam",
+    "last": "Adebayo",
+    "slug": "bam-adebayo",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "13",
+    "pos": "C-F"
+  },
+  {
+    "id": 1630534,
+    "first": "Ochai",
+    "last": "Agbaji",
+    "slug": "ochai-agbaji",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "30",
+    "pos": "G"
+  },
+  {
+    "id": 1630583,
+    "first": "Santi",
+    "last": "Aldama",
+    "slug": "santi-aldama",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "7",
+    "pos": "F-C"
+  },
+  {
+    "id": 1641725,
+    "first": "Trey",
+    "last": "Alexander",
+    "slug": "trey-alexander",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "23",
+    "pos": "G"
+  },
+  {
+    "id": 1629638,
+    "first": "Nickeil",
+    "last": "Alexander-Walker",
+    "slug": "nickeil-alexander-walker",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "7",
+    "pos": "G"
+  },
+  {
+    "id": 1628960,
+    "first": "Grayson",
+    "last": "Allen",
+    "slug": "grayson-allen",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1628386,
+    "first": "Jarrett",
+    "last": "Allen",
+    "slug": "jarrett-allen",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "31",
+    "pos": "C"
+  },
+  {
+    "id": 1630631,
+    "first": "Jose",
+    "last": "Alvarado",
+    "slug": "jose-alvarado",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 203937,
+    "first": "Kyle",
+    "last": "Anderson",
+    "slug": "kyle-anderson",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "12",
+    "pos": "F-G"
+  },
+  {
+    "id": 1630828,
+    "first": "Alex",
+    "last": "Antetokounmpo",
+    "slug": "alex-antetokounmpo",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "29",
+    "pos": "F"
+  },
+  {
+    "id": 203507,
+    "first": "Giannis",
+    "last": "Antetokounmpo",
+    "slug": "giannis-antetokounmpo",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "34",
+    "pos": "F"
+  },
+  {
+    "id": 203648,
+    "first": "Thanasis",
+    "last": "Antetokounmpo",
+    "slug": "thanasis-antetokounmpo",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "43",
+    "pos": "F"
+  },
+  {
+    "id": 1630175,
+    "first": "Cole",
+    "last": "Anthony",
+    "slug": "cole-anthony",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1628384,
+    "first": "OG",
+    "last": "Anunoby",
+    "slug": "og-anunoby",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "8",
+    "pos": "F-G"
+  },
+  {
+    "id": 1630166,
+    "first": "Deni",
+    "last": "Avdija",
+    "slug": "deni-avdija",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "8",
+    "pos": "F"
+  },
+  {
+    "id": 1629028,
+    "first": "Deandre",
+    "last": "Ayton",
+    "slug": "deandre-ayton",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "5",
+    "pos": "C"
+  },
+  {
+    "id": 1628963,
+    "first": "Marvin",
+    "last": "Bagley III",
+    "slug": "marvin-bagley-iii",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "35",
+    "pos": "F"
+  },
+  {
+    "id": 1642846,
+    "first": "Ace",
+    "last": "Bailey",
+    "slug": "ace-bailey",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "19",
+    "pos": "F"
+  },
+  {
+    "id": 1631116,
+    "first": "Patrick",
+    "last": "Baldwin Jr.",
+    "slug": "patrick-baldwin-jr",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "23",
+    "pos": "F"
+  },
+  {
+    "id": 1630163,
+    "first": "LaMelo",
+    "last": "Ball",
+    "slug": "lamelo-ball",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "1",
+    "pos": "G"
+  },
+  {
+    "id": 1628366,
+    "first": "Lonzo",
+    "last": "Ball",
+    "slug": "lonzo-ball",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1628964,
+    "first": "Mo",
+    "last": "Bamba",
+    "slug": "mo-bamba",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "C"
+  },
+  {
+    "id": 1631094,
+    "first": "Paolo",
+    "last": "Banchero",
+    "slug": "paolo-banchero",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "5",
+    "pos": "F"
+  },
+  {
+    "id": 1630217,
+    "first": "Desmond",
+    "last": "Bane",
+    "slug": "desmond-bane",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1630625,
+    "first": "Dalano",
+    "last": "Banton",
+    "slug": "dalano-banton",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "45",
+    "pos": "F"
+  },
+  {
+    "id": 1631230,
+    "first": "Dominick",
+    "last": "Barlow",
+    "slug": "dominick-barlow",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "25",
+    "pos": "F"
+  },
+  {
+    "id": 203084,
+    "first": "Harrison",
+    "last": "Barnes",
+    "slug": "harrison-barnes",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "40",
+    "pos": "F"
+  },
+  {
+    "id": 1630567,
+    "first": "Scottie",
+    "last": "Barnes",
+    "slug": "scottie-barnes",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "4",
+    "pos": "F-G"
+  },
+  {
+    "id": 1642964,
+    "first": "Brooks",
+    "last": "Barnhizer",
+    "slug": "brooks-barnhizer",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "23",
+    "pos": "G"
+  },
+  {
+    "id": 1629628,
+    "first": "RJ",
+    "last": "Barrett",
+    "slug": "rj-barrett",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "9",
+    "pos": "F-G"
+  },
+  {
+    "id": 1629646,
+    "first": "Charles",
+    "last": "Bassey",
+    "slug": "charles-bassey",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "28",
+    "pos": "C-F"
+  },
+  {
+    "id": 1642419,
+    "first": "Jamison",
+    "last": "Battle",
+    "slug": "jamison-battle",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "77",
+    "pos": "F"
+  },
+  {
+    "id": 201587,
+    "first": "Nicolas",
+    "last": "Batum",
+    "slug": "nicolas-batum",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "33",
+    "pos": "G-F"
+  },
+  {
+    "id": 203078,
+    "first": "Bradley",
+    "last": "Beal",
+    "slug": "bradley-beal",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 1630699,
+    "first": "MarJon",
+    "last": "Beauchamp",
+    "slug": "marjon-beauchamp",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "16",
+    "pos": "F"
+  },
+  {
+    "id": 1642866,
+    "first": "Joan",
+    "last": "Beringer",
+    "slug": "joan-beringer",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "19",
+    "pos": "F"
+  },
+  {
+    "id": 1630180,
+    "first": "Saddiq",
+    "last": "Bey",
+    "slug": "saddiq-bey",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "41",
+    "pos": "G-F"
+  },
+  {
+    "id": 1629048,
+    "first": "Goga",
+    "last": "Bitadze",
+    "slug": "goga-bitadze",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "35",
+    "pos": "C-F"
+  },
+  {
+    "id": 202687,
+    "first": "Bismack",
+    "last": "Biyombo",
+    "slug": "bismack-biyombo",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "18",
+    "pos": "C"
+  },
+  {
+    "id": 1641710,
+    "first": "Anthony",
+    "last": "Black",
+    "slug": "anthony-black",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 1641778,
+    "first": "Leaky",
+    "last": "Black",
+    "slug": "leaky-black",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "12",
+    "pos": "F"
+  },
+  {
+    "id": 1631205,
+    "first": "Buddy",
+    "last": "Boeheim",
+    "slug": "buddy-boeheim",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 203992,
+    "first": "Bogdan",
+    "last": "Bogdanovi\u0107",
+    "slug": "bogdan-bogdanovic",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "7",
+    "pos": "G"
+  },
+  {
+    "id": 1641737,
+    "first": "Adem",
+    "last": "Bona",
+    "slug": "adem-bona",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "30",
+    "pos": "F"
+  },
+  {
+    "id": 1626164,
+    "first": "Devin",
+    "last": "Booker",
+    "slug": "devin-booker",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "1",
+    "pos": "G"
+  },
+  {
+    "id": 1628449,
+    "first": "Chris",
+    "last": "Boucher",
+    "slug": "chris-boucher",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1631123,
+    "first": "Jamaree",
+    "last": "Bouyea",
+    "slug": "jamaree-bouyea",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "17",
+    "pos": "G"
+  },
+  {
+    "id": 1628396,
+    "first": "Tony",
+    "last": "Bradley",
+    "slug": "tony-bradley",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "13",
+    "pos": "C-F"
+  },
+  {
+    "id": 1631103,
+    "first": "Malaki",
+    "last": "Branham",
+    "slug": "malaki-branham",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1631128,
+    "first": "Christian",
+    "last": "Braun",
+    "slug": "christian-braun",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 1642886,
+    "first": "Koby",
+    "last": "Brea",
+    "slug": "koby-brea",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "14",
+    "pos": "G"
+  },
+  {
+    "id": 1628969,
+    "first": "Mikal",
+    "last": "Bridges",
+    "slug": "mikal-bridges",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "25",
+    "pos": "G-F"
+  },
+  {
+    "id": 1628970,
+    "first": "Miles",
+    "last": "Bridges",
+    "slug": "miles-bridges",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "0",
+    "pos": "F"
+  },
+  {
+    "id": 1628415,
+    "first": "Dillon",
+    "last": "Brooks",
+    "slug": "dillon-brooks",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "3",
+    "pos": "G-F"
+  },
+  {
+    "id": 1641780,
+    "first": "Johni",
+    "last": "Broome",
+    "slug": "johni-broome",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "22",
+    "pos": "F"
+  },
+  {
+    "id": 1628971,
+    "first": "Bruce",
+    "last": "Brown",
+    "slug": "bruce-brown",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "11",
+    "pos": "G-F"
+  },
+  {
+    "id": 1642468,
+    "first": "Darius",
+    "last": "Brown",
+    "slug": "darius-brown",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1627759,
+    "first": "Jaylen",
+    "last": "Brown",
+    "slug": "jaylen-brown",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "7",
+    "pos": "G-F"
+  },
+  {
+    "id": 1641738,
+    "first": "Kobe",
+    "last": "Brown",
+    "slug": "kobe-brown",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "24",
+    "pos": "F"
+  },
+  {
+    "id": 1628973,
+    "first": "Jalen",
+    "last": "Brunson",
+    "slug": "jalen-brunson",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "11",
+    "pos": "G"
+  },
+  {
+    "id": 1642868,
+    "first": "Carter",
+    "last": "Bryant",
+    "slug": "carter-bryant",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "11",
+    "pos": "F"
+  },
+  {
+    "id": 1628418,
+    "first": "Thomas",
+    "last": "Bryant",
+    "slug": "thomas-bryant",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "3",
+    "pos": "C-F"
+  },
+  {
+    "id": 1641723,
+    "first": "Kobe",
+    "last": "Bufkin",
+    "slug": "kobe-bufkin",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1631174,
+    "first": "Tyler",
+    "last": "Burton",
+    "slug": "tyler-burton",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 202710,
+    "first": "Jimmy",
+    "last": "Butler III",
+    "slug": "jimmy-butler-iii",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "10",
+    "pos": "F"
+  },
+  {
+    "id": 1641824,
+    "first": "Matas",
+    "last": "Buzelis",
+    "slug": "matas-buzelis",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "14",
+    "pos": "F"
+  },
+  {
+    "id": 1631288,
+    "first": "Jamal",
+    "last": "Cain",
+    "slug": "jamal-cain",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "8",
+    "pos": "F"
+  },
+  {
+    "id": 203484,
+    "first": "Kentavious",
+    "last": "Caldwell-Pope",
+    "slug": "kentavious-caldwell-pope",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1641739,
+    "first": "Toumani",
+    "last": "Camara",
+    "slug": "toumani-camara",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "33",
+    "pos": "F"
+  },
+  {
+    "id": 203991,
+    "first": "Clint",
+    "last": "Capela",
+    "slug": "clint-capela",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "30",
+    "pos": "C"
+  },
+  {
+    "id": 1642928,
+    "first": "Dylan",
+    "last": "Cardwell",
+    "slug": "dylan-cardwell",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "32",
+    "pos": "C"
+  },
+  {
+    "id": 1642382,
+    "first": "Branden",
+    "last": "Carlson",
+    "slug": "branden-carlson",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "15",
+    "pos": "C"
+  },
+  {
+    "id": 1642267,
+    "first": "Bub",
+    "last": "Carrington",
+    "slug": "bub-carrington",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "7",
+    "pos": "G"
+  },
+  {
+    "id": 1642269,
+    "first": "Devin",
+    "last": "Carter",
+    "slug": "devin-carter",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "22",
+    "pos": "G"
+  },
+  {
+    "id": 1628975,
+    "first": "Jevon",
+    "last": "Carter",
+    "slug": "jevon-carter",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "2",
+    "pos": "G"
+  },
+  {
+    "id": 1628976,
+    "first": "Wendell",
+    "last": "Carter Jr.",
+    "slug": "wendell-carter-jr",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "34",
+    "pos": "C-F"
+  },
+  {
+    "id": 1627936,
+    "first": "Alex",
+    "last": "Caruso",
+    "slug": "alex-caruso",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "9",
+    "pos": "G"
+  },
+  {
+    "id": 1642264,
+    "first": "Stephon",
+    "last": "Castle",
+    "slug": "stephon-castle",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 1630658,
+    "first": "Colin",
+    "last": "Castleton",
+    "slug": "colin-castleton",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "14",
+    "pos": "C"
+  },
+  {
+    "id": 1630577,
+    "first": "Julian",
+    "last": "Champagnie",
+    "slug": "julian-champagnie",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "30",
+    "pos": "F"
+  },
+  {
+    "id": 1630551,
+    "first": "Justin",
+    "last": "Champagnie",
+    "slug": "justin-champagnie",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "9",
+    "pos": "G-F"
+  },
+  {
+    "id": 1631113,
+    "first": "Kennedy",
+    "last": "Chandler",
+    "slug": "kennedy-chandler",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1642353,
+    "first": "Cam",
+    "last": "Christie",
+    "slug": "cam-christie",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "12",
+    "pos": "G"
+  },
+  {
+    "id": 1631108,
+    "first": "Max",
+    "last": "Christie",
+    "slug": "max-christie",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "00",
+    "pos": "G"
+  },
+  {
+    "id": 1630619,
+    "first": "Moussa",
+    "last": "Cisse",
+    "slug": "moussa-cisse",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "30",
+    "pos": "C"
+  },
+  {
+    "id": 1631321,
+    "first": "Sidy",
+    "last": "Cissoko",
+    "slug": "sidy-cissoko",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "91",
+    "pos": "G"
+  },
+  {
+    "id": 1641740,
+    "first": "Jaylen",
+    "last": "Clark",
+    "slug": "jaylen-clark",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "22",
+    "pos": "G"
+  },
+  {
+    "id": 1629634,
+    "first": "Brandon",
+    "last": "Clarke",
+    "slug": "brandon-clarke",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "15",
+    "pos": "F"
+  },
+  {
+    "id": 203903,
+    "first": "Jordan",
+    "last": "Clarkson",
+    "slug": "jordan-clarkson",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "00",
+    "pos": "G"
+  },
+  {
+    "id": 1629651,
+    "first": "Nic",
+    "last": "Claxton",
+    "slug": "nic-claxton",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "33",
+    "pos": "C"
+  },
+  {
+    "id": 1642383,
+    "first": "Walter",
+    "last": "Clayton Jr.",
+    "slug": "walter-clayton-jr",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "4",
+    "pos": "G"
+  },
+  {
+    "id": 1642363,
+    "first": "Nique",
+    "last": "Clifford",
+    "slug": "nique-clifford",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 1642270,
+    "first": "Donovan",
+    "last": "Clingan",
+    "slug": "donovan-clingan",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "23",
+    "pos": "C"
+  },
+  {
+    "id": 1641730,
+    "first": "Noah",
+    "last": "Clowney",
+    "slug": "noah-clowney",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "21",
+    "pos": "F-C"
+  },
+  {
+    "id": 1629599,
+    "first": "Amir",
+    "last": "Coffey",
+    "slug": "amir-coffey",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "2",
+    "pos": "G-F"
+  },
+  {
+    "id": 1642268,
+    "first": "Isaiah",
+    "last": "Collier",
+    "slug": "isaiah-collier",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1628381,
+    "first": "John",
+    "last": "Collins",
+    "slug": "john-collins",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "20",
+    "pos": "F-C"
+  },
+  {
+    "id": 1628380,
+    "first": "Zach",
+    "last": "Collins",
+    "slug": "zach-collins",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "12",
+    "pos": "F-C"
+  },
+  {
+    "id": 201144,
+    "first": "Mike",
+    "last": "Conley",
+    "slug": "mike-conley",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "10",
+    "pos": "G"
+  },
+  {
+    "id": 1626192,
+    "first": "Pat",
+    "last": "Connaughton",
+    "slug": "pat-connaughton",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "21",
+    "pos": "G"
+  },
+  {
+    "id": 1631451,
+    "first": "Javonte",
+    "last": "Cooke",
+    "slug": "javonte-cooke",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1630536,
+    "first": "Sharife",
+    "last": "Cooper",
+    "slug": "sharife-cooper",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "13",
+    "pos": "G"
+  },
+  {
+    "id": 1641731,
+    "first": "Bilal",
+    "last": "Coulibaly",
+    "slug": "bilal-coulibaly",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 1642907,
+    "first": "Cedric",
+    "last": "Coward",
+    "slug": "cedric-coward",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "23",
+    "pos": "G"
+  },
+  {
+    "id": 1642384,
+    "first": "Isaiah",
+    "last": "Crawford",
+    "slug": "isaiah-crawford",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "27",
+    "pos": "F"
+  },
+  {
+    "id": 1643018,
+    "first": "LJ",
+    "last": "Cryer",
+    "slug": "lj-cryer",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "18",
+    "pos": "G"
+  },
+  {
+    "id": 1630595,
+    "first": "Cade",
+    "last": "Cunningham",
+    "slug": "cade-cunningham",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "2",
+    "pos": "G"
+  },
+  {
+    "id": 203552,
+    "first": "Seth",
+    "last": "Curry",
+    "slug": "seth-curry",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "31",
+    "pos": "G"
+  },
+  {
+    "id": 201939,
+    "first": "Stephen",
+    "last": "Curry",
+    "slug": "stephen-curry",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "30",
+    "pos": "G"
+  },
+  {
+    "id": 1641783,
+    "first": "Tristan",
+    "last": "da Silva",
+    "slug": "tristan-da-silva",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "23",
+    "pos": "F"
+  },
+  {
+    "id": 1642359,
+    "first": "Pac\u00f4me",
+    "last": "Dadiet",
+    "slug": "pacome-dadiet",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "4",
+    "pos": "F"
+  },
+  {
+    "id": 1630700,
+    "first": "Dyson",
+    "last": "Daniels",
+    "slug": "dyson-daniels",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 1642368,
+    "first": "N'Faly",
+    "last": "Dante",
+    "slug": "nfaly-dante",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "C"
+  },
+  {
+    "id": 203076,
+    "first": "Anthony",
+    "last": "Davis",
+    "slug": "anthony-davis",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "23",
+    "pos": "F-C"
+  },
+  {
+    "id": 1631120,
+    "first": "JD",
+    "last": "Davison",
+    "slug": "jd-davison",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "4",
+    "pos": "G"
+  },
+  {
+    "id": 1642484,
+    "first": "RayJ",
+    "last": "Dennis",
+    "slug": "rayj-dennis",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "00",
+    "pos": "G"
+  },
+  {
+    "id": 201942,
+    "first": "DeMar",
+    "last": "DeRozan",
+    "slug": "demar-derozan",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "10",
+    "pos": "G-F"
+  },
+  {
+    "id": 1631217,
+    "first": "Moussa",
+    "last": "Diabat\u00e9",
+    "slug": "moussa-diabate",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "14",
+    "pos": "F"
+  },
+  {
+    "id": 1642885,
+    "first": "Mohamed",
+    "last": "Diawara",
+    "slug": "mohamed-diawara",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "51",
+    "pos": "F"
+  },
+  {
+    "id": 1641711,
+    "first": "Gradey",
+    "last": "Dick",
+    "slug": "gradey-dick",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "1",
+    "pos": "G-F"
+  },
+  {
+    "id": 1630621,
+    "first": "Hunter",
+    "last": "Dickinson",
+    "slug": "hunter-dickinson",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "4",
+    "pos": "C"
+  },
+  {
+    "id": 1631172,
+    "first": "Ousmane",
+    "last": "Dieng",
+    "slug": "ousmane-dieng",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "21",
+    "pos": "F"
+  },
+  {
+    "id": 1642265,
+    "first": "Rob",
+    "last": "Dillingham",
+    "slug": "rob-dillingham",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "7",
+    "pos": "G"
+  },
+  {
+    "id": 1628978,
+    "first": "Donte",
+    "last": "DiVincenzo",
+    "slug": "donte-divincenzo",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 1629029,
+    "first": "Luka",
+    "last": "Don\u010di\u0107",
+    "slug": "luka-doncic",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "77",
+    "pos": "F-G"
+  },
+  {
+    "id": 1629652,
+    "first": "Luguentz",
+    "last": "Dort",
+    "slug": "luguentz-dort",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 1630245,
+    "first": "Ayo",
+    "last": "Dosunmu",
+    "slug": "ayo-dosunmu",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "13",
+    "pos": "G"
+  },
+  {
+    "id": 203083,
+    "first": "Andre",
+    "last": "Drummond",
+    "slug": "andre-drummond",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "1",
+    "pos": "C"
+  },
+  {
+    "id": 1627739,
+    "first": "Kris",
+    "last": "Dunn",
+    "slug": "kris-dunn",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1642346,
+    "first": "Ryan",
+    "last": "Dunn",
+    "slug": "ryan-dunn",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "0",
+    "pos": "F"
+  },
+  {
+    "id": 201142,
+    "first": "Kevin",
+    "last": "Durant",
+    "slug": "kevin-durant",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "7",
+    "pos": "F"
+  },
+  {
+    "id": 1631105,
+    "first": "Jalen",
+    "last": "Duren",
+    "slug": "jalen-duren",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "0",
+    "pos": "C"
+  },
+  {
+    "id": 1642856,
+    "first": "Egor",
+    "last": "D\u00ebmin",
+    "slug": "egor-demin",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1631106,
+    "first": "Tari",
+    "last": "Eason",
+    "slug": "tari-eason",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "17",
+    "pos": "F"
+  },
+  {
+    "id": 1641744,
+    "first": "Zach",
+    "last": "Edey",
+    "slug": "zach-edey",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "14",
+    "pos": "C"
+  },
+  {
+    "id": 1642845,
+    "first": "VJ",
+    "last": "Edgecombe",
+    "slug": "vj-edgecombe",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "77",
+    "pos": "G"
+  },
+  {
+    "id": 1630162,
+    "first": "Anthony",
+    "last": "Edwards",
+    "slug": "anthony-edwards",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 1642348,
+    "first": "Justin",
+    "last": "Edwards",
+    "slug": "justin-edwards",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "11",
+    "pos": "F"
+  },
+  {
+    "id": 1631165,
+    "first": "Keon",
+    "last": "Ellis",
+    "slug": "keon-ellis",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "14",
+    "pos": "G"
+  },
+  {
+    "id": 203954,
+    "first": "Joel",
+    "last": "Embiid",
+    "slug": "joel-embiid",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "21",
+    "pos": "C-F"
+  },
+  {
+    "id": 1642400,
+    "first": "Tristan",
+    "last": "Enaruna",
+    "slug": "tristan-enaruna",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "21",
+    "pos": "F"
+  },
+  {
+    "id": 1642855,
+    "first": "Noa",
+    "last": "Essengue",
+    "slug": "noa-essengue",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "24",
+    "pos": "F"
+  },
+  {
+    "id": 1630623,
+    "first": "Tyson",
+    "last": "Etienne",
+    "slug": "tyson-etienne",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "10",
+    "pos": "G"
+  },
+  {
+    "id": 1629234,
+    "first": "Drew",
+    "last": "Eubanks",
+    "slug": "drew-eubanks",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "19",
+    "pos": "F-C"
+  },
+  {
+    "id": 1641787,
+    "first": "Tosan",
+    "last": "Evbuomwan",
+    "slug": "tosan-evbuomwan",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "20",
+    "pos": "F"
+  },
+  {
+    "id": 1642847,
+    "first": "Jeremiah",
+    "last": "Fears",
+    "slug": "jeremiah-fears",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 1642271,
+    "first": "Kyle",
+    "last": "Filipowski",
+    "slug": "kyle-filipowski",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "22",
+    "pos": "C"
+  },
+  {
+    "id": 1627827,
+    "first": "Dorian",
+    "last": "Finney-Smith",
+    "slug": "dorian-finney-smith",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "2",
+    "pos": "F"
+  },
+  {
+    "id": 1642843,
+    "first": "Cooper",
+    "last": "Flagg",
+    "slug": "cooper-flagg",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "32",
+    "pos": "F"
+  },
+  {
+    "id": 1642853,
+    "first": "Rasheer",
+    "last": "Fleming",
+    "slug": "rasheer-fleming",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "20",
+    "pos": "F"
+  },
+  {
+    "id": 1642280,
+    "first": "Trentyn",
+    "last": "Flowers",
+    "slug": "trentyn-flowers",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1631323,
+    "first": "Simone",
+    "last": "Fontecchio",
+    "slug": "simone-fontecchio",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "0",
+    "pos": "F"
+  },
+  {
+    "id": 1628368,
+    "first": "De'Aaron",
+    "last": "Fox",
+    "slug": "deaaron-fox",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "4",
+    "pos": "G"
+  },
+  {
+    "id": 1642402,
+    "first": "Enrique",
+    "last": "Freeman",
+    "slug": "enrique-freeman",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "25",
+    "pos": "F"
+  },
+  {
+    "id": 1628365,
+    "first": "Markelle",
+    "last": "Fultz",
+    "slug": "markelle-fultz",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1642277,
+    "first": "Johnny",
+    "last": "Furphy",
+    "slug": "johnny-furphy",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "12",
+    "pos": "G"
+  },
+  {
+    "id": 1629655,
+    "first": "Daniel",
+    "last": "Gafford",
+    "slug": "daniel-gafford",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "21",
+    "pos": "F-C"
+  },
+  {
+    "id": 1643158,
+    "first": "Andersson",
+    "last": "Garcia",
+    "slug": "andersson-garcia",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1642066,
+    "first": "Myron",
+    "last": "Gardner",
+    "slug": "myron-gardner",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "15",
+    "pos": "F"
+  },
+  {
+    "id": 1629636,
+    "first": "Darius",
+    "last": "Garland",
+    "slug": "darius-garland",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "10",
+    "pos": "G"
+  },
+  {
+    "id": 1630568,
+    "first": "Luka",
+    "last": "Garza",
+    "slug": "luka-garza",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "52",
+    "pos": "C"
+  },
+  {
+    "id": 1641718,
+    "first": "Keyonte",
+    "last": "George",
+    "slug": "keyonte-george",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1642273,
+    "first": "Kyshawn",
+    "last": "George",
+    "slug": "kyshawn-george",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "18",
+    "pos": "F"
+  },
+  {
+    "id": 202331,
+    "first": "Paul",
+    "last": "George",
+    "slug": "paul-george",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "8",
+    "pos": "F"
+  },
+  {
+    "id": 201959,
+    "first": "Taj",
+    "last": "Gibson",
+    "slug": "taj-gibson",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "67",
+    "pos": "F"
+  },
+  {
+    "id": 1630581,
+    "first": "Josh",
+    "last": "Giddey",
+    "slug": "josh-giddey",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1642933,
+    "first": "Keshon",
+    "last": "Gilbert",
+    "slug": "keshon-gilbert",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1628983,
+    "first": "Shai",
+    "last": "Gilgeous-Alexander",
+    "slug": "shai-gilgeous-alexander",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "2",
+    "pos": "G"
+  },
+  {
+    "id": 1630264,
+    "first": "Anthony",
+    "last": "Gill",
+    "slug": "anthony-gill",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "16",
+    "pos": "F"
+  },
+  {
+    "id": 1631221,
+    "first": "Collin",
+    "last": "Gillespie",
+    "slug": "collin-gillespie",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "12",
+    "pos": "G"
+  },
+  {
+    "id": 203497,
+    "first": "Rudy",
+    "last": "Gobert",
+    "slug": "rudy-gobert",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "27",
+    "pos": "C"
+  },
+  {
+    "id": 1642884,
+    "first": "Vladislav",
+    "last": "Goldin",
+    "slug": "vladislav-goldin",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "50",
+    "pos": "C"
+  },
+  {
+    "id": 1642864,
+    "first": "Hugo",
+    "last": "Gonz\u00e1lez",
+    "slug": "hugo-gonzalez",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "28",
+    "pos": "G"
+  },
+  {
+    "id": 1630692,
+    "first": "Jordan",
+    "last": "Goodwin",
+    "slug": "jordan-goodwin",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "23",
+    "pos": "G"
+  },
+  {
+    "id": 203932,
+    "first": "Aaron",
+    "last": "Gordon",
+    "slug": "aaron-gordon",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "32",
+    "pos": "F"
+  },
+  {
+    "id": 201569,
+    "first": "Eric",
+    "last": "Gordon",
+    "slug": "eric-gordon",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 203924,
+    "first": "Jerami",
+    "last": "Grant",
+    "slug": "jerami-grant",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "9",
+    "pos": "F"
+  },
+  {
+    "id": 1631260,
+    "first": "AJ",
+    "last": "Green",
+    "slug": "aj-green",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "20",
+    "pos": "G"
+  },
+  {
+    "id": 203110,
+    "first": "Draymond",
+    "last": "Green",
+    "slug": "draymond-green",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "23",
+    "pos": "F"
+  },
+  {
+    "id": 1630224,
+    "first": "Jalen",
+    "last": "Green",
+    "slug": "jalen-green",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "4",
+    "pos": "G"
+  },
+  {
+    "id": 1629750,
+    "first": "Javonte",
+    "last": "Green",
+    "slug": "javonte-green",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "31",
+    "pos": "G"
+  },
+  {
+    "id": 201145,
+    "first": "Jeff",
+    "last": "Green",
+    "slug": "jeff-green",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "32",
+    "pos": "F"
+  },
+  {
+    "id": 1630182,
+    "first": "Josh",
+    "last": "Green",
+    "slug": "josh-green",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "10",
+    "pos": "G"
+  },
+  {
+    "id": 1629656,
+    "first": "Quentin",
+    "last": "Grimes",
+    "slug": "quentin-grimes",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 1631338,
+    "first": "Mouhamadou",
+    "last": "Gueye",
+    "slug": "mouhamadou-gueye",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "16",
+    "pos": "F"
+  },
+  {
+    "id": 1631243,
+    "first": "Mouhamed",
+    "last": "Gueye",
+    "slug": "mouhamed-gueye",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "18",
+    "pos": "F"
+  },
+  {
+    "id": 1629060,
+    "first": "Rui",
+    "last": "Hachimura",
+    "slug": "rui-hachimura",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "28",
+    "pos": "F"
+  },
+  {
+    "id": 1630169,
+    "first": "Tyrese",
+    "last": "Haliburton",
+    "slug": "tyrese-haliburton",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 1641790,
+    "first": "PJ",
+    "last": "Hall",
+    "slug": "pj-hall",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "16",
+    "pos": "C"
+  },
+  {
+    "id": 1642905,
+    "first": "Yang",
+    "last": "Hansen",
+    "slug": "yang-hansen",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "16",
+    "pos": "C"
+  },
+  {
+    "id": 203501,
+    "first": "Tim",
+    "last": "Hardaway Jr.",
+    "slug": "tim-hardaway-jr",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "10",
+    "pos": "G-F"
+  },
+  {
+    "id": 201935,
+    "first": "James",
+    "last": "Harden",
+    "slug": "james-harden",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "1",
+    "pos": "G"
+  },
+  {
+    "id": 1630702,
+    "first": "Jaden",
+    "last": "Hardy",
+    "slug": "jaden-hardy",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1641989,
+    "first": "Elijah",
+    "last": "Harkless",
+    "slug": "elijah-harkless",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "16",
+    "pos": "G"
+  },
+  {
+    "id": 1642844,
+    "first": "Dylan",
+    "last": "Harper",
+    "slug": "dylan-harper",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "2",
+    "pos": "G"
+  },
+  {
+    "id": 1631199,
+    "first": "Ron",
+    "last": "Harper Jr.",
+    "slug": "ron-harper-jr",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "13",
+    "pos": "G-F"
+  },
+  {
+    "id": 203914,
+    "first": "Gary",
+    "last": "Harris",
+    "slug": "gary-harris",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "11",
+    "pos": "G"
+  },
+  {
+    "id": 202699,
+    "first": "Tobias",
+    "last": "Harris",
+    "slug": "tobias-harris",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "12",
+    "pos": "F"
+  },
+  {
+    "id": 1628404,
+    "first": "Josh",
+    "last": "Hart",
+    "slug": "josh-hart",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1628392,
+    "first": "Isaiah",
+    "last": "Hartenstein",
+    "slug": "isaiah-hartenstein",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "55",
+    "pos": "C-F"
+  },
+  {
+    "id": 1630573,
+    "first": "Sam",
+    "last": "Hauser",
+    "slug": "sam-hauser",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "30",
+    "pos": "F"
+  },
+  {
+    "id": 1641722,
+    "first": "Jordan",
+    "last": "Hawkins",
+    "slug": "jordan-hawkins",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "24",
+    "pos": "G"
+  },
+  {
+    "id": 1629637,
+    "first": "Jaxson",
+    "last": "Hayes",
+    "slug": "jaxson-hayes",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "11",
+    "pos": "C-F"
+  },
+  {
+    "id": 1630165,
+    "first": "Killian",
+    "last": "Hayes",
+    "slug": "killian-hayes",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "7",
+    "pos": "G"
+  },
+  {
+    "id": 1628502,
+    "first": "Nigel",
+    "last": "Hayes-Davis",
+    "slug": "nigel-hayes-davis",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1630703,
+    "first": "Scoot",
+    "last": "Henderson",
+    "slug": "scoot-henderson",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "00",
+    "pos": "G"
+  },
+  {
+    "id": 1641707,
+    "first": "Taylor",
+    "last": "Hendricks",
+    "slug": "taylor-hendricks",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "22",
+    "pos": "F"
+  },
+  {
+    "id": 1642935,
+    "first": "Chucky",
+    "last": "Hepburn",
+    "slug": "chucky-hepburn",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "24",
+    "pos": "G"
+  },
+  {
+    "id": 1629639,
+    "first": "Tyler",
+    "last": "Herro",
+    "slug": "tyler-herro",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "14",
+    "pos": "G"
+  },
+  {
+    "id": 1627741,
+    "first": "Buddy",
+    "last": "Hield",
+    "slug": "buddy-hield",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1629312,
+    "first": "Haywood",
+    "last": "Highsmith",
+    "slug": "haywood-highsmith",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "7",
+    "pos": "F"
+  },
+  {
+    "id": 1642396,
+    "first": "Blake",
+    "last": "Hinson",
+    "slug": "blake-hinson",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "2",
+    "pos": "F"
+  },
+  {
+    "id": 1628988,
+    "first": "Aaron",
+    "last": "Holiday",
+    "slug": "aaron-holiday",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 201950,
+    "first": "Jrue",
+    "last": "Holiday",
+    "slug": "jrue-holiday",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 1641842,
+    "first": "Ronald",
+    "last": "Holland II",
+    "slug": "ronald-holland-ii",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "5",
+    "pos": "F"
+  },
+  {
+    "id": 1641747,
+    "first": "DaRon",
+    "last": "Holmes II",
+    "slug": "daron-holmes-ii",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "14",
+    "pos": "F"
+  },
+  {
+    "id": 1631096,
+    "first": "Chet",
+    "last": "Holmgren",
+    "slug": "chet-holmgren",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "7",
+    "pos": "C-F"
+  },
+  {
+    "id": 201143,
+    "first": "Al",
+    "last": "Horford",
+    "slug": "al-horford",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "20",
+    "pos": "C-F"
+  },
+  {
+    "id": 1631216,
+    "first": "Caleb",
+    "last": "Houstan",
+    "slug": "caleb-houstan",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1641724,
+    "first": "Jett",
+    "last": "Howard",
+    "slug": "jett-howard",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "13",
+    "pos": "G"
+  },
+  {
+    "id": 1628989,
+    "first": "Kevin",
+    "last": "Huerter",
+    "slug": "kevin-huerter",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "27",
+    "pos": "G-F"
+  },
+  {
+    "id": 1630643,
+    "first": "Jay",
+    "last": "Huff",
+    "slug": "jay-huff",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "32",
+    "pos": "C"
+  },
+  {
+    "id": 1630574,
+    "first": "Ariel",
+    "last": "Hukporti",
+    "slug": "ariel-hukporti",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "55",
+    "pos": "C"
+  },
+  {
+    "id": 1629631,
+    "first": "De'Andre",
+    "last": "Hunter",
+    "slug": "deandre-hunter",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "15",
+    "pos": "F-G"
+  },
+  {
+    "id": 1643047,
+    "first": "CJ",
+    "last": "Huntley",
+    "slug": "cj-huntley",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "22",
+    "pos": "F"
+  },
+  {
+    "id": 1630538,
+    "first": "Bones",
+    "last": "Hyland",
+    "slug": "bones-hyland",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1642345,
+    "first": "Oso",
+    "last": "Ighodaro",
+    "slug": "oso-ighodaro",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "11",
+    "pos": "F"
+  },
+  {
+    "id": 204060,
+    "first": "Joe",
+    "last": "Ingles",
+    "slug": "joe-ingles",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "7",
+    "pos": "F-G"
+  },
+  {
+    "id": 1627742,
+    "first": "Brandon",
+    "last": "Ingram",
+    "slug": "brandon-ingram",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "3",
+    "pos": "F"
+  },
+  {
+    "id": 1631127,
+    "first": "Harrison",
+    "last": "Ingram",
+    "slug": "harrison-ingram",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "55",
+    "pos": "F"
+  },
+  {
+    "id": 202681,
+    "first": "Kyrie",
+    "last": "Irving",
+    "slug": "kyrie-irving",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "11",
+    "pos": "G"
+  },
+  {
+    "id": 1628371,
+    "first": "Jonathan",
+    "last": "Isaac",
+    "slug": "jonathan-isaac",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "1",
+    "pos": "F"
+  },
+  {
+    "id": 1631093,
+    "first": "Jaden",
+    "last": "Ivey",
+    "slug": "jaden-ivey",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1641713,
+    "first": "GG",
+    "last": "Jackson",
+    "slug": "gg-jackson",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "45",
+    "pos": "F"
+  },
+  {
+    "id": 1630543,
+    "first": "Isaiah",
+    "last": "Jackson",
+    "slug": "isaiah-jackson",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "23",
+    "pos": "F"
+  },
+  {
+    "id": 1631245,
+    "first": "Quenton",
+    "last": "Jackson",
+    "slug": "quenton-jackson",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "29",
+    "pos": "G"
+  },
+  {
+    "id": 1641748,
+    "first": "Andre",
+    "last": "Jackson Jr.",
+    "slug": "andre-jackson-jr",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "44",
+    "pos": "G"
+  },
+  {
+    "id": 1628991,
+    "first": "Jaren",
+    "last": "Jackson Jr.",
+    "slug": "jaren-jackson-jr",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "20",
+    "pos": "F-C"
+  },
+  {
+    "id": 1631218,
+    "first": "Trayce",
+    "last": "Jackson-Davis",
+    "slug": "trayce-jackson-davis",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "32",
+    "pos": "F"
+  },
+  {
+    "id": 1642857,
+    "first": "Kasparas",
+    "last": "Jaku\u010dionis",
+    "slug": "kasparas-jakucionis",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "25",
+    "pos": "G"
+  },
+  {
+    "id": 1642355,
+    "first": "Bronny",
+    "last": "James",
+    "slug": "bronny-james",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "9",
+    "pos": "G"
+  },
+  {
+    "id": 2544,
+    "first": "LeBron",
+    "last": "James",
+    "slug": "lebron-james",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "23",
+    "pos": "F"
+  },
+  {
+    "id": 1642883,
+    "first": "Sion",
+    "last": "James",
+    "slug": "sion-james",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "4",
+    "pos": "G"
+  },
+  {
+    "id": 1631170,
+    "first": "Jaime",
+    "last": "Jaquez Jr.",
+    "slug": "jaime-jaquez-jr",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "11",
+    "pos": "G"
+  },
+  {
+    "id": 1630610,
+    "first": "DeJon",
+    "last": "Jarreau",
+    "slug": "dejon-jarreau",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1629610,
+    "first": "DaQuan",
+    "last": "Jeffries",
+    "slug": "daquan-jeffries",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G-F"
+  },
+  {
+    "id": 1641998,
+    "first": "Trey",
+    "last": "Jemison III",
+    "slug": "trey-jemison-iii",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "50",
+    "pos": "C"
+  },
+  {
+    "id": 1642450,
+    "first": "Daniss",
+    "last": "Jenkins",
+    "slug": "daniss-jenkins",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "24",
+    "pos": "G"
+  },
+  {
+    "id": 1629660,
+    "first": "Ty",
+    "last": "Jerome",
+    "slug": "ty-jerome",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "2",
+    "pos": "G-F"
+  },
+  {
+    "id": 1630198,
+    "first": "Isaiah",
+    "last": "Joe",
+    "slug": "isaiah-joe",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "11",
+    "pos": "G"
+  },
+  {
+    "id": 1642358,
+    "first": "AJ",
+    "last": "Johnson",
+    "slug": "aj-johnson",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1629661,
+    "first": "Cameron",
+    "last": "Johnson",
+    "slug": "cameron-johnson",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "23",
+    "pos": "F"
+  },
+  {
+    "id": 1643052,
+    "first": "Chaney",
+    "last": "Johnson",
+    "slug": "chaney-johnson",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "31",
+    "pos": "G-F"
+  },
+  {
+    "id": 1630552,
+    "first": "Jalen",
+    "last": "Johnson",
+    "slug": "jalen-johnson",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "1",
+    "pos": "F"
+  },
+  {
+    "id": 1629640,
+    "first": "Keldon",
+    "last": "Johnson",
+    "slug": "keldon-johnson",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "3",
+    "pos": "F-G"
+  },
+  {
+    "id": 1642352,
+    "first": "Keshad",
+    "last": "Johnson",
+    "slug": "keshad-johnson",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "16",
+    "pos": "F"
+  },
+  {
+    "id": 1642848,
+    "first": "Tre",
+    "last": "Johnson",
+    "slug": "tre-johnson",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "12",
+    "pos": "G"
+  },
+  {
+    "id": 203999,
+    "first": "Nikola",
+    "last": "Joki\u0107",
+    "slug": "nikola-jokic",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "15",
+    "pos": "C"
+  },
+  {
+    "id": 1641732,
+    "first": "Colby",
+    "last": "Jones",
+    "slug": "colby-jones",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1642938,
+    "first": "Curtis",
+    "last": "Jones",
+    "slug": "curtis-jones",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "1",
+    "pos": "G"
+  },
+  {
+    "id": 1641794,
+    "first": "Dillon",
+    "last": "Jones",
+    "slug": "dillon-jones",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "33",
+    "pos": "F"
+  },
+  {
+    "id": 1630529,
+    "first": "Herbert",
+    "last": "Jones",
+    "slug": "herbert-jones",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "2",
+    "pos": "F"
+  },
+  {
+    "id": 1642403,
+    "first": "Isaac",
+    "last": "Jones",
+    "slug": "isaac-jones",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "3",
+    "pos": "F"
+  },
+  {
+    "id": 1642880,
+    "first": "Kam",
+    "last": "Jones",
+    "slug": "kam-jones",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "7",
+    "pos": "G"
+  },
+  {
+    "id": 1642461,
+    "first": "Spencer",
+    "last": "Jones",
+    "slug": "spencer-jones",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "21",
+    "pos": "F"
+  },
+  {
+    "id": 1630200,
+    "first": "Tre",
+    "last": "Jones",
+    "slug": "tre-jones",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "30",
+    "pos": "G"
+  },
+  {
+    "id": 1626145,
+    "first": "Tyus",
+    "last": "Jones",
+    "slug": "tyus-jones",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 1642357,
+    "first": "David",
+    "last": "Jones Garcia",
+    "slug": "david-jones-garcia",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "25",
+    "pos": "G"
+  },
+  {
+    "id": 1627884,
+    "first": "Derrick",
+    "last": "Jones Jr.",
+    "slug": "derrick-jones-jr",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "5",
+    "pos": "F"
+  },
+  {
+    "id": 201599,
+    "first": "DeAndre",
+    "last": "Jordan",
+    "slug": "deandre-jordan",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "9",
+    "pos": "C"
+  },
+  {
+    "id": 1631107,
+    "first": "Nikola",
+    "last": "Jovi\u0107",
+    "slug": "nikola-jovic",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "5",
+    "pos": "F"
+  },
+  {
+    "id": 1630548,
+    "first": "Johnny",
+    "last": "Juzang",
+    "slug": "johnny-juzang",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1641750,
+    "first": "Ryan",
+    "last": "Kalkbrenner",
+    "slug": "ryan-kalkbrenner",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "11",
+    "pos": "C"
+  },
+  {
+    "id": 1642530,
+    "first": "Yuki",
+    "last": "Kawamura",
+    "slug": "yuki-kawamura",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1631211,
+    "first": "Trevor",
+    "last": "Keels",
+    "slug": "trevor-keels",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1642939,
+    "first": "Miles",
+    "last": "Kelly",
+    "slug": "miles-kelly",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1628379,
+    "first": "Luke",
+    "last": "Kennard",
+    "slug": "luke-kennard",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "10",
+    "pos": "G"
+  },
+  {
+    "id": 1631117,
+    "first": "Walker",
+    "last": "Kessler",
+    "slug": "walker-kessler",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "24",
+    "pos": "C"
+  },
+  {
+    "id": 1630557,
+    "first": "Corey",
+    "last": "Kispert",
+    "slug": "corey-kispert",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "24",
+    "pos": "F"
+  },
+  {
+    "id": 1628467,
+    "first": "Maxi",
+    "last": "Kleber",
+    "slug": "maxi-kleber",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "14",
+    "pos": "F"
+  },
+  {
+    "id": 1641752,
+    "first": "Bobi",
+    "last": "Klintman",
+    "slug": "bobi-klintman",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1642261,
+    "first": "Dalton",
+    "last": "Knecht",
+    "slug": "dalton-knecht",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "4",
+    "pos": "F"
+  },
+  {
+    "id": 1642851,
+    "first": "Kon",
+    "last": "Knueppel",
+    "slug": "kon-knueppel",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "7",
+    "pos": "G-F"
+  },
+  {
+    "id": 1642278,
+    "first": "Tyler",
+    "last": "Kolek",
+    "slug": "tyler-kolek",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "13",
+    "pos": "G"
+  },
+  {
+    "id": 1631132,
+    "first": "Christian",
+    "last": "Koloko",
+    "slug": "christian-koloko",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "10",
+    "pos": "C"
+  },
+  {
+    "id": 1629723,
+    "first": "John",
+    "last": "Konchar",
+    "slug": "john-konchar",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "55",
+    "pos": "G"
+  },
+  {
+    "id": 1628436,
+    "first": "Luke",
+    "last": "Kornet",
+    "slug": "luke-kornet",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "7",
+    "pos": "C-F"
+  },
+  {
+    "id": 1630249,
+    "first": "V\u00edt",
+    "last": "Krej\u010d\u00ed",
+    "slug": "vit-krejci",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "27",
+    "pos": "G"
+  },
+  {
+    "id": 1630228,
+    "first": "Jonathan",
+    "last": "Kuminga",
+    "slug": "jonathan-kuminga",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "0",
+    "pos": "F"
+  },
+  {
+    "id": 1628398,
+    "first": "Kyle",
+    "last": "Kuzma",
+    "slug": "kyle-kuzma",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "18",
+    "pos": "F"
+  },
+  {
+    "id": 1627746,
+    "first": "Skal",
+    "last": "Labissiere",
+    "slug": "skal-labissiere",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F-C"
+  },
+  {
+    "id": 1629111,
+    "first": "Jock",
+    "last": "Landale",
+    "slug": "jock-landale",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "31",
+    "pos": "C"
+  },
+  {
+    "id": 1642404,
+    "first": "Chaz",
+    "last": "Lanier",
+    "slug": "chaz-lanier",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "20",
+    "pos": "G"
+  },
+  {
+    "id": 1631222,
+    "first": "Jake",
+    "last": "LaRavia",
+    "slug": "jake-laravia",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "12",
+    "pos": "F"
+  },
+  {
+    "id": 1641796,
+    "first": "Pelle",
+    "last": "Larsson",
+    "slug": "pelle-larsson",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "9",
+    "pos": "G"
+  },
+  {
+    "id": 203897,
+    "first": "Zach",
+    "last": "LaVine",
+    "slug": "zach-lavine",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1630639,
+    "first": "A.J.",
+    "last": "Lawson",
+    "slug": "aj-lawson",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 202695,
+    "first": "Kawhi",
+    "last": "Leonard",
+    "slug": "kawhi-leonard",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "2",
+    "pos": "F"
+  },
+  {
+    "id": 1642502,
+    "first": "Malevy",
+    "last": "Leons",
+    "slug": "malevy-leons",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "33",
+    "pos": "F"
+  },
+  {
+    "id": 1627747,
+    "first": "Caris",
+    "last": "LeVert",
+    "slug": "caris-levert",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1630604,
+    "first": "E.J.",
+    "last": "Liddell",
+    "slug": "ej-liddell",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "9",
+    "pos": "F"
+  },
+  {
+    "id": 203081,
+    "first": "Damian",
+    "last": "Lillard",
+    "slug": "damian-lillard",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 1641726,
+    "first": "Dereck",
+    "last": "Lively II",
+    "slug": "dereck-lively-ii",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "2",
+    "pos": "C"
+  },
+  {
+    "id": 1630587,
+    "first": "Isaiah",
+    "last": "Livers",
+    "slug": "isaiah-livers",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "18",
+    "pos": "F"
+  },
+  {
+    "id": 1641753,
+    "first": "Chris",
+    "last": "Livingston",
+    "slug": "chris-livingston",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1626172,
+    "first": "Kevon",
+    "last": "Looney",
+    "slug": "kevon-looney",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "55",
+    "pos": "F"
+  },
+  {
+    "id": 201572,
+    "first": "Brook",
+    "last": "Lopez",
+    "slug": "brook-lopez",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "11",
+    "pos": "C"
+  },
+  {
+    "id": 1631126,
+    "first": "Caleb",
+    "last": "Love",
+    "slug": "caleb-love",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "2",
+    "pos": "G"
+  },
+  {
+    "id": 201567,
+    "first": "Kevin",
+    "last": "Love",
+    "slug": "kevin-love",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "42",
+    "pos": "F-C"
+  },
+  {
+    "id": 1643133,
+    "first": "Lawson",
+    "last": "Lovering",
+    "slug": "lawson-lovering",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "C"
+  },
+  {
+    "id": 200768,
+    "first": "Kyle",
+    "last": "Lowry",
+    "slug": "kyle-lowry",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "7",
+    "pos": "G"
+  },
+  {
+    "id": 1642863,
+    "first": "Khaman",
+    "last": "Maluach",
+    "slug": "khaman-maluach",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "10",
+    "pos": "C"
+  },
+  {
+    "id": 1630572,
+    "first": "Sandro",
+    "last": "Mamukelashvili",
+    "slug": "sandro-mamukelashvili",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "54",
+    "pos": "F-C"
+  },
+  {
+    "id": 1629611,
+    "first": "Terance",
+    "last": "Mann",
+    "slug": "terance-mann",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "14",
+    "pos": "G-F"
+  },
+  {
+    "id": 1630544,
+    "first": "Tre",
+    "last": "Mann",
+    "slug": "tre-mann",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "23",
+    "pos": "G"
+  },
+  {
+    "id": 1628374,
+    "first": "Lauri",
+    "last": "Markkanen",
+    "slug": "lauri-markkanen",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "23",
+    "pos": "F-C"
+  },
+  {
+    "id": 1630230,
+    "first": "Naji",
+    "last": "Marshall",
+    "slug": "naji-marshall",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "13",
+    "pos": "F"
+  },
+  {
+    "id": 1642918,
+    "first": "Alijah",
+    "last": "Martin",
+    "slug": "alijah-martin",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "55",
+    "pos": "G"
+  },
+  {
+    "id": 1628997,
+    "first": "Caleb",
+    "last": "Martin",
+    "slug": "caleb-martin",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "16",
+    "pos": "F"
+  },
+  {
+    "id": 1628998,
+    "first": "Cody",
+    "last": "Martin",
+    "slug": "cody-martin",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1631213,
+    "first": "Tyrese",
+    "last": "Martin",
+    "slug": "tyrese-martin",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "23",
+    "pos": "F"
+  },
+  {
+    "id": 1642942,
+    "first": "Jahmai",
+    "last": "Mashack",
+    "slug": "jahmai-mashack",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1629726,
+    "first": "Garrison",
+    "last": "Mathews",
+    "slug": "garrison-mathews",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1631097,
+    "first": "Bennedict",
+    "last": "Mathurin",
+    "slug": "bennedict-mathurin",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "9",
+    "pos": "G-F"
+  },
+  {
+    "id": 1631255,
+    "first": "Karlo",
+    "last": "Matkovi\u0107",
+    "slug": "karlo-matkovic",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "17",
+    "pos": "F-C"
+  },
+  {
+    "id": 1630178,
+    "first": "Tyrese",
+    "last": "Maxey",
+    "slug": "tyrese-maxey",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 1643024,
+    "first": "Chris",
+    "last": "Ma\u00f1on",
+    "slug": "chris-manon",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "30",
+    "pos": "G"
+  },
+  {
+    "id": 1643016,
+    "first": "Bez",
+    "last": "Mbeng",
+    "slug": "bez-mbeng",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "21",
+    "pos": "G"
+  },
+  {
+    "id": 1630540,
+    "first": "Miles",
+    "last": "McBride",
+    "slug": "miles-mcbride",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "2",
+    "pos": "G"
+  },
+  {
+    "id": 1642272,
+    "first": "Jared",
+    "last": "McCain",
+    "slug": "jared-mccain",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1630644,
+    "first": "Mac",
+    "last": "McClung",
+    "slug": "mac-mcclung",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 203468,
+    "first": "CJ",
+    "last": "McCollum",
+    "slug": "cj-mccollum",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 204456,
+    "first": "T.J.",
+    "last": "McConnell",
+    "slug": "tj-mcconnell",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "9",
+    "pos": "G"
+  },
+  {
+    "id": 1641755,
+    "first": "Kevin",
+    "last": "McCullar Jr.",
+    "slug": "kevin-mccullar-jr",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "9",
+    "pos": "G"
+  },
+  {
+    "id": 1630183,
+    "first": "Jaden",
+    "last": "McDaniels",
+    "slug": "jaden-mcdaniels",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "3",
+    "pos": "F"
+  },
+  {
+    "id": 203926,
+    "first": "Doug",
+    "last": "McDermott",
+    "slug": "doug-mcdermott",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "7",
+    "pos": "F"
+  },
+  {
+    "id": 1631121,
+    "first": "Bryce",
+    "last": "McGowens",
+    "slug": "bryce-mcgowens",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "11",
+    "pos": "G"
+  },
+  {
+    "id": 1629162,
+    "first": "Jordan",
+    "last": "McLaughlin",
+    "slug": "jordan-mclaughlin",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 1642862,
+    "first": "Liam",
+    "last": "McNeeley",
+    "slug": "liam-mcneeley",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "33",
+    "pos": "F"
+  },
+  {
+    "id": 1629001,
+    "first": "De'Anthony",
+    "last": "Melton",
+    "slug": "deanthony-melton",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1630241,
+    "first": "Sam",
+    "last": "Merrill",
+    "slug": "sam-merrill",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 203114,
+    "first": "Khris",
+    "last": "Middleton",
+    "slug": "khris-middleton",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "20",
+    "pos": "F"
+  },
+  {
+    "id": 1641706,
+    "first": "Brandon",
+    "last": "Miller",
+    "slug": "brandon-miller",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "24",
+    "pos": "F"
+  },
+  {
+    "id": 1641801,
+    "first": "Emanuel",
+    "last": "Miller",
+    "slug": "emanuel-miller",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "14",
+    "pos": "F"
+  },
+  {
+    "id": 1641757,
+    "first": "Jordan",
+    "last": "Miller",
+    "slug": "jordan-miller",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "22",
+    "pos": "G"
+  },
+  {
+    "id": 1631159,
+    "first": "Leonard",
+    "last": "Miller",
+    "slug": "leonard-miller",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "11",
+    "pos": "F"
+  },
+  {
+    "id": 1642434,
+    "first": "Riley",
+    "last": "Minix",
+    "slug": "riley-minix",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "12",
+    "pos": "F"
+  },
+  {
+    "id": 1631169,
+    "first": "Josh",
+    "last": "Minott",
+    "slug": "josh-minott",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "00",
+    "pos": "F"
+  },
+  {
+    "id": 1642274,
+    "first": "Yves",
+    "last": "Missi",
+    "slug": "yves-missi",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "21",
+    "pos": "C"
+  },
+  {
+    "id": 1642349,
+    "first": "Ajay",
+    "last": "Mitchell",
+    "slug": "ajay-mitchell",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "25",
+    "pos": "G"
+  },
+  {
+    "id": 1630558,
+    "first": "Davion",
+    "last": "Mitchell",
+    "slug": "davion-mitchell",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "45",
+    "pos": "G"
+  },
+  {
+    "id": 1628378,
+    "first": "Donovan",
+    "last": "Mitchell",
+    "slug": "donovan-mitchell",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "45",
+    "pos": "G"
+  },
+  {
+    "id": 1630596,
+    "first": "Evan",
+    "last": "Mobley",
+    "slug": "evan-mobley",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "4",
+    "pos": "C"
+  },
+  {
+    "id": 1642367,
+    "first": "Jonathan",
+    "last": "Mogbo",
+    "slug": "jonathan-mogbo",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "2",
+    "pos": "F"
+  },
+  {
+    "id": 1628370,
+    "first": "Malik",
+    "last": "Monk",
+    "slug": "malik-monk",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 1630541,
+    "first": "Moses",
+    "last": "Moody",
+    "slug": "moses-moody",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "4",
+    "pos": "G"
+  },
+  {
+    "id": 1631111,
+    "first": "Wendell",
+    "last": "Moore Jr.",
+    "slug": "wendell-moore-jr",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "14",
+    "pos": "G"
+  },
+  {
+    "id": 1631457,
+    "first": "Alex",
+    "last": "Morales",
+    "slug": "alex-morales",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1629630,
+    "first": "Ja",
+    "last": "Morant",
+    "slug": "ja-morant",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "12",
+    "pos": "G"
+  },
+  {
+    "id": 1628420,
+    "first": "Monte",
+    "last": "Morris",
+    "slug": "monte-morris",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1630530,
+    "first": "Trey",
+    "last": "Murphy III",
+    "slug": "trey-murphy-iii",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "25",
+    "pos": "F"
+  },
+  {
+    "id": 1627749,
+    "first": "Dejounte",
+    "last": "Murray",
+    "slug": "dejounte-murray",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 1627750,
+    "first": "Jamal",
+    "last": "Murray",
+    "slug": "jamal-murray",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "27",
+    "pos": "G"
+  },
+  {
+    "id": 1631099,
+    "first": "Keegan",
+    "last": "Murray",
+    "slug": "keegan-murray",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "13",
+    "pos": "F"
+  },
+  {
+    "id": 1631200,
+    "first": "Kris",
+    "last": "Murray",
+    "slug": "kris-murray",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "24",
+    "pos": "F"
+  },
+  {
+    "id": 1642867,
+    "first": "Collin",
+    "last": "Murray-Boyles",
+    "slug": "collin-murray-boyles",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "12",
+    "pos": "F"
+  },
+  {
+    "id": 1629004,
+    "first": "Svi",
+    "last": "Mykhailiuk",
+    "slug": "svi-mykhailiuk",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "10",
+    "pos": "G-F"
+  },
+  {
+    "id": 1631250,
+    "first": "Pete",
+    "last": "Nance",
+    "slug": "pete-nance",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "35",
+    "pos": "F"
+  },
+  {
+    "id": 1626204,
+    "first": "Larry",
+    "last": "Nance Jr.",
+    "slug": "larry-nance-jr",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "22",
+    "pos": "F-C"
+  },
+  {
+    "id": 1629614,
+    "first": "Andrew",
+    "last": "Nembhard",
+    "slug": "andrew-nembhard",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "2",
+    "pos": "G-F"
+  },
+  {
+    "id": 1642948,
+    "first": "Ryan",
+    "last": "Nembhard",
+    "slug": "ryan-nembhard",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "9",
+    "pos": "G"
+  },
+  {
+    "id": 1630174,
+    "first": "Aaron",
+    "last": "Nesmith",
+    "slug": "aaron-nesmith",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "23",
+    "pos": "G-F"
+  },
+  {
+    "id": 1642854,
+    "first": "Asa",
+    "last": "Newell",
+    "slug": "asa-newell",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "14",
+    "pos": "F"
+  },
+  {
+    "id": 1641803,
+    "first": "Tristen",
+    "last": "Newton",
+    "slug": "tristen-newton",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "13",
+    "pos": "G"
+  },
+  {
+    "id": 1642949,
+    "first": "Yanic Konan",
+    "last": "Niederh\u00e4user",
+    "slug": "yanic-konan-niederhauser",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "14",
+    "pos": "C"
+  },
+  {
+    "id": 1630192,
+    "first": "Zeke",
+    "last": "Nnaji",
+    "slug": "zeke-nnaji",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "22",
+    "pos": "F-C"
+  },
+  {
+    "id": 203994,
+    "first": "Jusuf",
+    "last": "Nurki\u0107",
+    "slug": "jusuf-nurkic",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "30",
+    "pos": "C"
+  },
+  {
+    "id": 1626220,
+    "first": "Royce",
+    "last": "O'Neale",
+    "slug": "royce-oneale",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "00",
+    "pos": "F"
+  },
+  {
+    "id": 1642490,
+    "first": "Josh",
+    "last": "Oduro",
+    "slug": "josh-oduro",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "",
+    "pos": "C"
+  },
+  {
+    "id": 1629006,
+    "first": "Josh",
+    "last": "Okogie",
+    "slug": "josh-okogie",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "20",
+    "pos": "G"
+  },
+  {
+    "id": 1630168,
+    "first": "Onyeka",
+    "last": "Okongwu",
+    "slug": "onyeka-okongwu",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "17",
+    "pos": "F-C"
+  },
+  {
+    "id": 1630171,
+    "first": "Isaac",
+    "last": "Okoro",
+    "slug": "isaac-okoro",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "35",
+    "pos": "F-G"
+  },
+  {
+    "id": 1642950,
+    "first": "Lachlan",
+    "last": "Olbrich",
+    "slug": "lachlan-olbrich",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "47",
+    "pos": "C"
+  },
+  {
+    "id": 203482,
+    "first": "Kelly",
+    "last": "Olynyk",
+    "slug": "kelly-olynyk",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "8",
+    "pos": "F-C"
+  },
+  {
+    "id": 1641807,
+    "first": "Norchad",
+    "last": "Omier",
+    "slug": "norchad-omier",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1626162,
+    "first": "Kelly",
+    "last": "Oubre Jr.",
+    "slug": "kelly-oubre-jr",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "9",
+    "pos": "F-G"
+  },
+  {
+    "id": 101108,
+    "first": "Chris",
+    "last": "Paul",
+    "slug": "chris-paul",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1626166,
+    "first": "Cameron",
+    "last": "Payne",
+    "slug": "cameron-payne",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1627780,
+    "first": "Gary",
+    "last": "Payton II",
+    "slug": "gary-payton-ii",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "0",
+    "pos": "G"
+  },
+  {
+    "id": 1642877,
+    "first": "Micah",
+    "last": "Peavy",
+    "slug": "micah-peavy",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "14",
+    "pos": "G-F"
+  },
+  {
+    "id": 1642869,
+    "first": "Noah",
+    "last": "Penda",
+    "slug": "noah-penda",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "93",
+    "pos": "G-F"
+  },
+  {
+    "id": 1643007,
+    "first": "Taelon",
+    "last": "Peter",
+    "slug": "taelon-peter",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "4",
+    "pos": "G"
+  },
+  {
+    "id": 1641809,
+    "first": "Drew",
+    "last": "Peterson",
+    "slug": "drew-peterson",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1641763,
+    "first": "Julian",
+    "last": "Phillips",
+    "slug": "julian-phillips",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "4",
+    "pos": "F"
+  },
+  {
+    "id": 1629618,
+    "first": "Jalen",
+    "last": "Pickett",
+    "slug": "jalen-pickett",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "24",
+    "pos": "G"
+  },
+  {
+    "id": 1630590,
+    "first": "Scotty",
+    "last": "Pippen Jr.",
+    "slug": "scotty-pippen-jr",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "1",
+    "pos": "G"
+  },
+  {
+    "id": 1631342,
+    "first": "Daeqwon",
+    "last": "Plowden",
+    "slug": "daeqwon-plowden",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "29",
+    "pos": "G-F"
+  },
+  {
+    "id": 203486,
+    "first": "Mason",
+    "last": "Plumlee",
+    "slug": "mason-plumlee",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "45",
+    "pos": "F-C"
+  },
+  {
+    "id": 1641764,
+    "first": "Brandin",
+    "last": "Podziemski",
+    "slug": "brandin-podziemski",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "2",
+    "pos": "G"
+  },
+  {
+    "id": 1627751,
+    "first": "Jakob",
+    "last": "Poeltl",
+    "slug": "jakob-poeltl",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "19",
+    "pos": "C"
+  },
+  {
+    "id": 1629673,
+    "first": "Jordan",
+    "last": "Poole",
+    "slug": "jordan-poole",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1641854,
+    "first": "Craig",
+    "last": "Porter Jr.",
+    "slug": "craig-porter-jr",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "9",
+    "pos": "G"
+  },
+  {
+    "id": 1629645,
+    "first": "Kevin",
+    "last": "Porter Jr.",
+    "slug": "kevin-porter-jr",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "7",
+    "pos": "G-F"
+  },
+  {
+    "id": 1629008,
+    "first": "Michael",
+    "last": "Porter Jr.",
+    "slug": "michael-porter-jr",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "17",
+    "pos": "F"
+  },
+  {
+    "id": 1626171,
+    "first": "Bobby",
+    "last": "Portis",
+    "slug": "bobby-portis",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "9",
+    "pos": "F"
+  },
+  {
+    "id": 204001,
+    "first": "Kristaps",
+    "last": "Porzi\u0146\u0123is",
+    "slug": "kristaps-porzingis",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "7",
+    "pos": "F-C"
+  },
+  {
+    "id": 1642366,
+    "first": "Quinten",
+    "last": "Post",
+    "slug": "quinten-post",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "21",
+    "pos": "C"
+  },
+  {
+    "id": 1630695,
+    "first": "Micah",
+    "last": "Potter",
+    "slug": "micah-potter",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "11",
+    "pos": "C"
+  },
+  {
+    "id": 1642967,
+    "first": "John",
+    "last": "Poulakidas",
+    "slug": "john-poulakidas",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1642962,
+    "first": "Drake",
+    "last": "Powell",
+    "slug": "drake-powell",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "4",
+    "pos": "G-F"
+  },
+  {
+    "id": 203939,
+    "first": "Dwight",
+    "last": "Powell",
+    "slug": "dwight-powell",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "7",
+    "pos": "F-C"
+  },
+  {
+    "id": 1626181,
+    "first": "Norman",
+    "last": "Powell",
+    "slug": "norman-powell",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "24",
+    "pos": "G"
+  },
+  {
+    "id": 1627752,
+    "first": "Taurean",
+    "last": "Prince",
+    "slug": "taurean-prince",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "12",
+    "pos": "F"
+  },
+  {
+    "id": 1630202,
+    "first": "Payton",
+    "last": "Pritchard",
+    "slug": "payton-pritchard",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "11",
+    "pos": "G"
+  },
+  {
+    "id": 1642878,
+    "first": "Tyrese",
+    "last": "Proctor",
+    "slug": "tyrese-proctor",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "24",
+    "pos": "G"
+  },
+  {
+    "id": 1641765,
+    "first": "Olivier-Maxence",
+    "last": "Prosper",
+    "slug": "olivier-maxence-prosper",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "18",
+    "pos": "F"
+  },
+  {
+    "id": 1642389,
+    "first": "Zyon",
+    "last": "Pullin",
+    "slug": "zyon-pullin",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "15",
+    "pos": "G"
+  },
+  {
+    "id": 1642852,
+    "first": "Derik",
+    "last": "Queen",
+    "slug": "derik-queen",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "22",
+    "pos": "C"
+  },
+  {
+    "id": 1629674,
+    "first": "Neemias",
+    "last": "Queta",
+    "slug": "neemias-queta",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "88",
+    "pos": "C"
+  },
+  {
+    "id": 1630193,
+    "first": "Immanuel",
+    "last": "Quickley",
+    "slug": "immanuel-quickley",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 203944,
+    "first": "Julius",
+    "last": "Randle",
+    "slug": "julius-randle",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "30",
+    "pos": "F-C"
+  },
+  {
+    "id": 1642875,
+    "first": "Maxime",
+    "last": "Raynaud",
+    "slug": "maxime-raynaud",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "42",
+    "pos": "C"
+  },
+  {
+    "id": 1641871,
+    "first": "Duop",
+    "last": "Reath",
+    "slug": "duop-reath",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "C"
+  },
+  {
+    "id": 1630559,
+    "first": "Austin",
+    "last": "Reaves",
+    "slug": "austin-reaves",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "15",
+    "pos": "G"
+  },
+  {
+    "id": 1630194,
+    "first": "Paul",
+    "last": "Reed",
+    "slug": "paul-reed",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "7",
+    "pos": "F"
+  },
+  {
+    "id": 1642882,
+    "first": "Julian",
+    "last": "Reese",
+    "slug": "julian-reese",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1641810,
+    "first": "Antonio",
+    "last": "Reeves",
+    "slug": "antonio-reeves",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "12",
+    "pos": "G"
+  },
+  {
+    "id": 1629675,
+    "first": "Naz",
+    "last": "Reid",
+    "slug": "naz-reid",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "11",
+    "pos": "C-F"
+  },
+  {
+    "id": 1642954,
+    "first": "Will",
+    "last": "Richard",
+    "slug": "will-richard",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1630208,
+    "first": "Nick",
+    "last": "Richards",
+    "slug": "nick-richards",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "13",
+    "pos": "C"
+  },
+  {
+    "id": 1642859,
+    "first": "Jase",
+    "last": "Richardson",
+    "slug": "jase-richardson",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "11",
+    "pos": "G"
+  },
+  {
+    "id": 1642860,
+    "first": "Will",
+    "last": "Riley",
+    "slug": "will-riley",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "27",
+    "pos": "F"
+  },
+  {
+    "id": 1642258,
+    "first": "Zaccharie",
+    "last": "Risacher",
+    "slug": "zaccharie-risacher",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "10",
+    "pos": "F"
+  },
+  {
+    "id": 1629130,
+    "first": "Duncan",
+    "last": "Robinson",
+    "slug": "duncan-robinson",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "55",
+    "pos": "F"
+  },
+  {
+    "id": 1629011,
+    "first": "Mitchell",
+    "last": "Robinson",
+    "slug": "mitchell-robinson",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "23",
+    "pos": "C-F"
+  },
+  {
+    "id": 1631115,
+    "first": "Orlando",
+    "last": "Robinson",
+    "slug": "orlando-robinson",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "C"
+  },
+  {
+    "id": 1630526,
+    "first": "Jeremiah",
+    "last": "Robinson-Earl",
+    "slug": "jeremiah-robinson-earl",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1631223,
+    "first": "David",
+    "last": "Roddy",
+    "slug": "david-roddy",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "45",
+    "pos": "F"
+  },
+  {
+    "id": 1631157,
+    "first": "Ryan",
+    "last": "Rollins",
+    "slug": "ryan-rollins",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "13",
+    "pos": "G"
+  },
+  {
+    "id": 1641712,
+    "first": "Rayan",
+    "last": "Rupert",
+    "slug": "rayan-rupert",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "21",
+    "pos": "G-F"
+  },
+  {
+    "id": 1626156,
+    "first": "D'Angelo",
+    "last": "Russell",
+    "slug": "dangelo-russell",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 1642504,
+    "first": "Cormac",
+    "last": "Ryan",
+    "slug": "cormac-ryan",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "30",
+    "pos": "G"
+  },
+  {
+    "id": 1627734,
+    "first": "Domantas",
+    "last": "Sabonis",
+    "slug": "domantas-sabonis",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "11",
+    "pos": "F-C"
+  },
+  {
+    "id": 1642275,
+    "first": "Tidjane",
+    "last": "Sala\u00fcn",
+    "slug": "tidjane-salaun",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "31",
+    "pos": "F"
+  },
+  {
+    "id": 1642282,
+    "first": "Hunter",
+    "last": "Sallis",
+    "slug": "hunter-sallis",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1642920,
+    "first": "Kobe",
+    "last": "Sanders",
+    "slug": "kobe-sanders",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "4",
+    "pos": "G"
+  },
+  {
+    "id": 1642362,
+    "first": "Payton",
+    "last": "Sandfort",
+    "slug": "payton-sandfort",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "14",
+    "pos": "F"
+  },
+  {
+    "id": 1630611,
+    "first": "Gui",
+    "last": "Santos",
+    "slug": "gui-santos",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "15",
+    "pos": "F"
+  },
+  {
+    "id": 1642879,
+    "first": "Ben",
+    "last": "Saraf",
+    "slug": "ben-saraf",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "77",
+    "pos": "G"
+  },
+  {
+    "id": 203967,
+    "first": "Dario",
+    "last": "Saric",
+    "slug": "dario-saric",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F-C"
+  },
+  {
+    "id": 1642259,
+    "first": "Alex",
+    "last": "Sarr",
+    "slug": "alex-sarr",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "20",
+    "pos": "C"
+  },
+  {
+    "id": 1630846,
+    "first": "Olivier",
+    "last": "Sarr",
+    "slug": "olivier-sarr",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "33",
+    "pos": "C"
+  },
+  {
+    "id": 1631204,
+    "first": "Marcus",
+    "last": "Sasser",
+    "slug": "marcus-sasser",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "25",
+    "pos": "G"
+  },
+  {
+    "id": 1631248,
+    "first": "Baylor",
+    "last": "Scheierman",
+    "slug": "baylor-scheierman",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "55",
+    "pos": "G"
+  },
+  {
+    "id": 203471,
+    "first": "Dennis",
+    "last": "Schr\u00f6der",
+    "slug": "dennis-schroder",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1641813,
+    "first": "Mark",
+    "last": "Sears",
+    "slug": "mark-sears",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1630578,
+    "first": "Alperen",
+    "last": "Sengun",
+    "slug": "alperen-sengun",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "28",
+    "pos": "C"
+  },
+  {
+    "id": 1641729,
+    "first": "Brice",
+    "last": "Sensabaugh",
+    "slug": "brice-sensabaugh",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "28",
+    "pos": "F"
+  },
+  {
+    "id": 1629012,
+    "first": "Collin",
+    "last": "Sexton",
+    "slug": "collin-sexton",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "2",
+    "pos": "G"
+  },
+  {
+    "id": 1629013,
+    "first": "Landry",
+    "last": "Shamet",
+    "slug": "landry-shamet",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "44",
+    "pos": "G"
+  },
+  {
+    "id": 1630545,
+    "first": "Terrence",
+    "last": "Shannon Jr.",
+    "slug": "terrence-shannon-jr",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "1",
+    "pos": "G-F"
+  },
+  {
+    "id": 1630549,
+    "first": "Day'Ron",
+    "last": "Sharpe",
+    "slug": "dayron-sharpe",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "20",
+    "pos": "C"
+  },
+  {
+    "id": 1631101,
+    "first": "Shaedon",
+    "last": "Sharpe",
+    "slug": "shaedon-sharpe",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "17",
+    "pos": "G"
+  },
+  {
+    "id": 1642347,
+    "first": "Jamal",
+    "last": "Shead",
+    "slug": "jamal-shead",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "23",
+    "pos": "G"
+  },
+  {
+    "id": 1641767,
+    "first": "Ben",
+    "last": "Sheppard",
+    "slug": "ben-sheppard",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "26",
+    "pos": "G"
+  },
+  {
+    "id": 1642263,
+    "first": "Reed",
+    "last": "Sheppard",
+    "slug": "reed-sheppard",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "15",
+    "pos": "G"
+  },
+  {
+    "id": 1642917,
+    "first": "Max",
+    "last": "Shulga",
+    "slug": "max-shulga",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "44",
+    "pos": "G"
+  },
+  {
+    "id": 1627783,
+    "first": "Pascal",
+    "last": "Siakam",
+    "slug": "pascal-siakam",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "43",
+    "pos": "F"
+  },
+  {
+    "id": 1629014,
+    "first": "Anfernee",
+    "last": "Simons",
+    "slug": "anfernee-simons",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "22",
+    "pos": "G"
+  },
+  {
+    "id": 1642354,
+    "first": "KJ",
+    "last": "Simpson",
+    "slug": "kj-simpson",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "25",
+    "pos": "G"
+  },
+  {
+    "id": 1630579,
+    "first": "Jericho",
+    "last": "Sims",
+    "slug": "jericho-sims",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "00",
+    "pos": "C"
+  },
+  {
+    "id": 1641771,
+    "first": "Jalen",
+    "last": "Slawson",
+    "slug": "jalen-slawson",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "18",
+    "pos": "F"
+  },
+  {
+    "id": 1642914,
+    "first": "Javon",
+    "last": "Small",
+    "slug": "javon-small",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "10",
+    "pos": "G"
+  },
+  {
+    "id": 203935,
+    "first": "Marcus",
+    "last": "Smart",
+    "slug": "marcus-smart",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "36",
+    "pos": "G"
+  },
+  {
+    "id": 1630696,
+    "first": "Dru",
+    "last": "Smith",
+    "slug": "dru-smith",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "12",
+    "pos": "G"
+  },
+  {
+    "id": 1630188,
+    "first": "Jalen",
+    "last": "Smith",
+    "slug": "jalen-smith",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "25",
+    "pos": "F-C"
+  },
+  {
+    "id": 1641869,
+    "first": "Malachi",
+    "last": "Smith",
+    "slug": "malachi-smith",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "18",
+    "pos": "G"
+  },
+  {
+    "id": 1642449,
+    "first": "Tolu",
+    "last": "Smith",
+    "slug": "tolu-smith",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "35",
+    "pos": "F"
+  },
+  {
+    "id": 1641890,
+    "first": "Tyler",
+    "last": "Smith",
+    "slug": "tyler-smith",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "21",
+    "pos": "F"
+  },
+  {
+    "id": 1631095,
+    "first": "Jabari",
+    "last": "Smith Jr.",
+    "slug": "jabari-smith-jr",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "10",
+    "pos": "F"
+  },
+  {
+    "id": 1641733,
+    "first": "Nick",
+    "last": "Smith Jr.",
+    "slug": "nick-smith-jr",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "20",
+    "pos": "G"
+  },
+  {
+    "id": 1631110,
+    "first": "Jeremy",
+    "last": "Sochan",
+    "slug": "jeremy-sochan",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "20",
+    "pos": "F"
+  },
+  {
+    "id": 1642850,
+    "first": "Thomas",
+    "last": "Sorber",
+    "slug": "thomas-sorber",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "12",
+    "pos": "C"
+  },
+  {
+    "id": 1642285,
+    "first": "Cam",
+    "last": "Spencer",
+    "slug": "cam-spencer",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "24",
+    "pos": "G"
+  },
+  {
+    "id": 1630311,
+    "first": "Pat",
+    "last": "Spencer",
+    "slug": "pat-spencer",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "61",
+    "pos": "G"
+  },
+  {
+    "id": 1641815,
+    "first": "Isaiah",
+    "last": "Stevens",
+    "slug": "isaiah-stevens",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "24",
+    "pos": "G"
+  },
+  {
+    "id": 1630191,
+    "first": "Isaiah",
+    "last": "Stewart",
+    "slug": "isaiah-stewart",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "28",
+    "pos": "F-C"
+  },
+  {
+    "id": 1631124,
+    "first": "Julian",
+    "last": "Strawther",
+    "slug": "julian-strawther",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1629622,
+    "first": "Max",
+    "last": "Strus",
+    "slug": "max-strus",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "2",
+    "pos": "G-F"
+  },
+  {
+    "id": 1630591,
+    "first": "Jalen",
+    "last": "Suggs",
+    "slug": "jalen-suggs",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "4",
+    "pos": "G"
+  },
+  {
+    "id": 1630256,
+    "first": "Jae'Sean",
+    "last": "Tate",
+    "slug": "jaesean-tate",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "8",
+    "pos": "F"
+  },
+  {
+    "id": 1628369,
+    "first": "Jayson",
+    "last": "Tatum",
+    "slug": "jayson-tatum",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "0",
+    "pos": "F-G"
+  },
+  {
+    "id": 1643141,
+    "first": "Jahmyl",
+    "last": "Telfort",
+    "slug": "jahmyl-telfort",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 202066,
+    "first": "Garrett",
+    "last": "Temple",
+    "slug": "garrett-temple",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "17",
+    "pos": "G-F"
+  },
+  {
+    "id": 1631207,
+    "first": "Dalen",
+    "last": "Terry",
+    "slug": "dalen-terry",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "14",
+    "pos": "F"
+  },
+  {
+    "id": 1642876,
+    "first": "Adou",
+    "last": "Thiero",
+    "slug": "adou-thiero",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "1",
+    "pos": "G"
+  },
+  {
+    "id": 1630560,
+    "first": "Cam",
+    "last": "Thomas",
+    "slug": "cam-thomas",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1641708,
+    "first": "Amen",
+    "last": "Thompson",
+    "slug": "amen-thompson",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "1",
+    "pos": "G-F"
+  },
+  {
+    "id": 1641709,
+    "first": "Ausar",
+    "last": "Thompson",
+    "slug": "ausar-thompson",
+    "team": "DET",
+    "team_full": "Detroit Pistons",
+    "jersey": "9",
+    "pos": "G-F"
+  },
+  {
+    "id": 1630679,
+    "first": "Ethan",
+    "last": "Thompson",
+    "slug": "ethan-thompson",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "55",
+    "pos": "G"
+  },
+  {
+    "id": 202691,
+    "first": "Klay",
+    "last": "Thompson",
+    "slug": "klay-thompson",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "31",
+    "pos": "G"
+  },
+  {
+    "id": 1629680,
+    "first": "Matisse",
+    "last": "Thybulle",
+    "slug": "matisse-thybulle",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "4",
+    "pos": "G-F"
+  },
+  {
+    "id": 1630214,
+    "first": "Xavier",
+    "last": "Tillman",
+    "slug": "xavier-tillman",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "26",
+    "pos": "F"
+  },
+  {
+    "id": 1631166,
+    "first": "Drew",
+    "last": "Timme",
+    "slug": "drew-timme",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "17",
+    "pos": "F"
+  },
+  {
+    "id": 1641772,
+    "first": "Nae'Qwan",
+    "last": "Tomlin",
+    "slug": "naeqwan-tomlin",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "35",
+    "pos": "F"
+  },
+  {
+    "id": 1642910,
+    "first": "John",
+    "last": "Tonje",
+    "slug": "john-tonje",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1642260,
+    "first": "Nikola",
+    "last": "Topi\u0107",
+    "slug": "nikola-topic",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "44",
+    "pos": "G"
+  },
+  {
+    "id": 1631210,
+    "first": "Jacob",
+    "last": "Toppin",
+    "slug": "jacob-toppin",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1630167,
+    "first": "Obi",
+    "last": "Toppin",
+    "slug": "obi-toppin",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "1",
+    "pos": "F"
+  },
+  {
+    "id": 1626157,
+    "first": "Karl-Anthony",
+    "last": "Towns",
+    "slug": "karl-anthony-towns",
+    "team": "NYK",
+    "team_full": "New York Knicks",
+    "jersey": "32",
+    "pos": "C-F"
+  },
+  {
+    "id": 1642849,
+    "first": "Nolan",
+    "last": "Traore",
+    "slug": "nolan-traore",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "88",
+    "pos": "G"
+  },
+  {
+    "id": 1631247,
+    "first": "Luke",
+    "last": "Travers",
+    "slug": "luke-travers",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1629018,
+    "first": "Gary",
+    "last": "Trent Jr.",
+    "slug": "gary-trent-jr",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 1631131,
+    "first": "Oscar",
+    "last": "Tshiebwe",
+    "slug": "oscar-tshiebwe",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "34",
+    "pos": "F-C"
+  },
+  {
+    "id": 1626167,
+    "first": "Myles",
+    "last": "Turner",
+    "slug": "myles-turner",
+    "team": "MIL",
+    "team_full": "Milwaukee Bucks",
+    "jersey": "3",
+    "pos": "C-F"
+  },
+  {
+    "id": 1641816,
+    "first": "Hunter",
+    "last": "Tyson",
+    "slug": "hunter-tyson",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "F"
+  },
+  {
+    "id": 1642281,
+    "first": "Jaylon",
+    "last": "Tyson",
+    "slug": "jaylon-tyson",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "20",
+    "pos": "G-F"
+  },
+  {
+    "id": 1630649,
+    "first": "Stanley",
+    "last": "Umude",
+    "slug": "stanley-umude",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 202685,
+    "first": "Jonas",
+    "last": "Valan\u010di\u016bnas",
+    "slug": "jonas-valanciunas",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "17",
+    "pos": "C"
+  },
+  {
+    "id": 1629020,
+    "first": "Jarred",
+    "last": "Vanderbilt",
+    "slug": "jarred-vanderbilt",
+    "team": "LAL",
+    "team_full": "Los Angeles Lakers",
+    "jersey": "2",
+    "pos": "F"
+  },
+  {
+    "id": 1627832,
+    "first": "Fred",
+    "last": "VanVleet",
+    "slug": "fred-vanvleet",
+    "team": "HOU",
+    "team_full": "Houston Rockets",
+    "jersey": "5",
+    "pos": "G"
+  },
+  {
+    "id": 1630170,
+    "first": "Devin",
+    "last": "Vassell",
+    "slug": "devin-vassell",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "24",
+    "pos": "G-F"
+  },
+  {
+    "id": 1629216,
+    "first": "Gabe",
+    "last": "Vincent",
+    "slug": "gabe-vincent",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "4",
+    "pos": "G"
+  },
+  {
+    "id": 1641774,
+    "first": "Tristan",
+    "last": "Vukcevic",
+    "slug": "tristan-vukcevic",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "00",
+    "pos": "F"
+  },
+  {
+    "id": 202696,
+    "first": "Nikola",
+    "last": "Vu\u010devi\u0107",
+    "slug": "nikola-vucevic",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "4",
+    "pos": "C"
+  },
+  {
+    "id": 1629731,
+    "first": "Dean",
+    "last": "Wade",
+    "slug": "dean-wade",
+    "team": "CLE",
+    "team_full": "Cleveland Cavaliers",
+    "jersey": "32",
+    "pos": "F-C"
+  },
+  {
+    "id": 1630532,
+    "first": "Franz",
+    "last": "Wagner",
+    "slug": "franz-wagner",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "22",
+    "pos": "F"
+  },
+  {
+    "id": 1629021,
+    "first": "Moritz",
+    "last": "Wagner",
+    "slug": "moritz-wagner",
+    "team": "ORL",
+    "team_full": "Orlando Magic",
+    "jersey": "21",
+    "pos": "F-C"
+  },
+  {
+    "id": 1631133,
+    "first": "Jabari",
+    "last": "Walker",
+    "slug": "jabari-walker",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "33",
+    "pos": "F"
+  },
+  {
+    "id": 1641716,
+    "first": "Jarace",
+    "last": "Walker",
+    "slug": "jarace-walker",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "5",
+    "pos": "F"
+  },
+  {
+    "id": 1641717,
+    "first": "Cason",
+    "last": "Wallace",
+    "slug": "cason-wallace",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "22",
+    "pos": "G"
+  },
+  {
+    "id": 1630811,
+    "first": "Keaton",
+    "last": "Wallace",
+    "slug": "keaton-wallace",
+    "team": "ATL",
+    "team_full": "Atlanta Hawks",
+    "jersey": "2",
+    "pos": "G"
+  },
+  {
+    "id": 1641775,
+    "first": "Jordan",
+    "last": "Walsh",
+    "slug": "jordan-walsh",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "27",
+    "pos": "G"
+  },
+  {
+    "id": 1642266,
+    "first": "Ja'Kobe",
+    "last": "Walter",
+    "slug": "jakobe-walter",
+    "team": "TOR",
+    "team_full": "Toronto Raptors",
+    "jersey": "14",
+    "pos": "G"
+  },
+  {
+    "id": 1642276,
+    "first": "Kel'el",
+    "last": "Ware",
+    "slug": "kelel-ware",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "7",
+    "pos": "C"
+  },
+  {
+    "id": 1629023,
+    "first": "P.J.",
+    "last": "Washington",
+    "slug": "pj-washington",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "25",
+    "pos": "F"
+  },
+  {
+    "id": 1631102,
+    "first": "TyTy",
+    "last": "Washington Jr.",
+    "slug": "tyty-washington-jr",
+    "team": "LAC",
+    "team_full": "LA Clippers",
+    "jersey": "14",
+    "pos": "G"
+  },
+  {
+    "id": 1630322,
+    "first": "Lindy",
+    "last": "Waters III",
+    "slug": "lindy-waters-iii",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "43",
+    "pos": "F"
+  },
+  {
+    "id": 1630570,
+    "first": "Trendon",
+    "last": "Watford",
+    "slug": "trendon-watford",
+    "team": "PHI",
+    "team_full": "Philadelphia 76ers",
+    "jersey": "12",
+    "pos": "G-F"
+  },
+  {
+    "id": 1642364,
+    "first": "Jamir",
+    "last": "Watkins",
+    "slug": "jamir-watkins",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "5",
+    "pos": "F"
+  },
+  {
+    "id": 1631212,
+    "first": "Peyton",
+    "last": "Watson",
+    "slug": "peyton-watson",
+    "team": "DEN",
+    "team_full": "Denver Nuggets",
+    "jersey": "8",
+    "pos": "G"
+  },
+  {
+    "id": 1642377,
+    "first": "Jaylen",
+    "last": "Wells",
+    "slug": "jaylen-wells",
+    "team": "MEM",
+    "team_full": "Memphis Grizzlies",
+    "jersey": "0",
+    "pos": "F"
+  },
+  {
+    "id": 1641705,
+    "first": "Victor",
+    "last": "Wembanyama",
+    "slug": "victor-wembanyama",
+    "team": "SAS",
+    "team_full": "San Antonio Spurs",
+    "jersey": "1",
+    "pos": "F-C"
+  },
+  {
+    "id": 1631104,
+    "first": "Blake",
+    "last": "Wesley",
+    "slug": "blake-wesley",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "1",
+    "pos": "G"
+  },
+  {
+    "id": 201566,
+    "first": "Russell",
+    "last": "Westbrook",
+    "slug": "russell-westbrook",
+    "team": "SAC",
+    "team_full": "Sacramento Kings",
+    "jersey": "18",
+    "pos": "G"
+  },
+  {
+    "id": 1629632,
+    "first": "Coby",
+    "last": "White",
+    "slug": "coby-white",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1628401,
+    "first": "Derrick",
+    "last": "White",
+    "slug": "derrick-white",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "9",
+    "pos": "G"
+  },
+  {
+    "id": 1641727,
+    "first": "Dariq",
+    "last": "Whitehead",
+    "slug": "dariq-whitehead",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G-F"
+  },
+  {
+    "id": 1641715,
+    "first": "Cam",
+    "last": "Whitmore",
+    "slug": "cam-whitmore",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "1",
+    "pos": "F"
+  },
+  {
+    "id": 1630598,
+    "first": "Aaron",
+    "last": "Wiggins",
+    "slug": "aaron-wiggins",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "21",
+    "pos": "G"
+  },
+  {
+    "id": 203952,
+    "first": "Andrew",
+    "last": "Wiggins",
+    "slug": "andrew-wiggins",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "22",
+    "pos": "F"
+  },
+  {
+    "id": 1631214,
+    "first": "Alondes",
+    "last": "Williams",
+    "slug": "alondes-williams",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1642873,
+    "first": "Amari",
+    "last": "Williams",
+    "slug": "amari-williams",
+    "team": "BOS",
+    "team_full": "Boston Celtics",
+    "jersey": "77",
+    "pos": "F-C"
+  },
+  {
+    "id": 1630314,
+    "first": "Brandon",
+    "last": "Williams",
+    "slug": "brandon-williams",
+    "team": "DAL",
+    "team_full": "Dallas Mavericks",
+    "jersey": "10",
+    "pos": "G"
+  },
+  {
+    "id": 1642262,
+    "first": "Cody",
+    "last": "Williams",
+    "slug": "cody-williams",
+    "team": "UTA",
+    "team_full": "Utah Jazz",
+    "jersey": "5",
+    "pos": "F"
+  },
+  {
+    "id": 1629684,
+    "first": "Grant",
+    "last": "Williams",
+    "slug": "grant-williams",
+    "team": "CHA",
+    "team_full": "Charlotte Hornets",
+    "jersey": "2",
+    "pos": "F"
+  },
+  {
+    "id": 1631114,
+    "first": "Jalen",
+    "last": "Williams",
+    "slug": "jalen-williams",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "8",
+    "pos": "G-F"
+  },
+  {
+    "id": 1631119,
+    "first": "Jaylin",
+    "last": "Williams",
+    "slug": "jaylin-williams",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "6",
+    "pos": "F"
+  },
+  {
+    "id": 1629026,
+    "first": "Kenrich",
+    "last": "Williams",
+    "slug": "kenrich-williams",
+    "team": "OKC",
+    "team_full": "Oklahoma City Thunder",
+    "jersey": "34",
+    "pos": "G-F"
+  },
+  {
+    "id": 1631109,
+    "first": "Mark",
+    "last": "Williams",
+    "slug": "mark-williams",
+    "team": "PHX",
+    "team_full": "Phoenix Suns",
+    "jersey": "15",
+    "pos": "C"
+  },
+  {
+    "id": 1631466,
+    "first": "Nate",
+    "last": "Williams",
+    "slug": "nate-williams",
+    "team": "GSW",
+    "team_full": "Golden State Warriors",
+    "jersey": "19",
+    "pos": "G"
+  },
+  {
+    "id": 1630172,
+    "first": "Patrick",
+    "last": "Williams",
+    "slug": "patrick-williams",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "44",
+    "pos": "F"
+  },
+  {
+    "id": 1630533,
+    "first": "Ziaire",
+    "last": "Williams",
+    "slug": "ziaire-williams",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "1",
+    "pos": "F"
+  },
+  {
+    "id": 1629057,
+    "first": "Robert",
+    "last": "Williams III",
+    "slug": "robert-williams-iii",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "35",
+    "pos": "C-F"
+  },
+  {
+    "id": 1631246,
+    "first": "Vince",
+    "last": "Williams Jr.",
+    "slug": "vince-williams-jr",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1631351,
+    "first": "Lucas",
+    "last": "Williamson",
+    "slug": "lucas-williamson",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "G"
+  },
+  {
+    "id": 1629627,
+    "first": "Zion",
+    "last": "Williamson",
+    "slug": "zion-williamson",
+    "team": "NOP",
+    "team_full": "New Orleans Pelicans",
+    "jersey": "1",
+    "pos": "F"
+  },
+  {
+    "id": 1630592,
+    "first": "Jalen",
+    "last": "Wilson",
+    "slug": "jalen-wilson",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "22",
+    "pos": "F"
+  },
+  {
+    "id": 1630164,
+    "first": "James",
+    "last": "Wiseman",
+    "slug": "james-wiseman",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "C"
+  },
+  {
+    "id": 1642874,
+    "first": "Danny",
+    "last": "Wolf",
+    "slug": "danny-wolf",
+    "team": "BKN",
+    "team_full": "Brooklyn Nets",
+    "jersey": "2",
+    "pos": "F"
+  },
+  {
+    "id": 1627824,
+    "first": "Guerschon",
+    "last": "Yabusele",
+    "slug": "guerschon-yabusele",
+    "team": "CHI",
+    "team_full": "Chicago Bulls",
+    "jersey": "28",
+    "pos": "F"
+  },
+  {
+    "id": 1642443,
+    "first": "Jahmir",
+    "last": "Young",
+    "slug": "jahmir-young",
+    "team": "MIA",
+    "team_full": "Miami Heat",
+    "jersey": "17",
+    "pos": "G"
+  },
+  {
+    "id": 1629027,
+    "first": "Trae",
+    "last": "Young",
+    "slug": "trae-young",
+    "team": "WAS",
+    "team_full": "Washington Wizards",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1642959,
+    "first": "Chris",
+    "last": "Youngblood",
+    "slug": "chris-youngblood",
+    "team": "POR",
+    "team_full": "Portland Trail Blazers",
+    "jersey": "3",
+    "pos": "G"
+  },
+  {
+    "id": 1630209,
+    "first": "Omer",
+    "last": "Yurtseven",
+    "slug": "omer-yurtseven",
+    "team": "",
+    "team_full": "",
+    "jersey": "",
+    "pos": "C"
+  },
+  {
+    "id": 1642911,
+    "first": "Rocco",
+    "last": "Zikarsky",
+    "slug": "rocco-zikarsky",
+    "team": "MIN",
+    "team_full": "Minnesota Timberwolves",
+    "jersey": "44",
+    "pos": "C"
+  },
+  {
+    "id": 1627826,
+    "first": "Ivica",
+    "last": "Zubac",
+    "slug": "ivica-zubac",
+    "team": "IND",
+    "team_full": "Indiana Pacers",
+    "jersey": "40",
+    "pos": "C"
+  }
+]
