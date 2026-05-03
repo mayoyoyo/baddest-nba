@@ -5,7 +5,9 @@ import LeaderboardPage from "@/routes/LeaderboardPage";
 import LoginPage from "@/routes/LoginPage";
 import MePage from "@/routes/MePage";
 import SignupPage from "@/routes/SignupPage";
+import UserPage from "@/routes/UserPage";
 import VotePage from "@/routes/VotePage";
+import VotersPage from "@/routes/VotersPage";
 import type { ReactNode } from "react";
 
 function PublicOnly({ children }: { children: ReactNode }) {
@@ -25,6 +27,8 @@ export default function App() {
             <Route path="/" element={<VotePage />} />
             <Route path="/leaderboard" element={<LeaderboardPage />} />
             <Route path="/me" element={<MePage />} />
+            <Route path="/voters" element={<VotersPage />} />
+            <Route path="/u/:username" element={<UserPage />} />
             <Route
               path="/login"
               element={

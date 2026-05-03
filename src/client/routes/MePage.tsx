@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
 import { AuthForm } from "@/components/AuthForm";
 import { Avatar } from "@/components/Avatar";
 import { Button } from "@/components/ui/Button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
+import { Card, CardContent } from "@/components/ui/Card";
+import { UserProfileView } from "@/components/UserProfileView";
 import { useAuth } from "@/contexts/AuthContext";
 import {
   api,
   AVATAR_VOTE_THRESHOLD,
-  NBA_HEADSHOT_SMALL,
   type ApiError,
   type UserLeaderboardResponseDto,
 } from "@/lib/api";
 
 export default function MePage() {
-  const { user, totalVotesCast, avatarImageId, signOut } = useAuth();
+  const { user, totalVotesCast, avatarImageId, avatarTeam, signOut } =
+    useAuth();
   const navigate = useNavigate();
   const [data, setData] = useState<UserLeaderboardResponseDto | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -61,7 +63,7 @@ export default function MePage() {
         <div className="mx-auto max-w-md px-3 py-4 md:py-8">
           <Card className="mb-4">
             <CardContent className="flex items-center gap-4 p-5">
-              <Avatar imageId={avatarImageId} size="lg" />
+              <Avatar imageId={avatarImageId} team={avatarTeam} size="lg" />
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-semibold">Your taste, so far</p>
                 <p className="text-xs text-muted-foreground">
@@ -79,86 +81,41 @@ export default function MePage() {
     );
   }
 
-  const top = data?.leaderboard.slice(0, 10) ?? [];
-
   return (
     <div className="h-full overflow-y-auto">
       <div className="mx-auto max-w-2xl px-3 py-4 md:py-8">
-      <header className="mb-4 flex items-center justify-between gap-3 px-1">
-        <div className="flex items-center gap-3">
-          <Avatar imageId={avatarImageId} size="lg" />
-          <div>
-            <h2 className="text-lg font-semibold tracking-tight">
-              @{user.username}
-            </h2>
-            <p className="text-sm text-muted-foreground">
-              {totalVotesCast} {totalVotesCast === 1 ? "vote" : "votes"} cast
-            </p>
-          </div>
-        </div>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={async () => {
-            await signOut();
-            navigate("/");
-          }}
-        >
-          Sign out
-        </Button>
-      </header>
+        {error && (
+          <p className="mb-3 px-1 text-sm text-destructive">{error}</p>
+        )}
+        <UserProfileView
+          username={user.username}
+          totalVotesCast={totalVotesCast}
+          avatarImageId={avatarImageId}
+          avatarTeam={avatarTeam}
+          entries={data?.leaderboard ?? []}
+          headerTrailing={
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={async () => {
+                await signOut();
+                navigate("/");
+              }}
+            >
+              Sign out
+            </Button>
+          }
+        />
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Your top 10</CardTitle>
-          <p className="text-xs text-muted-foreground">
-            Personal rankings — based only on your votes.
-          </p>
-        </CardHeader>
-        <CardContent className="p-0">
-          {error && (
-            <p className="px-6 py-4 text-sm text-destructive">{error}</p>
-          )}
-          <ul className="flex flex-col divide-y">
-            {top.map((row) => (
-              <li
-                key={row.image.id}
-                className="flex items-center gap-3 px-4 py-2.5"
-              >
-                <span className="w-6 text-right text-sm font-semibold tabular-nums text-muted-foreground">
-                  {row.rankPosition}
-                </span>
-                <img
-                  src={NBA_HEADSHOT_SMALL(row.image.id)}
-                  alt=""
-                  className="size-10 shrink-0 rounded-md object-cover"
-                  loading="lazy"
-                  draggable={false}
-                />
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-medium">
-                    {row.player
-                      ? `${row.player.first} ${row.player.last}`
-                      : row.image.id}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {row.comparisons}{" "}
-                    {row.comparisons === 1 ? "vote" : "votes"}
-                  </p>
-                </div>
-                <span className="text-sm font-semibold tabular-nums">
-                  {Math.round(row.rating)}
-                </span>
-              </li>
-            ))}
-            {top.length === 0 && !error && (
-              <p className="px-4 py-6 text-center text-sm text-muted-foreground">
-                Vote on some matchups to start building your ranking.
-              </p>
-            )}
-          </ul>
-        </CardContent>
-      </Card>
+        <div className="mt-4 flex justify-center">
+          <Link
+            to="/voters"
+            className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
+          >
+            See who else is voting
+            <ChevronRight className="size-3.5" />
+          </Link>
+        </div>
       </div>
     </div>
   );

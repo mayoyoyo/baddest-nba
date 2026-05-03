@@ -2,9 +2,11 @@ import { listActiveImages } from "../repositories/imagesRepo.js";
 import type { DatabaseLike } from "../lib/db.js";
 import { aggregateSharedRanking } from "../domain/sharedAggregation.js";
 import { isPublicVoter } from "../lib/auth.js";
+import { type Conference, getConference } from "../lib/conferences.js";
 import { isVisibleUser } from "../lib/visibleUsers.js";
 import {
   getGlobalImageRatingAverages,
+  getTopRatedImageIdForUser,
   getUserState,
   listAllPersonalImageState,
   listAllUserStates,
@@ -29,6 +31,7 @@ export interface PlayerMeta {
   teamFull: string | null;
   jersey: string | null;
   pos: string | null;
+  conference: Conference | null;
 }
 
 function toPlayerMeta(row: PlayerRow | undefined): PlayerMeta | null {
@@ -40,6 +43,7 @@ function toPlayerMeta(row: PlayerRow | undefined): PlayerMeta | null {
     teamFull: row.team_full,
     jersey: row.jersey,
     pos: row.pos,
+    conference: getConference(row.team),
   };
 }
 
@@ -116,6 +120,7 @@ export interface SharedLeaderboardEntry {
   image: { id: string };
   player: PlayerMeta | null;
   rankPosition: number;
+  totalComparisons: number;
   wins: number;
 }
 
@@ -163,9 +168,14 @@ export async function getSharedLeaderboard(
     sharedStateRows.map((row) => [row.imageId, row]),
   );
   const winsByImage = new Map<string, number>();
+  const comparisonsByImage = new Map<string, number>();
 
   for (const row of visiblePersonalState) {
     winsByImage.set(row.image_id, (winsByImage.get(row.image_id) ?? 0) + row.wins);
+    comparisonsByImage.set(
+      row.image_id,
+      (comparisonsByImage.get(row.image_id) ?? 0) + row.comparisons,
+    );
   }
 
   const leaderboard = images
@@ -178,6 +188,7 @@ export async function getSharedLeaderboard(
         confidence: row?.confidence ?? 0,
         effectiveVoterWeight: row?.effectiveVoterWeight ?? 0,
         rankPosition: row?.rankPosition ?? Number.MAX_SAFE_INTEGER,
+        totalComparisons: comparisonsByImage.get(image.id) ?? 0,
         wins: winsByImage.get(image.id) ?? 0,
       };
     })
@@ -197,10 +208,14 @@ export async function getSharedLeaderboard(
   return response;
 }
 
+const AVATAR_VOTE_THRESHOLD = 10;
+
 export async function getUserLeaderboard(
   db: DatabaseLike,
   username: string,
 ): Promise<{
+  avatarImageId: string | null;
+  avatarTeam: string | null;
   leaderboard: Array<{
     comparisons: number;
     confidence: number;
@@ -235,6 +250,14 @@ export async function getUserLeaderboard(
       getGlobalImageRatingAverages(db),
     ]);
   const personalStateMap = new Map(personalState.map((row) => [row.image_id, row]));
+  const totalVotesCast = userState?.total_votes_cast ?? 0;
+  const avatarImageId =
+    totalVotesCast >= AVATAR_VOTE_THRESHOLD
+      ? await getTopRatedImageIdForUser(db, user.id)
+      : null;
+  const avatarTeam = avatarImageId
+    ? (playersMap.get(avatarImageId)?.team ?? null)
+    : null;
 
   const leaderboard = images
     .map((image) => {
@@ -273,10 +296,77 @@ export async function getUserLeaderboard(
       role: user.role,
     },
     summary: {
-      totalVotesCast: userState?.total_votes_cast ?? 0,
+      totalVotesCast,
       rankingConfidence: userState?.ranking_confidence ?? 0,
     },
+    avatarImageId,
+    avatarTeam,
     leaderboard,
+  };
+}
+
+export interface VoterSummary {
+  username: string;
+  totalVotesCast: number;
+  avatarImageId: string | null;
+  avatarTeam: string | null;
+}
+
+export async function getVoters(
+  db: DatabaseLike,
+): Promise<{ voters: VoterSummary[] }> {
+  const [users, allUserStates] = await Promise.all([
+    listUsers(db),
+    listAllUserStates(db),
+  ]);
+  const stateByUserId = new Map(
+    allUserStates.map((state) => [state.user_id, state]),
+  );
+  const eligible = users.filter(
+    (user) =>
+      isPublicVoter(user.role) &&
+      isVisibleUser(user.username) &&
+      (stateByUserId.get(user.id)?.total_votes_cast ?? 0) > 0,
+  );
+
+  const avatarPairs = await Promise.all(
+    eligible.map(async (user) => {
+      const totalVotesCast =
+        stateByUserId.get(user.id)?.total_votes_cast ?? 0;
+      const avatarImageId =
+        totalVotesCast >= AVATAR_VOTE_THRESHOLD
+          ? await getTopRatedImageIdForUser(db, user.id)
+          : null;
+      return { user, avatarImageId, totalVotesCast };
+    }),
+  );
+
+  const avatarImageIds = avatarPairs
+    .map((row) => row.avatarImageId)
+    .filter((id): id is string => id !== null);
+  const teamByImageId = new Map<string, string | null>();
+  if (avatarImageIds.length > 0) {
+    const players = await listPlayersByImageIds(db, avatarImageIds);
+    for (const player of players) {
+      teamByImageId.set(player.id, player.team);
+    }
+  }
+
+  return {
+    voters: avatarPairs
+      .map((row) => ({
+        username: row.user.username,
+        totalVotesCast: row.totalVotesCast,
+        avatarImageId: row.avatarImageId,
+        avatarTeam: row.avatarImageId
+          ? (teamByImageId.get(row.avatarImageId) ?? null)
+          : null,
+      }))
+      .sort(
+        (a, b) =>
+          b.totalVotesCast - a.totalVotesCast ||
+          a.username.localeCompare(b.username),
+      ),
   };
 }
 

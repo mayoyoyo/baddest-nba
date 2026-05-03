@@ -11,6 +11,7 @@ import {
   getTopRatedImageIdForUser,
   getUserState,
 } from "../repositories/leaderboardsRepo.js";
+import { listPlayersByImageIds } from "../repositories/playersRepo.js";
 import {
   AuthServiceError,
   login,
@@ -62,6 +63,7 @@ async function buildMePayload(c: AppContext, viewer: AuthViewer | null) {
       user: null,
       totalVotesCast: 0,
       avatarImageId: null as string | null,
+      avatarTeam: null as string | null,
     };
   }
 
@@ -72,6 +74,11 @@ async function buildMePayload(c: AppContext, viewer: AuthViewer | null) {
     totalVotesCast >= AVATAR_VOTE_THRESHOLD
       ? await getTopRatedImageIdForUser(db, viewer.user.id)
       : null;
+  let avatarTeam: string | null = null;
+  if (avatarImageId) {
+    const players = await listPlayersByImageIds(db, [avatarImageId]);
+    avatarTeam = players[0]?.team ?? null;
+  }
 
   return {
     user: {
@@ -81,6 +88,7 @@ async function buildMePayload(c: AppContext, viewer: AuthViewer | null) {
     },
     totalVotesCast,
     avatarImageId,
+    avatarTeam,
   };
 }
 

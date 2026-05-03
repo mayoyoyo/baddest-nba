@@ -18,6 +18,7 @@ interface AuthContextValue {
   user: SessionUserDto | null;
   totalVotesCast: number;
   avatarImageId: string | null;
+  avatarTeam: string | null;
   loading: boolean;
   refresh: () => Promise<void>;
   signOut: () => Promise<void>;
@@ -30,6 +31,7 @@ const EMPTY_ME: MeDto = {
   user: null,
   totalVotesCast: 0,
   avatarImageId: null,
+  avatarTeam: null,
 };
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -70,6 +72,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       user: me.user,
       totalVotesCast: me.totalVotesCast,
       avatarImageId: me.avatarImageId,
+      avatarTeam: me.avatarTeam,
       loading,
       refresh,
       signOut,

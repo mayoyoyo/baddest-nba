@@ -1,18 +1,32 @@
 import { Trophy, Vote } from "lucide-react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { CURRENT_SEASON_LABEL } from "@/lib/api";
 import { cn } from "@/lib/cn";
 import { Avatar } from "./Avatar";
 import { ThemeToggle } from "./ThemeToggle";
 
+function BrandMark() {
+  return (
+    <NavLink to="/" className="flex items-center gap-2">
+      <span className="text-base font-bold tracking-tight">
+        Baddest in the L
+      </span>
+      <span className="rounded-md border border-red-700/60 bg-red-600 px-1.5 py-0.5 text-[10px] font-bold uppercase leading-none tracking-wider text-white">
+        {CURRENT_SEASON_LABEL}
+      </span>
+    </NavLink>
+  );
+}
+
 const PRIMARY_NAV = [
   { to: "/", label: "Vote", icon: Vote, end: true },
-  { to: "/leaderboard", label: "Leaderboard", icon: Trophy, end: false },
+  { to: "/leaderboard", label: "All-NBA", icon: Trophy, end: false },
 ] as const;
 
 export function AppShell() {
   const location = useLocation();
-  const { avatarImageId, user } = useAuth();
+  const { avatarImageId, avatarTeam, user } = useAuth();
   const meLabel = user && user.role !== "guest" ? user.username : "Me";
 
   const minimalChrome =
@@ -23,9 +37,7 @@ export function AppShell() {
     return (
       <div className="flex h-dvh flex-col">
         <header className="flex shrink-0 items-center justify-between border-b px-4 py-2.5">
-          <NavLink to="/" className="text-base font-bold tracking-tight">
-            Baddest in the L
-          </NavLink>
+          <BrandMark />
           <ThemeToggle />
         </header>
         <main className="min-h-0 flex-1 overflow-y-auto">
@@ -38,9 +50,7 @@ export function AppShell() {
   return (
     <div className="flex h-dvh flex-col">
       <header className="flex shrink-0 items-center justify-between border-b bg-background px-4 py-2.5">
-        <NavLink to="/" className="text-base font-bold tracking-tight">
-          Baddest in the L
-        </NavLink>
+        <BrandMark />
         <nav className="hidden items-center gap-1 md:flex">
           {PRIMARY_NAV.map((item) => (
             <NavLink
@@ -70,7 +80,7 @@ export function AppShell() {
               )
             }
           >
-            <Avatar imageId={avatarImageId} size="sm" />
+            <Avatar imageId={avatarImageId} team={avatarTeam} size="sm" />
             <span className="max-w-[8rem] truncate">{meLabel}</span>
           </NavLink>
           <ThemeToggle />
@@ -117,7 +127,7 @@ export function AppShell() {
             )
           }
         >
-          <Avatar imageId={avatarImageId} size="sm" />
+          <Avatar imageId={avatarImageId} team={avatarTeam} size="sm" />
           <span className="max-w-[6rem] truncate">{meLabel}</span>
         </NavLink>
       </nav>

@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
-import { Lock } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { ChevronLeft, Crown, Lock, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
-import { buttonVariants } from "@/components/ui/Button";
+import { Button, buttonVariants } from "@/components/ui/Button";
 import { useAuth } from "@/contexts/AuthContext";
 import {
   api,
+  ALL_NBA_ELIGIBILITY_FLOOR,
+  ALL_NBA_TEAM_COUNT,
+  ALL_NBA_TEAM_SIZE,
   NBA_HEADSHOT_SMALL,
   PUBLIC_LEADERBOARD_TIER,
   type ApiError,
@@ -12,10 +15,20 @@ import {
 } from "@/lib/api";
 import { cn } from "@/lib/cn";
 
+type PositionPill = "G" | "F" | "C";
+const POSITION_PILLS: readonly PositionPill[] = ["G", "F", "C"] as const;
+const ALL_POSITIONS: ReadonlySet<PositionPill> = new Set(POSITION_PILLS);
+
+type View = "all-nba" | "full";
+
 export default function LeaderboardPage() {
   const [rows, setRows] = useState<SharedLeaderboardEntryDto[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [view, setView] = useState<View>("all-nba");
+  const [selected, setSelected] = useState<Set<PositionPill>>(
+    () => new Set(ALL_POSITIONS),
+  );
   const { user } = useAuth();
   const isMember = user && user.role !== "guest";
 
@@ -38,6 +51,17 @@ export default function LeaderboardPage() {
     };
   }, []);
 
+  const togglePill = (pill: PositionPill) => {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(pill)) next.delete(pill);
+      else next.add(pill);
+      // Zero selected snaps back to all selected.
+      if (next.size === 0) return new Set(ALL_POSITIONS);
+      return next;
+    });
+  };
+
   if (loading) {
     return (
       <div className="h-full overflow-y-auto">
@@ -54,29 +78,283 @@ export default function LeaderboardPage() {
     );
   }
 
-  const visibleRows = isMember
-    ? rows
-    : rows.slice(0, PUBLIC_LEADERBOARD_TIER);
-  const hiddenCount = isMember ? 0 : Math.max(0, rows.length - visibleRows.length);
+  if (view === "all-nba") {
+    return (
+      <AllNbaView
+        rows={rows}
+        onSeeFull={() => setView("full")}
+      />
+    );
+  }
+
+  return (
+    <FullLeaderboardView
+      rows={rows}
+      isMember={!!isMember}
+      selected={selected}
+      togglePill={togglePill}
+      onBack={() => setView("all-nba")}
+    />
+  );
+}
+
+function AllNbaView({
+  rows,
+  onSeeFull,
+}: {
+  rows: SharedLeaderboardEntryDto[];
+  onSeeFull: () => void;
+}) {
+  const eligible = useMemo(
+    () => rows.filter((r) => r.totalComparisons >= ALL_NBA_ELIGIBILITY_FLOOR),
+    [rows],
+  );
+
+  const teams: SharedLeaderboardEntryDto[][] = useMemo(() => {
+    const out: SharedLeaderboardEntryDto[][] = [];
+    for (let i = 0; i < ALL_NBA_TEAM_COUNT; i++) {
+      out.push(eligible.slice(i * ALL_NBA_TEAM_SIZE, (i + 1) * ALL_NBA_TEAM_SIZE));
+    }
+    return out;
+  }, [eligible]);
+
+  const hasFirstTeam = teams[0]?.length === ALL_NBA_TEAM_SIZE;
+  const tierLabels = ["1st Team", "2nd Team", "3rd Team"];
 
   return (
     <div className="h-full overflow-y-auto">
       <div className="mx-auto max-w-2xl px-3 py-4 md:py-8">
-        <header className="mb-4 px-1">
-          <h2 className="text-lg font-semibold tracking-tight">Leaderboard</h2>
-          <p className="text-sm text-muted-foreground">
-            Aggregated across all signed-up voters.
+        <header className="mb-5 px-1">
+          <div className="flex items-center gap-2">
+            <Trophy className="size-5 text-amber-500" />
+            <h2 className="text-lg font-semibold tracking-tight">All-NBA</h2>
+          </div>
+          <p className="mt-1 text-sm text-muted-foreground">
+            The 15 baddest in the L, ranked by the crowd.
           </p>
         </header>
+
+        {!hasFirstTeam ? (
+          <div className="rounded-xl border bg-card px-4 py-10 text-center">
+            <Trophy className="mx-auto mb-2 size-6 text-muted-foreground" />
+            <p className="text-sm font-medium">All-NBA awarded soon</p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Players need {ALL_NBA_ELIGIBILITY_FLOOR}+ votes to qualify.
+              Keep voting to fill out the teams.
+            </p>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-4">
+            {teams.map((team, tierIndex) => {
+              if (team.length === 0) return null;
+              const isFirstTeam = tierIndex === 0;
+              return (
+                <section
+                  key={tierIndex}
+                  className={cn(
+                    "overflow-hidden rounded-xl border bg-card",
+                    isFirstTeam &&
+                      "border-amber-300/60 shadow-sm dark:border-amber-500/30",
+                  )}
+                >
+                  <header
+                    className={cn(
+                      "flex items-center justify-between border-b px-4 py-2",
+                      isFirstTeam &&
+                        "border-amber-200/60 bg-gradient-to-r from-amber-50 to-transparent dark:border-amber-500/20 dark:from-amber-500/10",
+                    )}
+                  >
+                    <h3 className="text-sm font-semibold tracking-tight">
+                      {tierLabels[tierIndex]}
+                    </h3>
+                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                      All-NBA
+                    </span>
+                  </header>
+                  <ul className="flex flex-col divide-y">
+                    {team.map((row, rowIndex) => (
+                      <AllNbaRow
+                        key={row.image.id}
+                        row={row}
+                        isMvp={isFirstTeam && rowIndex === 0}
+                      />
+                    ))}
+                  </ul>
+                </section>
+              );
+            })}
+          </div>
+        )}
+
+        <div className="mt-6 flex justify-center">
+          <Button variant="outline" size="sm" onClick={onSeeFull}>
+            See full leaderboard
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AllNbaRow({
+  row,
+  isMvp,
+}: {
+  row: SharedLeaderboardEntryDto;
+  isMvp: boolean;
+}) {
+  const player = row.player;
+  const name = player ? `${player.first} ${player.last}` : row.image.id;
+  const teamLine = player?.team
+    ? `${player.team}${player.pos ? ` · ${player.pos}` : ""}`
+    : (player?.pos ?? "");
+
+  return (
+    <li
+      className={cn(
+        "flex items-center gap-3 px-4 py-2.5",
+        isMvp &&
+          "bg-gradient-to-r from-amber-100/70 via-amber-50/40 to-transparent dark:from-amber-500/15 dark:via-amber-500/5",
+      )}
+    >
+      <img
+        src={NBA_HEADSHOT_SMALL(row.image.id)}
+        alt=""
+        className={cn(
+          "size-12 shrink-0 rounded-md object-cover",
+          isMvp && "ring-2 ring-amber-400 dark:ring-amber-400/80",
+        )}
+        loading="lazy"
+        draggable={false}
+      />
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center gap-1.5">
+          <p
+            className={cn(
+              "truncate text-sm font-medium",
+              isMvp && "font-semibold",
+            )}
+          >
+            {name}
+          </p>
+          {isMvp && (
+            <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-950">
+              <Crown className="size-3" />
+              MVP
+            </span>
+          )}
+        </div>
+        {teamLine && (
+          <p className="truncate text-xs text-muted-foreground">{teamLine}</p>
+        )}
+      </div>
+      <span
+        className={cn(
+          "text-sm font-semibold tabular-nums",
+          isMvp && "text-amber-700 dark:text-amber-300",
+        )}
+      >
+        {row.aggregateScore.toFixed(0)}
+      </span>
+    </li>
+  );
+}
+
+function FullLeaderboardView({
+  rows,
+  isMember,
+  selected,
+  togglePill,
+  onBack,
+}: {
+  rows: SharedLeaderboardEntryDto[];
+  isMember: boolean;
+  selected: Set<PositionPill>;
+  togglePill: (pill: PositionPill) => void;
+  onBack: () => void;
+}) {
+  const allSelected = selected.size === ALL_POSITIONS.size;
+
+  const filtered = useMemo(() => {
+    if (allSelected) return rows;
+    return rows.filter((row) => matchesPills(row.player?.pos ?? null, selected));
+  }, [rows, selected, allSelected]);
+
+  const visibleRows = isMember
+    ? filtered
+    : filtered.slice(0, PUBLIC_LEADERBOARD_TIER);
+  const hiddenCount = isMember
+    ? 0
+    : Math.max(0, filtered.length - visibleRows.length);
+
+  return (
+    <div className="h-full overflow-y-auto">
+      <div className="mx-auto max-w-2xl px-3 py-4 md:py-8">
+        <header className="mb-3 flex items-center justify-between gap-3 px-1">
+          <button
+            type="button"
+            onClick={onBack}
+            className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground"
+          >
+            <ChevronLeft className="size-4" />
+            All-NBA
+          </button>
+          <h2 className="text-lg font-semibold tracking-tight">
+            Full leaderboard
+          </h2>
+        </header>
+
+        <div className="mb-3 flex items-center gap-1.5 px-1">
+          {POSITION_PILLS.map((pill) => {
+            const active = selected.has(pill);
+            return (
+              <button
+                key={pill}
+                type="button"
+                onClick={() => togglePill(pill)}
+                aria-pressed={active}
+                className={cn(
+                  "rounded-full border px-3 py-1 text-xs font-semibold transition-colors",
+                  active
+                    ? "border-foreground bg-foreground text-background"
+                    : "border-border bg-background text-muted-foreground hover:border-foreground/40 hover:text-foreground",
+                )}
+              >
+                {pill}
+              </button>
+            );
+          })}
+          <span className="ml-auto text-xs text-muted-foreground">
+            {filtered.length} {filtered.length === 1 ? "player" : "players"}
+          </span>
+        </div>
+
         <ul className="flex flex-col divide-y rounded-xl border bg-card">
           {visibleRows.map((row) => (
             <LeaderboardRow key={row.image.id} row={row} />
           ))}
+          {visibleRows.length === 0 && (
+            <li className="px-4 py-6 text-center text-sm text-muted-foreground">
+              No players match this filter.
+            </li>
+          )}
           {hiddenCount > 0 && <PaywallRow hiddenCount={hiddenCount} />}
         </ul>
       </div>
     </div>
   );
+}
+
+function matchesPills(
+  pos: string | null,
+  selected: Set<PositionPill>,
+): boolean {
+  if (!pos) return false;
+  const positions = pos
+    .split("-")
+    .map((p) => p.trim().toUpperCase())
+    .filter(Boolean) as PositionPill[];
+  return positions.some((p) => selected.has(p));
 }
 
 function LeaderboardRow({ row }: { row: SharedLeaderboardEntryDto }) {
@@ -162,14 +440,21 @@ function BlurredPreview() {
 function LeaderboardSkeleton() {
   return (
     <div className="mx-auto max-w-2xl px-3 py-4 md:py-8">
-      <div className="flex flex-col divide-y rounded-xl border bg-card">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} className="flex items-center gap-3 px-3 py-2.5">
-            <div className="size-12 animate-pulse rounded-md bg-muted" />
-            <div className="flex-1 space-y-1.5">
-              <div className="h-3 w-32 animate-pulse rounded bg-muted" />
-              <div className="h-2 w-20 animate-pulse rounded bg-muted" />
+      <div className="flex flex-col gap-4">
+        {Array.from({ length: 3 }).map((_, t) => (
+          <div key={t} className="rounded-xl border bg-card">
+            <div className="border-b px-4 py-2">
+              <div className="h-3 w-16 animate-pulse rounded bg-muted" />
             </div>
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} className="flex items-center gap-3 px-4 py-2.5">
+                <div className="size-12 animate-pulse rounded-md bg-muted" />
+                <div className="flex-1 space-y-1.5">
+                  <div className="h-3 w-32 animate-pulse rounded bg-muted" />
+                  <div className="h-2 w-20 animate-pulse rounded bg-muted" />
+                </div>
+              </div>
+            ))}
           </div>
         ))}
       </div>

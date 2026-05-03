@@ -6,6 +6,7 @@ import {
   getPeople,
   getSharedLeaderboard,
   getUserLeaderboard,
+  getVoters,
 } from "../services/leaderboardService.js";
 
 const leaderboardRoutes = new Hono<AppEnv>();
@@ -23,6 +24,10 @@ leaderboardRoutes.get("/shared-leaderboard", async (c) => {
 
 leaderboardRoutes.get("/people", requireAuth, async (c) => {
   return c.json(await getPeople(getDb(c)));
+});
+
+leaderboardRoutes.get("/voters", async (c) => {
+  return c.json(await getVoters(getDb(c)));
 });
 
 leaderboardRoutes.get("/me/leaderboard", ensureViewer, async (c) => {

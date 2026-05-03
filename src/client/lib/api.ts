@@ -64,10 +64,17 @@ export interface MeDto {
   user: SessionUserDto | null;
   totalVotesCast: number;
   avatarImageId: string | null;
+  avatarTeam: string | null;
 }
 
 export const AVATAR_VOTE_THRESHOLD = 10;
 export const PUBLIC_LEADERBOARD_TIER = 3;
+export const ALL_NBA_ELIGIBILITY_FLOOR = 10;
+export const ALL_NBA_TEAM_SIZE = 5;
+export const ALL_NBA_TEAM_COUNT = 3;
+export const ALL_STARS_PER_CONFERENCE = 14;
+
+export type ConferenceDto = "East" | "West";
 
 export interface PlayerMetaDto {
   first: string;
@@ -76,6 +83,7 @@ export interface PlayerMetaDto {
   teamFull: string | null;
   jersey: string | null;
   pos: string | null;
+  conference: ConferenceDto | null;
 }
 
 export interface PairDto {
@@ -98,6 +106,7 @@ export interface SharedLeaderboardEntryDto {
   confidence: number;
   effectiveVoterWeight: number;
   rankPosition: number;
+  totalComparisons: number;
   wins: number;
 }
 
@@ -115,10 +124,29 @@ export interface UserLeaderboardEntryDto {
 export interface UserLeaderboardResponseDto {
   user: SessionUserDto;
   summary: { totalVotesCast: number; rankingConfidence: number };
+  avatarImageId: string | null;
+  avatarTeam: string | null;
   leaderboard: UserLeaderboardEntryDto[];
+}
+
+export interface VoterDto {
+  username: string;
+  totalVotesCast: number;
+  avatarImageId: string | null;
+  avatarTeam: string | null;
+}
+
+export interface VotersResponseDto {
+  voters: VoterDto[];
 }
 
 export const NBA_HEADSHOT_LARGE = (id: string) =>
   `https://cdn.nba.com/headshots/nba/latest/1040x760/${id}.png`;
 export const NBA_HEADSHOT_SMALL = (id: string) =>
   `https://cdn.nba.com/headshots/nba/latest/260x190/${id}.png`;
+
+// ESPN serves clean transparent team logos by lowercase abbreviation.
+export const NBA_TEAM_LOGO = (team: string) =>
+  `https://a.espncdn.com/i/teamlogos/nba/500/${team.toLowerCase()}.png`;
+
+export const CURRENT_SEASON_LABEL = "'25-'26";
