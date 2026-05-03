@@ -1,26 +1,19 @@
 {
-  "name": "face-ranking-hosted",
+  "name": "baddest-nba",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "cf:typegen": "wrangler types worker-configuration.d.ts",
     "dev": "vite",
-    "dev:local": "tsx --env-file=.env.local scripts/local-preview-server.ts",
-    "dev:vercel": "vercel dev --listen 127.0.0.1:8788",
-    "dev:pages": "wrangler pages dev dist --ip 127.0.0.1 --port 8788",
-    "build": "vite build",
-    "e2e:server": "npm run build && npm run dev:pages",
-    "migrate:cloudflare-local-to-supabase": "node --env-file=.env.local scripts/migrate-local-cloudflare-to-supabase.mjs",
-    "deploy": "wrangler pages deploy dist --project-name baddest-in-the-game --branch main",
-    "deploy:vercel": "vercel --prod",
-    "typecheck": "npm run cf:typegen && tsc --noEmit",
-    "test:unit": "vitest run",
-    "test:integration": "vitest run --config vitest.integration.config.ts",
-    "test:e2e": "playwright test"
+    "dev:server": "tsx --env-file=.env.local --watch src/server/node.ts",
+    "build": "vite build && tsc -p tsconfig.server.json",
+    "start": "node dist-server/server/node.js",
+    "seed": "tsx --env-file=.env.local scripts/seed-nba-players.ts",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "vitest run"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.56.0",
+    "@hono/node-server": "^1.13.7",
     "hono": "^4.7.7",
     "pg": "^8.16.3",
     "react": "^19.1.0",
@@ -28,8 +21,6 @@
     "react-router-dom": "^7.14.1"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.14.7",
-    "@playwright/test": "^1.52.0",
     "@types/node": "^25.6.0",
     "@types/pg": "^8.15.5",
     "@types/react": "^19.1.2",
@@ -38,9 +29,7 @@
     "jsdom": "^29.0.2",
     "tsx": "^4.21.0",
     "typescript": "^5.8.3",
-    "vercel": "^39.1.0",
     "vite": "^6.3.5",
-    "vitest": "^4.1.4",
-    "wrangler": "^4.83.0"
+    "vitest": "^4.1.4"
   }
 }

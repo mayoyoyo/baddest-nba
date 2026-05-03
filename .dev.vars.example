@@ -1,3 +1,0 @@
-TURNSTILE_BYPASS=true
-TURNSTILE_SITE_KEY=test-site-key
-TURNSTILE_SECRET_KEY=replace-me

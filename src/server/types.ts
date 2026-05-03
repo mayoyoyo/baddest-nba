@@ -7,8 +7,6 @@ export interface AuthViewer {
 }
 
 export interface AppBindings {
-  DB?: D1Database;
-  IMAGES_BUCKET?: R2Bucket;
   SIGNUPS_OPEN?: string;
   TURNSTILE_BYPASS?: string;
   TURNSTILE_SITE_KEY?: string;

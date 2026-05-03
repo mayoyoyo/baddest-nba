@@ -1,11 +1,9 @@
 export interface ServerEnv {
   databaseUrl: string;
-  supabaseAnonKey: string;
-  supabaseServiceRoleKey: string;
-  supabaseUrl: string;
+  signupsOpen: boolean;
   turnstileBypass: boolean;
   turnstileSecretKey?: string;
-  turnstileSiteKey: string;
+  turnstileSiteKey?: string;
 }
 
 function readRequired(
@@ -25,11 +23,9 @@ export function readServerEnv(
 ): ServerEnv {
   return {
     databaseUrl: readRequired(source, "DATABASE_URL"),
-    supabaseUrl: readRequired(source, "SUPABASE_URL"),
-    supabaseAnonKey: readRequired(source, "SUPABASE_ANON_KEY"),
-    supabaseServiceRoleKey: readRequired(source, "SUPABASE_SERVICE_ROLE_KEY"),
+    signupsOpen: source.SIGNUPS_OPEN !== "false",
     turnstileBypass: source.TURNSTILE_BYPASS === "true",
-    turnstileSiteKey: readRequired(source, "TURNSTILE_SITE_KEY"),
+    turnstileSiteKey: source.TURNSTILE_SITE_KEY?.trim() || undefined,
     turnstileSecretKey: source.TURNSTILE_SECRET_KEY?.trim() || undefined,
   };
 }

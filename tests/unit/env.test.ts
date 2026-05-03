@@ -10,20 +10,26 @@ describe("readServerEnv", () => {
     expect(
       readServerEnv({
         DATABASE_URL: "postgres://example",
-        SUPABASE_URL: "https://project.supabase.co",
-        SUPABASE_ANON_KEY: "anon",
-        SUPABASE_SERVICE_ROLE_KEY: "service-role",
+        SIGNUPS_OPEN: "true",
         TURNSTILE_BYPASS: "true",
         TURNSTILE_SITE_KEY: "site-key",
       }),
     ).toEqual({
       databaseUrl: "postgres://example",
-      supabaseUrl: "https://project.supabase.co",
-      supabaseAnonKey: "anon",
-      supabaseServiceRoleKey: "service-role",
+      signupsOpen: true,
       turnstileBypass: true,
       turnstileSiteKey: "site-key",
       turnstileSecretKey: undefined,
     });
+  });
+
+  it("treats SIGNUPS_OPEN=false as closed", () => {
+    expect(
+      readServerEnv({
+        DATABASE_URL: "postgres://example",
+        SIGNUPS_OPEN: "false",
+        TURNSTILE_BYPASS: "true",
+      }).signupsOpen,
+    ).toBe(false);
   });
 });
