@@ -205,3 +205,17 @@ export async function deleteSharedImageStateByImageId(
     [imageId],
   );
 }
+
+export async function getTopRatedImageIdForUser(
+  db: DatabaseLike,
+  userId: string,
+): Promise<string | null> {
+  const result = await toDbClient(db).query<{ image_id: string }>(
+    `SELECT image_id FROM personal_image_state
+     WHERE user_id = $1
+     ORDER BY rating DESC, comparisons DESC, image_id ASC
+     LIMIT 1`,
+    [userId],
+  );
+  return result.rows[0]?.image_id ?? null;
+}

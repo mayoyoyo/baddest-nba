@@ -1,6 +1,8 @@
 import { Trophy, User, Vote } from "lucide-react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/cn";
+import { Avatar } from "./Avatar";
 import { ThemeToggle } from "./ThemeToggle";
 
 const NAV = [
@@ -11,10 +13,13 @@ const NAV = [
 
 export function AppShell() {
   const location = useLocation();
-  const hideChrome = location.pathname.startsWith("/login") ||
+  const { avatarImageId } = useAuth();
+
+  const minimalChrome =
+    location.pathname.startsWith("/login") ||
     location.pathname.startsWith("/signup");
 
-  if (hideChrome) {
+  if (minimalChrome) {
     return (
       <div className="flex min-h-screen flex-col">
         <header className="flex items-center justify-between border-b px-4 py-3">
@@ -55,9 +60,11 @@ export function AppShell() {
             </NavLink>
           ))}
           <ThemeToggle />
+          <Avatar imageId={avatarImageId} size="sm" className="ml-1" />
         </nav>
-        <div className="md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
+          <Avatar imageId={avatarImageId} size="sm" />
         </div>
       </header>
 

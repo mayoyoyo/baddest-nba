@@ -163,26 +163,12 @@ function createSeededRandom(seed: number): () => number {
   };
 }
 
-function createPairingRandom(input: PairingInput): () => number {
-  if (!input.recentPairs?.length) {
-    return () => 0.25;
-  }
-
-  return createSeededRandom(
-    hashString(
-      JSON.stringify({
-        deprioritizedImageIds: input.deprioritizedImageIds ?? [],
-        images: input.images.map((image) => ({
-          comparisons: image.comparisons,
-          confidence: image.confidence,
-          imageId: image.imageId,
-          rating: image.rating,
-        })),
-        rankingConfidence: Number(input.rankingConfidence.toFixed(3)),
-        recentPairs: input.recentPairs,
-      }),
-    ),
-  );
+function createPairingRandom(_input: PairingInput): () => number {
+  // Use real randomness so a page refresh surfaces a fresh matchup. The
+  // recent-pair cooldown logic still prevents back-to-back duplicates
+  // (anchor-need ranking + repeated-image dampening run upstream of the
+  // random tiebreak).
+  return Math.random;
 }
 
 function withRandomFirst<T>(items: T[], random: () => number): T[] {

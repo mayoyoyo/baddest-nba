@@ -2,6 +2,7 @@ import { calculateImageConfidence, calculateRankingConfidence } from "../domain/
 import { RECENT_PAIR_CACHE_LIMIT, selectNextPair } from "../domain/pairing.js";
 import { applyEloVote } from "../domain/rating.js";
 import { toDbClient, type DatabaseLike } from "../lib/db.js";
+import { invalidateSharedLeaderboardCache } from "./leaderboardCache.js";
 import { getImageById, listActiveImages, type ImageRow } from "../repositories/imagesRepo.js";
 import {
   getUserState,
@@ -335,6 +336,7 @@ export async function recordVoteForUser(
     };
   });
 
+  invalidateSharedLeaderboardCache();
   return result;
 }
 

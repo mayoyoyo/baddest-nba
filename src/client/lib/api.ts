@@ -57,12 +57,17 @@ export const api = {
 export interface SessionUserDto {
   id: string;
   username: string;
-  role: "admin" | "user";
+  role: "admin" | "user" | "guest";
 }
 
 export interface MeDto {
-  user: SessionUserDto;
+  user: SessionUserDto | null;
+  totalVotesCast: number;
+  avatarImageId: string | null;
 }
+
+export const AVATAR_VOTE_THRESHOLD = 10;
+export const PUBLIC_LEADERBOARD_TIER = 3;
 
 export interface PlayerMetaDto {
   first: string;

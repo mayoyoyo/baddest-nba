@@ -16,28 +16,37 @@ import {
 
 interface AuthContextValue {
   user: SessionUserDto | null;
+  totalVotesCast: number;
+  avatarImageId: string | null;
   loading: boolean;
   refresh: () => Promise<void>;
   signOut: () => Promise<void>;
-  setUser: (user: SessionUserDto | null) => void;
+  setMe: (me: MeDto) => void;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
+const EMPTY_ME: MeDto = {
+  user: null,
+  totalVotesCast: 0,
+  avatarImageId: null,
+};
+
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<SessionUserDto | null>(null);
+  const [me, setMe] = useState<MeDto>(EMPTY_ME);
   const [loading, setLoading] = useState(true);
 
   const refresh = useCallback(async () => {
     try {
-      const me = await api.get<MeDto>("/api/me");
-      setUser(me.user);
+      const next = await api.get<MeDto>("/api/me");
+      setMe(next);
     } catch (error) {
-      if ((error as ApiError).status === 401) {
-        setUser(null);
-      } else {
+      // /api/me is intentionally unauthenticated and never returns 401
+      // any more, but keep this guard for transient network failures.
+      if ((error as ApiError).status !== 401) {
         console.error("auth refresh failed", error);
       }
+      setMe(EMPTY_ME);
     } finally {
       setLoading(false);
     }
@@ -49,16 +58,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } catch {
       /* fire-and-forget */
     }
-    setUser(null);
+    setMe(EMPTY_ME);
   }, []);
 
   useEffect(() => {
     refresh();
   }, [refresh]);
 
-  const value = useMemo(
-    () => ({ user, loading, refresh, signOut, setUser }),
-    [user, loading, refresh, signOut],
+  const value = useMemo<AuthContextValue>(
+    () => ({
+      user: me.user,
+      totalVotesCast: me.totalVotesCast,
+      avatarImageId: me.avatarImageId,
+      loading,
+      refresh,
+      signOut,
+      setMe,
+    }),
+    [me, loading, refresh, signOut],
   );
 
   return (

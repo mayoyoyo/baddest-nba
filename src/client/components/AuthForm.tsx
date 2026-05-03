@@ -16,22 +16,33 @@ export function AuthForm({ mode }: AuthFormProps) {
   const [pin, setPin] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
-  const { setUser } = useAuth();
+  const { user, refresh } = useAuth();
   const navigate = useNavigate();
 
   const isSignup = mode === "signup";
+  // A guest hitting the signup form gets *promoted* — preserves their
+  // ELO history. A fresh visitor hits /api/signup which creates a new
+  // user from scratch.
+  const isPromotion = isSignup && user?.role === "guest";
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
     setSubmitting(true);
 
+    const endpoint = isPromotion
+      ? "/api/me/promote"
+      : isSignup
+        ? "/api/signup"
+        : "/api/login";
+
     try {
-      const { user } = await api.post<{ user: SessionUserDto }>(
-        isSignup ? "/api/signup" : "/api/login",
-        { username, pin, turnstileToken: "" },
-      );
-      setUser(user);
+      await api.post<{ user: SessionUserDto }>(endpoint, {
+        username,
+        pin,
+        turnstileToken: "",
+      });
+      await refresh();
       navigate("/", { replace: true });
     } catch (err) {
       setError((err as ApiError).message || "Something went wrong");
@@ -40,18 +51,23 @@ export function AuthForm({ mode }: AuthFormProps) {
     }
   }
 
+  const title = isPromotion
+    ? "Save your taste"
+    : isSignup
+      ? "Create an account"
+      : "Welcome back";
+  const subtitle = isPromotion
+    ? "Pick a username and PIN. Your votes carry over."
+    : isSignup
+      ? "Pick a username and a 4-digit PIN. That's it."
+      : "Username and PIN.";
+
   return (
     <div className="mx-auto flex w-full max-w-sm flex-col gap-6 px-4 py-12">
       <Card>
         <CardHeader>
-          <CardTitle className="text-xl">
-            {isSignup ? "Create an account" : "Welcome back"}
-          </CardTitle>
-          <p className="text-sm text-muted-foreground">
-            {isSignup
-              ? "Pick a username and a 4-digit PIN. That's it."
-              : "Username and PIN."}
-          </p>
+          <CardTitle className="text-xl">{title}</CardTitle>
+          <p className="text-sm text-muted-foreground">{subtitle}</p>
         </CardHeader>
         <CardContent>
           <form className="flex flex-col gap-4" onSubmit={onSubmit}>
@@ -91,9 +107,11 @@ export function AuthForm({ mode }: AuthFormProps) {
             <Button type="submit" disabled={submitting} className="w-full">
               {submitting
                 ? "..."
-                : isSignup
-                  ? "Sign up"
-                  : "Sign in"}
+                : isPromotion
+                  ? "Save my taste"
+                  : isSignup
+                    ? "Sign up"
+                    : "Sign in"}
             </Button>
           </form>
         </CardContent>

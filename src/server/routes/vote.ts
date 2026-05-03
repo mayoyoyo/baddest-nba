@@ -1,5 +1,5 @@
 import { Hono, type Context } from "hono";
-import { requireAuth } from "../lib/auth.js";
+import { ensureViewer } from "../lib/auth.js";
 import { getDb } from "../lib/runtime.js";
 import type { AppEnv } from "../types.js";
 import {
@@ -39,7 +39,7 @@ function isFlushActionInput(value: unknown): value is FlushActionInput {
   return false;
 }
 
-voteRoutes.get("/pair", requireAuth, async (c) => {
+voteRoutes.get("/pair", ensureViewer, async (c) => {
   const viewer = c.get("viewer");
   if (!viewer) {
     return c.json({ error: "Unauthorized" }, 401);
@@ -49,7 +49,7 @@ voteRoutes.get("/pair", requireAuth, async (c) => {
   return c.json({ pair });
 });
 
-voteRoutes.post("/pair/skip", requireAuth, async (c) => {
+voteRoutes.post("/pair/skip", ensureViewer, async (c) => {
   const viewer = c.get("viewer");
   if (!viewer) {
     return c.json({ error: "Unauthorized" }, 401);
@@ -120,10 +120,10 @@ async function handleFlushActions(c: Context<AppEnv>) {
   }
 }
 
-voteRoutes.post("/flush-actions", requireAuth, handleFlushActions);
-voteRoutes.post("/actions/flush", requireAuth, handleFlushActions);
+voteRoutes.post("/flush-actions", ensureViewer, handleFlushActions);
+voteRoutes.post("/actions/flush", ensureViewer, handleFlushActions);
 
-voteRoutes.post("/vote", requireAuth, async (c) => {
+voteRoutes.post("/vote", ensureViewer, async (c) => {
   const viewer = c.get("viewer");
   if (!viewer) {
     return c.json({ error: "Unauthorized" }, 401);

@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthForm } from "@/components/AuthForm";
+import { Avatar } from "@/components/Avatar";
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { useAuth } from "@/contexts/AuthContext";
 import {
   api,
+  AVATAR_VOTE_THRESHOLD,
   NBA_HEADSHOT_SMALL,
   type ApiError,
   type UserLeaderboardResponseDto,
 } from "@/lib/api";
 
 export default function MePage() {
-  const { user, signOut } = useAuth();
+  const { user, totalVotesCast, avatarImageId, signOut } = useAuth();
   const navigate = useNavigate();
   const [data, setData] = useState<UserLeaderboardResponseDto | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  const isMember = user && user.role !== "guest";
+
   useEffect(() => {
-    if (!user) return;
+    if (!isMember) return;
     let cancelled = false;
     (async () => {
       try {
@@ -32,17 +37,40 @@ export default function MePage() {
     return () => {
       cancelled = true;
     };
-  }, [user]);
+  }, [isMember]);
 
   if (!user) {
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center">
         <p className="text-sm text-muted-foreground">
-          You're not signed in.
+          Vote on a few matchups first — that gives us something to save.
         </p>
-        <Button className="mt-4" onClick={() => navigate("/login")}>
-          Sign in
+        <Button className="mt-4" onClick={() => navigate("/")}>
+          Start voting
         </Button>
+      </div>
+    );
+  }
+
+  if (user.role === "guest") {
+    const remaining = Math.max(0, AVATAR_VOTE_THRESHOLD - totalVotesCast);
+    return (
+      <div className="mx-auto max-w-md px-3 py-4 md:py-8">
+        <Card className="mb-4">
+          <CardContent className="flex items-center gap-4 p-5">
+            <Avatar imageId={avatarImageId} size="lg" />
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-semibold">Your taste, so far</p>
+              <p className="text-xs text-muted-foreground">
+                {totalVotesCast} {totalVotesCast === 1 ? "vote" : "votes"} cast
+                {remaining > 0
+                  ? ` · ${remaining} until your avatar shows up`
+                  : " · your top pick is up there"}
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+        <AuthForm mode="signup" />
       </div>
     );
   }
@@ -52,22 +80,23 @@ export default function MePage() {
   return (
     <div className="mx-auto max-w-2xl px-3 py-4 md:py-8">
       <header className="mb-4 flex items-center justify-between gap-3 px-1">
-        <div>
-          <h2 className="text-lg font-semibold tracking-tight">
-            @{user.username}
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            {data
-              ? `${data.summary.totalVotesCast} votes cast`
-              : "Loading..."}
-          </p>
+        <div className="flex items-center gap-3">
+          <Avatar imageId={avatarImageId} size="lg" />
+          <div>
+            <h2 className="text-lg font-semibold tracking-tight">
+              @{user.username}
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              {totalVotesCast} {totalVotesCast === 1 ? "vote" : "votes"} cast
+            </p>
+          </div>
         </div>
         <Button
           variant="outline"
           size="sm"
           onClick={async () => {
             await signOut();
-            navigate("/login");
+            navigate("/");
           }}
         >
           Sign out
@@ -108,7 +137,8 @@ export default function MePage() {
                       : row.image.id}
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    {row.wins}W · {row.losses}L
+                    {row.comparisons}{" "}
+                    {row.comparisons === 1 ? "vote" : "votes"}
                   </p>
                 </div>
                 <span className="text-sm font-semibold tabular-nums">

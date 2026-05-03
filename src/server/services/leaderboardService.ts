@@ -1,6 +1,7 @@
 import { listActiveImages } from "../repositories/imagesRepo.js";
 import type { DatabaseLike } from "../lib/db.js";
 import { aggregateSharedRanking } from "../domain/sharedAggregation.js";
+import { isPublicVoter } from "../lib/auth.js";
 import { isVisibleUser } from "../lib/visibleUsers.js";
 import {
   getUserState,
@@ -15,6 +16,10 @@ import {
   type PlayerRow,
 } from "../repositories/playersRepo.js";
 import { getUserByUsername, listUsers } from "../repositories/usersRepo.js";
+import {
+  readSharedLeaderboardCache,
+  writeSharedLeaderboardCache,
+} from "./leaderboardCache.js";
 
 export interface PlayerMeta {
   first: string;
@@ -103,17 +108,28 @@ function buildSharedStateRows(input: {
     }));
 }
 
-export async function getSharedLeaderboard(db: DatabaseLike): Promise<{
-  leaderboard: Array<{
-    aggregateScore: number;
-    confidence: number;
-    effectiveVoterWeight: number;
-    image: { id: string };
-    player: PlayerMeta | null;
-    rankPosition: number;
-    wins: number;
-  }>;
-}> {
+export interface SharedLeaderboardEntry {
+  aggregateScore: number;
+  confidence: number;
+  effectiveVoterWeight: number;
+  image: { id: string };
+  player: PlayerMeta | null;
+  rankPosition: number;
+  wins: number;
+}
+
+export interface SharedLeaderboardResponse {
+  leaderboard: SharedLeaderboardEntry[];
+}
+
+export async function getSharedLeaderboard(
+  db: DatabaseLike,
+): Promise<SharedLeaderboardResponse> {
+  const cached = readSharedLeaderboardCache<SharedLeaderboardResponse>();
+  if (cached) {
+    return cached;
+  }
+
   const [images, users, allPersonalState, allUserStates] = await Promise.all([
     listActiveImages(db),
     listUsers(db),
@@ -125,7 +141,11 @@ export async function getSharedLeaderboard(db: DatabaseLike): Promise<{
     images.map((image) => image.id),
   );
   const visibleUserIds = new Set(
-    users.filter((user) => isVisibleUser(user.username)).map((user) => user.id),
+    users
+      .filter(
+        (user) => isPublicVoter(user.role) && isVisibleUser(user.username),
+      )
+      .map((user) => user.id),
   );
   const visiblePersonalState = allPersonalState.filter((row) =>
     visibleUserIds.has(row.user_id),
@@ -171,7 +191,9 @@ export async function getSharedLeaderboard(db: DatabaseLike): Promise<{
       rankPosition: index + 1,
     }));
 
-  return { leaderboard };
+  const response: SharedLeaderboardResponse = { leaderboard };
+  writeSharedLeaderboardCache(response);
+  return response;
 }
 
 export async function getUserLeaderboard(

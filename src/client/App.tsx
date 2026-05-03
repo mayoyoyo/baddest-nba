@@ -8,17 +8,11 @@ import SignupPage from "@/routes/SignupPage";
 import VotePage from "@/routes/VotePage";
 import type { ReactNode } from "react";
 
-function RequireAuth({ children }: { children: ReactNode }) {
-  const { user, loading } = useAuth();
-  if (loading) return null;
-  if (!user) return <Navigate to="/login" replace />;
-  return <>{children}</>;
-}
-
 function PublicOnly({ children }: { children: ReactNode }) {
   const { user, loading } = useAuth();
   if (loading) return null;
-  if (user) return <Navigate to="/" replace />;
+  // Real users go home; guests stay so they can convert via signup form.
+  if (user && user.role !== "guest") return <Navigate to="/" replace />;
   return <>{children}</>;
 }
 
@@ -28,30 +22,9 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<AppShell />}>
-            <Route
-              path="/"
-              element={
-                <RequireAuth>
-                  <VotePage />
-                </RequireAuth>
-              }
-            />
-            <Route
-              path="/leaderboard"
-              element={
-                <RequireAuth>
-                  <LeaderboardPage />
-                </RequireAuth>
-              }
-            />
-            <Route
-              path="/me"
-              element={
-                <RequireAuth>
-                  <MePage />
-                </RequireAuth>
-              }
-            />
+            <Route path="/" element={<VotePage />} />
+            <Route path="/leaderboard" element={<LeaderboardPage />} />
+            <Route path="/me" element={<MePage />} />
             <Route
               path="/login"
               element={

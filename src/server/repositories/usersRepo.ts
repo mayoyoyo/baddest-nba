@@ -130,3 +130,21 @@ export async function deleteSessionByTokenHash(
     [tokenHash],
   );
 }
+
+export async function promoteGuestUser(
+  db: DatabaseLike,
+  input: {
+    userId: string;
+    username: string;
+    pinHash: string;
+  },
+): Promise<void> {
+  await toDbClient(db).query(
+    `UPDATE users
+       SET username = $1,
+           pin_hash = $2,
+           role = 'user'
+       WHERE id = $3 AND role = 'guest'`,
+    [input.username, input.pinHash, input.userId],
+  );
+}

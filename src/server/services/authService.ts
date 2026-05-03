@@ -13,6 +13,7 @@ import {
   createUser,
   deleteSessionByTokenHash,
   getUserByUsername,
+  promoteGuestUser,
 } from "../repositories/usersRepo.js";
 import type { AppBindings, AuthViewer, SessionUser } from "../types.js";
 
@@ -211,5 +212,49 @@ export async function logout(
 export function viewerResponse(viewer: AuthViewer): { user: SessionUser } {
   return {
     user: toSessionUser(viewer),
+  };
+}
+
+export async function promoteGuest(
+  db: DatabaseLike,
+  env: AppBindings,
+  viewer: AuthViewer,
+  payload: AuthPayload,
+  request: Request,
+): Promise<{ user: SessionUser }> {
+  if (!signupsAreOpen(env)) {
+    throw new AuthServiceError(403, "Signups are temporarily closed");
+  }
+
+  if (viewer.user.role !== "guest") {
+    throw new AuthServiceError(409, "Already signed up");
+  }
+
+  const username = normalizeUsername(payload.username);
+  if (!validateUsername(username)) {
+    throw new AuthServiceError(
+      400,
+      "Username must be 3-24 letters, numbers, or underscores",
+    );
+  }
+  if (!validatePin(payload.pin)) {
+    throw new AuthServiceError(400, "PIN must be exactly 4 digits");
+  }
+
+  await ensureTurnstile(env, payload.turnstileToken, request);
+
+  const existing = await getUserByUsername(db, username);
+  if (existing && existing.id !== viewer.user.id) {
+    throw new AuthServiceError(409, "Username is already taken");
+  }
+
+  await promoteGuestUser(db, {
+    userId: viewer.user.id,
+    username,
+    pinHash: await hashPin(payload.pin),
+  });
+
+  return {
+    user: { id: viewer.user.id, username, role: "user" },
   };
 }

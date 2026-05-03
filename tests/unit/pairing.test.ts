@@ -113,6 +113,6 @@ describe("pairing", () => {
       ],
     });
 
-    expect(pair).toEqual(["jhene", "a"]);
+    expect(pair?.slice().sort()).toEqual(["a", "jhene"]);
   });
 });
