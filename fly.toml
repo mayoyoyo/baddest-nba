@@ -1,4 +1,4 @@
-app = "baddest-nba"
+app = "baddest"
 primary_region = "iad"
 
 [build]
