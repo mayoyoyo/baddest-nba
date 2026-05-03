@@ -125,6 +125,16 @@ export interface SharedLeaderboardEntry {
   wins: number;
 }
 
+// Aggregate score arrives from sharedAggregation as a Z-score across
+// all users (~-3..+3). Remap to a 1200-centered ELO-ish display value
+// so personal ratings and global scores live on the same axis. Pure
+// cosmetic — ordering is preserved.
+const SHARED_DISPLAY_BASE = 1200;
+const SHARED_DISPLAY_STDDEV = 100;
+function toDisplayScore(zscore: number): number {
+  return SHARED_DISPLAY_BASE + zscore * SHARED_DISPLAY_STDDEV;
+}
+
 export interface SharedLeaderboardResponse {
   leaderboard: SharedLeaderboardEntry[];
 }
@@ -185,7 +195,7 @@ export async function getSharedLeaderboard(
       return {
         image: { id: image.id },
         player: toPlayerMeta(playersMap.get(image.id)),
-        aggregateScore: row?.aggregateScore ?? 0,
+        aggregateScore: toDisplayScore(row?.aggregateScore ?? 0),
         confidence: row?.confidence ?? 0,
         effectiveVoterWeight: row?.effectiveVoterWeight ?? 0,
         rankPosition: row?.rankPosition ?? Number.MAX_SAFE_INTEGER,
@@ -288,24 +298,40 @@ export async function getUserLeaderboard(
         wins: row?.wins ?? 0,
         losses: row?.losses ?? 0,
         confidence: row?.confidence ?? 0,
+        // ISO timestamp of the user's most recent compare against this
+        // player. Used as a final tiebreak so the most recently
+        // voted-on player floats to the top of any rating cluster.
+        // Stripped before the API response.
+        lastComparedAt: row?.last_compared_at ?? null,
         rankPosition: 0,
       };
     })
     .sort(
       // Tiebreak rating ties so a barely-seen player can't land at #1
       // by virtue of a low NBA personId. More personal comparisons +
-      // more wins = stronger signal among equally-rated picks.
-      (left, right) =>
-        right.rating - left.rating ||
-        right.comparisons - left.comparisons ||
-        right.wins - left.wins ||
-        right.confidence - left.confidence ||
-        left.image.id.localeCompare(right.image.id),
+      // more wins, then most recent vote first, then id as a final
+      // stable fallback.
+      (left, right) => {
+        const leftTs = left.lastComparedAt
+          ? new Date(left.lastComparedAt).getTime()
+          : 0;
+        const rightTs = right.lastComparedAt
+          ? new Date(right.lastComparedAt).getTime()
+          : 0;
+        return (
+          right.rating - left.rating ||
+          right.comparisons - left.comparisons ||
+          right.wins - left.wins ||
+          right.confidence - left.confidence ||
+          rightTs - leftTs ||
+          left.image.id.localeCompare(right.image.id)
+        );
+      },
     )
-    .map((row, index) => ({
-      ...row,
-      rankPosition: index + 1,
-    }));
+    .map((row, index) => {
+      const { lastComparedAt: _lastComparedAt, ...rest } = row;
+      return { ...rest, rankPosition: index + 1 };
+    });
 
   return {
     user: {

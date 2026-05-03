@@ -210,15 +210,17 @@ export async function getTopRatedImageIdForUser(
   db: DatabaseLike,
   userId: string,
 ): Promise<string | null> {
-  // Require at least 1 personal comparison. The 10-vote unlock
-  // threshold gates this upstream, so by the time we run this the user
-  // has voted enough that a single-comparison anchor is fine. Tiebreak
-  // on comparisons DESC so a player you've voted on more wins out
-  // among rating ties.
+  // Mirror the personal leaderboard sort: rating DESC, comparisons
+  // DESC, then most recent compare. Without the recency tiebreak the
+  // avatar would disagree with the displayed #1 in the user's 1st
+  // Team card whenever ratings cluster.
   const result = await toDbClient(db).query<{ image_id: string }>(
     `SELECT image_id FROM personal_image_state
      WHERE user_id = $1 AND comparisons >= 1
-     ORDER BY rating DESC, comparisons DESC, image_id ASC
+     ORDER BY rating DESC,
+              comparisons DESC,
+              last_compared_at DESC NULLS LAST,
+              image_id ASC
      LIMIT 1`,
     [userId],
   );
