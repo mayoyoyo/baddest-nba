@@ -1,0 +1,10 @@
+import { Hono } from "hono";
+import authRoutes from "./routes/auth.js";
+import leaderboardRoutes from "./routes/leaderboards.js";
+import voteRoutes from "./routes/vote.js";
+const app = new Hono();
+app.get("/api/health", (c) => c.json({ ok: true }));
+app.route("/api", authRoutes);
+app.route("/api", leaderboardRoutes);
+app.route("/api", voteRoutes);
+export default app;
