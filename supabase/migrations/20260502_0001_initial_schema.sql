@@ -1,3 +1,9 @@
+-- baddest-nba initial schema. Forked from baddest with two changes:
+--   - images.r2_key_* columns are nullable (we hotlink from cdn.nba.com
+--     instead of mirroring to storage)
+--   - new players table holds NBA metadata (name, team, jersey, pos)
+--     keyed by NBA personId, which doubles as images.id
+
 create table if not exists users (
   id text primary key,
   username text not null unique,
@@ -24,8 +30,8 @@ create index if not exists idx_sessions_expires_at on sessions(expires_at);
 
 create table if not exists images (
   id text primary key,
-  r2_key_original text not null,
-  r2_key_display text not null,
+  r2_key_original text,
+  r2_key_display text,
   width integer not null,
   height integer not null,
   mime_type text not null,
@@ -37,6 +43,18 @@ create table if not exists images (
 
 create index if not exists idx_images_status_sort_order
   on images(status, sort_order, created_at);
+
+create table if not exists players (
+  id text primary key references images(id) on delete cascade,
+  first text not null,
+  last text not null,
+  team text,
+  team_full text,
+  jersey text,
+  pos text
+);
+
+create index if not exists idx_players_last_first on players(last, first);
 
 create table if not exists vote_events (
   id text primary key,
