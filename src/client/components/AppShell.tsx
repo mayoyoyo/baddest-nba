@@ -21,14 +21,14 @@ export function AppShell() {
 
   if (minimalChrome) {
     return (
-      <div className="flex min-h-screen flex-col">
-        <header className="flex items-center justify-between border-b px-4 py-3">
-          <NavLink to="/" className="text-lg font-bold tracking-tight">
+      <div className="flex h-dvh flex-col">
+        <header className="flex shrink-0 items-center justify-between border-b px-4 py-2.5">
+          <NavLink to="/" className="text-base font-bold tracking-tight">
             Baddest in the L
           </NavLink>
           <ThemeToggle />
         </header>
-        <main className="flex-1">
+        <main className="min-h-0 flex-1 overflow-y-auto">
           <Outlet />
         </main>
       </div>
@@ -36,9 +36,9 @@ export function AppShell() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col pb-20 md:pb-0">
-      <header className="sticky top-0 z-10 flex items-center justify-between border-b bg-background/80 px-4 py-3 backdrop-blur">
-        <NavLink to="/" className="text-lg font-bold tracking-tight">
+    <div className="flex h-dvh flex-col">
+      <header className="flex shrink-0 items-center justify-between border-b bg-background px-4 py-2.5">
+        <NavLink to="/" className="text-base font-bold tracking-tight">
           Baddest in the L
         </NavLink>
         <nav className="hidden items-center gap-1 md:flex">
@@ -80,11 +80,11 @@ export function AppShell() {
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="min-h-0 flex-1">
         <Outlet />
       </main>
 
-      <nav className="safe-bottom fixed inset-x-0 bottom-0 z-10 grid grid-cols-3 border-t bg-background/95 backdrop-blur md:hidden">
+      <nav className="grid shrink-0 grid-cols-3 border-t bg-background pb-[env(safe-area-inset-bottom,0px)] md:hidden">
         {PRIMARY_NAV.map((item) => {
           const Icon = item.icon;
           return (
@@ -94,14 +94,14 @@ export function AppShell() {
               end={item.end}
               className={({ isActive }) =>
                 cn(
-                  "flex flex-col items-center justify-center gap-1 py-2 text-xs font-medium transition-colors",
+                  "flex flex-col items-center justify-center gap-0.5 py-1.5 text-[10px] font-medium leading-tight transition-colors",
                   isActive
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground",
                 )
               }
             >
-              <Icon className="size-5" />
+              <Icon className="size-4" />
               {item.label}
             </NavLink>
           );
@@ -110,7 +110,7 @@ export function AppShell() {
           to="/me"
           className={({ isActive }) =>
             cn(
-              "flex flex-col items-center justify-center gap-1 py-1.5 text-xs font-medium transition-colors",
+              "flex flex-col items-center justify-center gap-0.5 py-1 text-[10px] font-medium leading-tight transition-colors",
               isActive
                 ? "text-foreground"
                 : "text-muted-foreground hover:text-foreground",

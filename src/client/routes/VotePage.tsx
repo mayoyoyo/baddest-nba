@@ -28,7 +28,6 @@ export default function VotePage() {
     try {
       const next = await api.get<PairResponseDto>("/api/pair");
       setPair(next.pair);
-      // First /api/pair call may have created a guest cookie; sync /me.
       refresh();
     } catch (err) {
       setError((err as ApiError).message);
@@ -58,7 +57,6 @@ export default function VotePage() {
         } else {
           await loadPair();
         }
-        // Refresh /me so vote count + avatar update.
         refresh();
       } catch (err) {
         setError((err as ApiError).message);
@@ -89,11 +87,10 @@ export default function VotePage() {
     }
   }, [pair, loadPair]);
 
-  // Keyboard shortcuts for desktop power voters.
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === "ArrowLeft") handleVote("left");
-      else if (e.key === "ArrowRight") handleVote("right");
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") handleVote("left");
+      else if (e.key === "ArrowRight" || e.key === "ArrowDown") handleVote("right");
       else if (e.key.toLowerCase() === "s") handleSkip();
     }
     window.addEventListener("keydown", onKey);
@@ -106,36 +103,37 @@ export default function VotePage() {
 
   if (error) {
     return (
-      <div className="mx-auto max-w-md px-4 py-12 text-center">
-        <p className="text-sm text-muted-foreground">{error}</p>
-        <Button className="mt-4" onClick={loadPair}>Try again</Button>
+      <div className="flex h-full items-center justify-center px-4">
+        <div className="text-center">
+          <p className="text-sm text-muted-foreground">{error}</p>
+          <Button className="mt-4" onClick={loadPair}>Try again</Button>
+        </div>
       </div>
     );
   }
 
   if (!pair) {
     return (
-      <div className="mx-auto max-w-md px-4 py-12 text-center">
-        <h2 className="text-lg font-semibold">Nothing to vote on yet</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The roster hasn't been seeded — check back in a minute.
-        </p>
+      <div className="flex h-full items-center justify-center px-4">
+        <div className="max-w-sm text-center">
+          <h2 className="text-lg font-semibold">Nothing to vote on yet</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            The roster hasn't been seeded — check back in a minute.
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-3 px-3 py-4 md:py-8">
-      <div className="text-center">
-        <h2 className="text-base font-semibold tracking-tight md:text-lg">
+    <div className="mx-auto flex h-full max-w-5xl flex-col gap-2 px-3 pb-2 pt-2 md:gap-3 md:px-6 md:py-4">
+      <div className="shrink-0 text-center">
+        <h2 className="text-sm font-semibold tracking-tight md:text-lg">
           Who's the baddest?
         </h2>
-        <p className="text-xs text-muted-foreground md:text-sm">
-          Pick a face.
-        </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3">
+      <div className="grid min-h-0 flex-1 grid-cols-1 gap-2 md:grid-cols-2 md:gap-3">
         <PlayerCard
           imageId={pair.left.id}
           state={
@@ -160,11 +158,11 @@ export default function VotePage() {
         />
       </div>
 
-      <div className="flex justify-center pt-1">
+      <div className="flex shrink-0 justify-center">
         <Button
           variant="destructive"
           size="lg"
-          className="h-12 w-full max-w-xs text-base font-semibold"
+          className="h-11 w-full max-w-xs text-base font-semibold"
           onClick={handleSkip}
         >
           Skip
@@ -186,7 +184,7 @@ function PlayerCard({ imageId, state, onPick }: PlayerCardProps) {
       type="button"
       onClick={onPick}
       className={cn(
-        "group relative aspect-[5/4] overflow-hidden rounded-2xl border bg-muted transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:aspect-[4/3]",
+        "group relative min-h-0 overflow-hidden rounded-2xl border bg-muted transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         state === "winner" && "scale-[1.02] ring-2 ring-primary",
         state === "loser" && "scale-95 opacity-50",
       )}
@@ -204,11 +202,15 @@ function PlayerCard({ imageId, state, onPick }: PlayerCardProps) {
 
 function VoteScreenSkeleton() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-3 px-3 py-4 md:py-8">
-      <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3">
-        <div className="aspect-[5/4] animate-pulse rounded-2xl bg-muted md:aspect-[4/3]" />
-        <div className="aspect-[5/4] animate-pulse rounded-2xl bg-muted md:aspect-[4/3]" />
+    <div className="mx-auto flex h-full max-w-5xl flex-col gap-2 px-3 pb-2 pt-2 md:gap-3 md:px-6 md:py-4">
+      <div className="shrink-0 text-center">
+        <h2 className="text-sm font-semibold opacity-0 md:text-lg">.</h2>
       </div>
+      <div className="grid min-h-0 flex-1 grid-cols-1 gap-2 md:grid-cols-2 md:gap-3">
+        <div className="animate-pulse rounded-2xl bg-muted" />
+        <div className="animate-pulse rounded-2xl bg-muted" />
+      </div>
+      <div className="h-11 shrink-0" />
     </div>
   );
 }

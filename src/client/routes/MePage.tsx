@@ -41,13 +41,15 @@ export default function MePage() {
 
   if (!user) {
     return (
-      <div className="mx-auto max-w-md px-4 py-12 text-center">
-        <p className="text-sm text-muted-foreground">
-          Vote on a few matchups first — that gives us something to save.
-        </p>
-        <Button className="mt-4" onClick={() => navigate("/")}>
-          Start voting
-        </Button>
+      <div className="flex h-full items-center justify-center px-4">
+        <div className="max-w-md text-center">
+          <p className="text-sm text-muted-foreground">
+            Vote on a few matchups first — that gives us something to save.
+          </p>
+          <Button className="mt-4" onClick={() => navigate("/")}>
+            Start voting
+          </Button>
+        </div>
       </div>
     );
   }
@@ -55,22 +57,24 @@ export default function MePage() {
   if (user.role === "guest") {
     const remaining = Math.max(0, AVATAR_VOTE_THRESHOLD - totalVotesCast);
     return (
-      <div className="mx-auto max-w-md px-3 py-4 md:py-8">
-        <Card className="mb-4">
-          <CardContent className="flex items-center gap-4 p-5">
-            <Avatar imageId={avatarImageId} size="lg" />
-            <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold">Your taste, so far</p>
-              <p className="text-xs text-muted-foreground">
-                {totalVotesCast} {totalVotesCast === 1 ? "vote" : "votes"} cast
-                {remaining > 0
-                  ? ` · ${remaining} until your avatar shows up`
-                  : " · your top pick is up there"}
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-        <AuthForm mode="signup" />
+      <div className="h-full overflow-y-auto">
+        <div className="mx-auto max-w-md px-3 py-4 md:py-8">
+          <Card className="mb-4">
+            <CardContent className="flex items-center gap-4 p-5">
+              <Avatar imageId={avatarImageId} size="lg" />
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold">Your taste, so far</p>
+                <p className="text-xs text-muted-foreground">
+                  {totalVotesCast} {totalVotesCast === 1 ? "vote" : "votes"} cast
+                  {remaining > 0
+                    ? ` · ${remaining} until your avatar shows up`
+                    : " · your top pick is up there"}
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          <AuthForm mode="signup" />
+        </div>
       </div>
     );
   }
@@ -78,7 +82,8 @@ export default function MePage() {
   const top = data?.leaderboard.slice(0, 10) ?? [];
 
   return (
-    <div className="mx-auto max-w-2xl px-3 py-4 md:py-8">
+    <div className="h-full overflow-y-auto">
+      <div className="mx-auto max-w-2xl px-3 py-4 md:py-8">
       <header className="mb-4 flex items-center justify-between gap-3 px-1">
         <div className="flex items-center gap-3">
           <Avatar imageId={avatarImageId} size="lg" />
@@ -154,6 +159,7 @@ export default function MePage() {
           </ul>
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 }

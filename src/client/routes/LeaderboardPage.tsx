@@ -39,12 +39,16 @@ export default function LeaderboardPage() {
   }, []);
 
   if (loading) {
-    return <LeaderboardSkeleton />;
+    return (
+      <div className="h-full overflow-y-auto">
+        <LeaderboardSkeleton />
+      </div>
+    );
   }
 
   if (error) {
     return (
-      <div className="mx-auto max-w-md px-4 py-12 text-center text-sm text-muted-foreground">
+      <div className="flex h-full items-center justify-center px-4 text-center text-sm text-muted-foreground">
         {error}
       </div>
     );
@@ -56,19 +60,21 @@ export default function LeaderboardPage() {
   const hiddenCount = isMember ? 0 : Math.max(0, rows.length - visibleRows.length);
 
   return (
-    <div className="mx-auto max-w-2xl px-3 py-4 md:py-8">
-      <header className="mb-4 px-1">
-        <h2 className="text-lg font-semibold tracking-tight">Leaderboard</h2>
-        <p className="text-sm text-muted-foreground">
-          Aggregated across all signed-up voters.
-        </p>
-      </header>
-      <ul className="flex flex-col divide-y rounded-xl border bg-card">
-        {visibleRows.map((row) => (
-          <LeaderboardRow key={row.image.id} row={row} />
-        ))}
-        {hiddenCount > 0 && <PaywallRow hiddenCount={hiddenCount} />}
-      </ul>
+    <div className="h-full overflow-y-auto">
+      <div className="mx-auto max-w-2xl px-3 py-4 md:py-8">
+        <header className="mb-4 px-1">
+          <h2 className="text-lg font-semibold tracking-tight">Leaderboard</h2>
+          <p className="text-sm text-muted-foreground">
+            Aggregated across all signed-up voters.
+          </p>
+        </header>
+        <ul className="flex flex-col divide-y rounded-xl border bg-card">
+          {visibleRows.map((row) => (
+            <LeaderboardRow key={row.image.id} row={row} />
+          ))}
+          {hiddenCount > 0 && <PaywallRow hiddenCount={hiddenCount} />}
+        </ul>
+      </div>
     </div>
   );
 }
