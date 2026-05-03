@@ -11,9 +11,15 @@ import {
 } from "@/lib/api";
 import { cn } from "@/lib/cn";
 
+const DELTA_REVEAL_MS = 700;
+
 type AnimState =
   | { kind: "idle" }
-  | { kind: "voting"; winner: "left" | "right" };
+  | {
+      kind: "voting";
+      winner: "left" | "right";
+      delta?: { winner: number; loser: number };
+    };
 
 export default function VotePage() {
   const [pair, setPair] = useState<PairDto | null>(null);
@@ -51,7 +57,10 @@ export default function VotePage() {
           winnerImageId,
           loserImageId,
         });
-        await new Promise((r) => setTimeout(r, 220));
+        if (res.delta) {
+          setAnim({ kind: "voting", winner, delta: res.delta });
+        }
+        await new Promise((r) => setTimeout(r, DELTA_REVEAL_MS));
         if (res.nextPair) {
           setPair(res.nextPair);
         } else {
@@ -125,6 +134,19 @@ export default function VotePage() {
     );
   }
 
+  const leftDelta =
+    anim.kind === "voting" && anim.delta
+      ? anim.winner === "left"
+        ? anim.delta.winner
+        : anim.delta.loser
+      : null;
+  const rightDelta =
+    anim.kind === "voting" && anim.delta
+      ? anim.winner === "right"
+        ? anim.delta.winner
+        : anim.delta.loser
+      : null;
+
   return (
     <div className="mx-auto flex h-full max-w-5xl flex-col gap-2 px-3 pb-2 pt-2 md:gap-3 md:px-6 md:py-4">
       <div className="shrink-0 text-center">
@@ -143,6 +165,7 @@ export default function VotePage() {
                 : "loser"
               : "idle"
           }
+          delta={leftDelta}
           onPick={() => handleVote("left")}
         />
         <PlayerCard
@@ -154,6 +177,7 @@ export default function VotePage() {
                 : "loser"
               : "idle"
           }
+          delta={rightDelta}
           onPick={() => handleVote("right")}
         />
       </div>
@@ -175,10 +199,11 @@ export default function VotePage() {
 interface PlayerCardProps {
   imageId: string;
   state: "idle" | "winner" | "loser";
+  delta: number | null;
   onPick: () => void;
 }
 
-function PlayerCard({ imageId, state, onPick }: PlayerCardProps) {
+function PlayerCard({ imageId, state, delta, onPick }: PlayerCardProps) {
   return (
     <button
       type="button"
@@ -196,6 +221,19 @@ function PlayerCard({ imageId, state, onPick }: PlayerCardProps) {
         draggable={false}
         loading="eager"
       />
+      {delta !== null && (
+        <span
+          className={cn(
+            "pointer-events-none absolute right-2 top-2 rounded-full px-2.5 py-1 text-base font-bold tabular-nums shadow-lg transition-transform duration-200",
+            state === "winner"
+              ? "bg-emerald-500 text-white"
+              : "bg-rose-500 text-white",
+          )}
+        >
+          {delta > 0 ? "+" : ""}
+          {Math.round(delta)}
+        </span>
+      )}
     </button>
   );
 }

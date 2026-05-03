@@ -279,8 +279,13 @@ export async function getUserLeaderboard(
       };
     })
     .sort(
+      // Tiebreak rating ties so a barely-seen player can't land at #1
+      // by virtue of a low NBA personId. More personal comparisons +
+      // more wins = stronger signal among equally-rated picks.
       (left, right) =>
         right.rating - left.rating ||
+        right.comparisons - left.comparisons ||
+        right.wins - left.wins ||
         right.confidence - left.confidence ||
         left.image.id.localeCompare(right.image.id),
     )

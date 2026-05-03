@@ -95,8 +95,14 @@ export interface PairResponseDto {
   pair: PairDto | null;
 }
 
+export interface VoteDeltaDto {
+  winner: number;
+  loser: number;
+}
+
 export interface VoteResponseDto {
   nextPair: PairDto | null;
+  delta: VoteDeltaDto | null;
 }
 
 export interface SharedLeaderboardEntryDto {

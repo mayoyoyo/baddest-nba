@@ -220,7 +220,12 @@ export function selectNextPair(
   const recentImageExposure = buildRecentImageExposure(input.recentPairs ?? []);
   const blockedImageIds = buildBlockedImageIds(input.recentPairs ?? []);
   const random = input.random ?? createPairingRandom(input);
-  const exploratory = input.rankingConfidence < 0.6;
+  // Refinement mode kicks in earlier so the engine starts re-surfacing
+  // your top picks instead of always exploring fresh anchors. Old value
+  // (0.6) meant a normal user never left exploration, leaving every
+  // player at one comparison and the personal leaderboard clustered at
+  // 1200 ± single-K-swing.
+  const exploratory = input.rankingConfidence < 0.3;
   const candidateImages =
     input.images.filter((image) => !blockedImageIds.has(image.imageId)).length >= 2
       ? input.images.filter((image) => !blockedImageIds.has(image.imageId))

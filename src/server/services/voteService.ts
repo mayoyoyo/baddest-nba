@@ -281,11 +281,16 @@ export async function skipPairForUser(
   return result;
 }
 
+export interface VoteDelta {
+  winner: number;
+  loser: number;
+}
+
 export async function recordVoteForUser(
   db: DatabaseLike,
   userId: string,
   input: VoteInput,
-): Promise<{ nextPair: PairResponse | null }> {
+): Promise<{ nextPair: PairResponse | null; delta: VoteDelta | null }> {
   if (input.winnerImageId === input.loserImageId) {
     throw new Error("Winner and loser must differ");
   }
@@ -302,6 +307,7 @@ export async function recordVoteForUser(
     if (existingVoteEvent) {
       return {
         nextPair: await getNextPairForUser(db, userId),
+        delta: null,
       };
     }
   }
@@ -390,6 +396,10 @@ export async function recordVoteForUser(
 
     return {
       nextPair: buildNextPair(images, stateMap, rankingConfidence, nextRecentPairs),
+      delta: {
+        winner: nextRatings.winner - currentWinner.rating,
+        loser: nextRatings.loser - currentLoser.rating,
+      },
     };
   });
 
