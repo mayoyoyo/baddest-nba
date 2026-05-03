@@ -1,0 +1,12 @@
+Kura/
+.superpowers/
+node_modules/
+.DS_Store
+dist/
+build/
+.wrangler/
+playwright-report/
+test-results/
+.dev.vars
+.env
+.env.*
