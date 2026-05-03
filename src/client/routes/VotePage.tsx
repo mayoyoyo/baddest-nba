@@ -4,6 +4,7 @@ import {
   api,
   NBA_HEADSHOT_LARGE,
   type ApiError,
+  type PairDto,
   type PairResponseDto,
   type VoteResponseDto,
 } from "@/lib/api";
@@ -14,7 +15,7 @@ type AnimState =
   | { kind: "voting"; winner: "left" | "right" };
 
 export default function VotePage() {
-  const [pair, setPair] = useState<PairResponseDto | null>(null);
+  const [pair, setPair] = useState<PairDto | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [anim, setAnim] = useState<AnimState>({ kind: "idle" });
@@ -24,7 +25,7 @@ export default function VotePage() {
     setError(null);
     try {
       const next = await api.get<PairResponseDto>("/api/pair");
-      setPair(next);
+      setPair(next.pair);
     } catch (err) {
       const apiError = err as ApiError;
       if (apiError.status === 401) {
@@ -43,12 +44,10 @@ export default function VotePage() {
 
   const handleVote = useCallback(
     async (winner: "left" | "right") => {
-      if (!pair?.pair || anim.kind === "voting") return;
+      if (!pair || anim.kind === "voting") return;
       setAnim({ kind: "voting", winner });
-      const winnerImageId =
-        winner === "left" ? pair.pair.left.imageId : pair.pair.right.imageId;
-      const loserImageId =
-        winner === "left" ? pair.pair.right.imageId : pair.pair.left.imageId;
+      const winnerImageId = winner === "left" ? pair.left.id : pair.right.id;
+      const loserImageId = winner === "left" ? pair.right.id : pair.left.id;
       try {
         const res = await api.post<VoteResponseDto>("/api/vote", {
           winnerImageId,
@@ -70,13 +69,13 @@ export default function VotePage() {
   );
 
   const handleSkip = useCallback(async () => {
-    if (!pair?.pair) return;
+    if (!pair) return;
     try {
-      const res = await api.post<{ nextPair: PairResponseDto | null }>(
+      const res = await api.post<{ nextPair: PairDto | null }>(
         "/api/pair/skip",
         {
-          leftImageId: pair.pair.left.imageId,
-          rightImageId: pair.pair.right.imageId,
+          leftImageId: pair.left.id,
+          rightImageId: pair.right.id,
         },
       );
       if (res.nextPair) {
@@ -113,7 +112,7 @@ export default function VotePage() {
     );
   }
 
-  if (!pair?.pair) {
+  if (!pair) {
     return (
       <div className="mx-auto max-w-md px-4 py-12 text-center">
         <h2 className="text-lg font-semibold">Nothing to vote on yet</h2>
@@ -124,9 +123,6 @@ export default function VotePage() {
     );
   }
 
-  const left = pair.pair.left.imageId;
-  const right = pair.pair.right.imageId;
-
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-3 px-3 py-4 md:py-8">
       <div className="text-center">
@@ -134,13 +130,13 @@ export default function VotePage() {
           Who's the baddest?
         </h2>
         <p className="text-xs text-muted-foreground md:text-sm">
-          Pick a face. {pair.user.totalVotesCast} votes cast.
+          Pick a face.
         </p>
       </div>
 
       <div className="grid gap-3 md:grid-cols-2">
         <PlayerCard
-          imageId={left}
+          imageId={pair.left.id}
           state={
             anim.kind === "voting"
               ? anim.winner === "left"
@@ -151,7 +147,7 @@ export default function VotePage() {
           onPick={() => handleVote("left")}
         />
         <PlayerCard
-          imageId={right}
+          imageId={pair.right.id}
           state={
             anim.kind === "voting"
               ? anim.winner === "right"

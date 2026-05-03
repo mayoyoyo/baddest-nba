@@ -73,13 +73,17 @@ export interface PlayerMetaDto {
   pos: string | null;
 }
 
+export interface PairDto {
+  left: { id: string };
+  right: { id: string };
+}
+
 export interface PairResponseDto {
-  pair: { left: { imageId: string }; right: { imageId: string } } | null;
-  user: { totalVotesCast: number; rankingConfidence: number };
+  pair: PairDto | null;
 }
 
 export interface VoteResponseDto {
-  nextPair: PairResponseDto | null;
+  nextPair: PairDto | null;
 }
 
 export interface SharedLeaderboardEntryDto {
