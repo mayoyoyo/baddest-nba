@@ -10,7 +10,40 @@ import {
   type PersonalImageStateRow,
   type UserStateRow,
 } from "../repositories/leaderboardsRepo.js";
+import {
+  listPlayersByImageIds,
+  type PlayerRow,
+} from "../repositories/playersRepo.js";
 import { getUserByUsername, listUsers } from "../repositories/usersRepo.js";
+
+export interface PlayerMeta {
+  first: string;
+  last: string;
+  team: string | null;
+  teamFull: string | null;
+  jersey: string | null;
+  pos: string | null;
+}
+
+function toPlayerMeta(row: PlayerRow | undefined): PlayerMeta | null {
+  if (!row) return null;
+  return {
+    first: row.first,
+    last: row.last,
+    team: row.team,
+    teamFull: row.team_full,
+    jersey: row.jersey,
+    pos: row.pos,
+  };
+}
+
+async function loadPlayersMap(
+  db: DatabaseLike,
+  imageIds: string[],
+): Promise<Map<string, PlayerRow>> {
+  const players = await listPlayersByImageIds(db, imageIds);
+  return new Map(players.map((player) => [player.id, player]));
+}
 
 function buildSharedStateRows(input: {
   allPersonalState: PersonalImageStateRow[];
@@ -76,6 +109,7 @@ export async function getSharedLeaderboard(db: DatabaseLike): Promise<{
     confidence: number;
     effectiveVoterWeight: number;
     image: { id: string };
+    player: PlayerMeta | null;
     rankPosition: number;
     wins: number;
   }>;
@@ -86,6 +120,10 @@ export async function getSharedLeaderboard(db: DatabaseLike): Promise<{
     listAllPersonalImageState(db),
     listAllUserStates(db),
   ]);
+  const playersMap = await loadPlayersMap(
+    db,
+    images.map((image) => image.id),
+  );
   const visibleUserIds = new Set(
     users.filter((user) => isVisibleUser(user.username)).map((user) => user.id),
   );
@@ -114,6 +152,7 @@ export async function getSharedLeaderboard(db: DatabaseLike): Promise<{
       const row = sharedStateMap.get(image.id);
       return {
         image: { id: image.id },
+        player: toPlayerMeta(playersMap.get(image.id)),
         aggregateScore: row?.aggregateScore ?? 0,
         confidence: row?.confidence ?? 0,
         effectiveVoterWeight: row?.effectiveVoterWeight ?? 0,
@@ -144,6 +183,7 @@ export async function getUserLeaderboard(
     confidence: number;
     image: { id: string };
     losses: number;
+    player: PlayerMeta | null;
     rankPosition: number;
     rating: number;
     wins: number;
@@ -167,12 +207,17 @@ export async function getUserLeaderboard(
   const personalState = await listPersonalImageState(db, user.id);
   const userState = await getUserState(db, user.id);
   const personalStateMap = new Map(personalState.map((row) => [row.image_id, row]));
+  const playersMap = await loadPlayersMap(
+    db,
+    images.map((image) => image.id),
+  );
 
   const leaderboard = images
     .map((image) => {
       const row = personalStateMap.get(image.id);
       return {
         image: { id: image.id },
+        player: toPlayerMeta(playersMap.get(image.id)),
         rating: row?.rating ?? 1200,
         comparisons: row?.comparisons ?? 0,
         wins: row?.wins ?? 0,
