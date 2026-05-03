@@ -258,6 +258,8 @@ export async function recordVoteForUser(
     const nextRatings = applyEloVote({
       winner: currentWinner.rating,
       loser: currentLoser.rating,
+      winnerComparisons: currentWinner.comparisons,
+      loserComparisons: currentLoser.comparisons,
     });
     const now = new Date().toISOString();
 
