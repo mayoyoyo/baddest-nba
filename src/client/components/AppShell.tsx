@@ -1,19 +1,19 @@
-import { Trophy, User, Vote } from "lucide-react";
+import { Trophy, Vote } from "lucide-react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/cn";
 import { Avatar } from "./Avatar";
 import { ThemeToggle } from "./ThemeToggle";
 
-const NAV = [
+const PRIMARY_NAV = [
   { to: "/", label: "Vote", icon: Vote, end: true },
   { to: "/leaderboard", label: "Leaderboard", icon: Trophy, end: false },
-  { to: "/me", label: "Me", icon: User, end: false },
 ] as const;
 
 export function AppShell() {
   const location = useLocation();
-  const { avatarImageId } = useAuth();
+  const { avatarImageId, user } = useAuth();
+  const meLabel = user && user.role !== "guest" ? user.username : "Me";
 
   const minimalChrome =
     location.pathname.startsWith("/login") ||
@@ -42,7 +42,7 @@ export function AppShell() {
           Baddest in the L
         </NavLink>
         <nav className="hidden items-center gap-1 md:flex">
-          {NAV.map((item) => (
+          {PRIMARY_NAV.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
@@ -59,12 +59,24 @@ export function AppShell() {
               {item.label}
             </NavLink>
           ))}
+          <NavLink
+            to="/me"
+            className={({ isActive }) =>
+              cn(
+                "ml-1 flex items-center gap-2 rounded-full py-0.5 pl-1 pr-3 text-sm font-medium transition-colors",
+                isActive
+                  ? "bg-accent text-accent-foreground"
+                  : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+              )
+            }
+          >
+            <Avatar imageId={avatarImageId} size="sm" />
+            <span className="max-w-[8rem] truncate">{meLabel}</span>
+          </NavLink>
           <ThemeToggle />
-          <Avatar imageId={avatarImageId} size="sm" className="ml-1" />
         </nav>
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="md:hidden">
           <ThemeToggle />
-          <Avatar imageId={avatarImageId} size="sm" />
         </div>
       </header>
 
@@ -73,7 +85,7 @@ export function AppShell() {
       </main>
 
       <nav className="safe-bottom fixed inset-x-0 bottom-0 z-10 grid grid-cols-3 border-t bg-background/95 backdrop-blur md:hidden">
-        {NAV.map((item) => {
+        {PRIMARY_NAV.map((item) => {
           const Icon = item.icon;
           return (
             <NavLink
@@ -94,6 +106,20 @@ export function AppShell() {
             </NavLink>
           );
         })}
+        <NavLink
+          to="/me"
+          className={({ isActive }) =>
+            cn(
+              "flex flex-col items-center justify-center gap-1 py-1.5 text-xs font-medium transition-colors",
+              isActive
+                ? "text-foreground"
+                : "text-muted-foreground hover:text-foreground",
+            )
+          }
+        >
+          <Avatar imageId={avatarImageId} size="sm" />
+          <span className="max-w-[6rem] truncate">{meLabel}</span>
+        </NavLink>
       </nav>
     </div>
   );

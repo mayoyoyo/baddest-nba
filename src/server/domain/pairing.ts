@@ -261,11 +261,20 @@ export function selectNextPair(
           );
         });
 
+      // Pick from a pool of equally-good opponents instead of the
+      // single deterministic best. With a fresh user (everyone tied at
+      // comparisons=0, confidence=0, rating=1200) the existing
+      // alphabetical tiebreak meant the same opponent stuck across
+      // refreshes; this introduces variance without breaking the
+      // anchor-need + cooldown logic above.
+      const fresh = opponents.filter(
+        (candidate) =>
+          !recentPairKeys.has(normalizePairKey(anchor.imageId, candidate.imageId)),
+      );
+      const candidatePool = (fresh.length > 0 ? fresh : opponents).slice(0, 10);
       const freshOpponent =
-        opponents.find(
-          (candidate) =>
-            !recentPairKeys.has(normalizePairKey(anchor.imageId, candidate.imageId)),
-        ) ?? opponents[0];
+        candidatePool[Math.floor(random() * candidatePool.length)] ??
+        opponents[0];
 
       if (freshOpponent) {
         return random() < 0.5

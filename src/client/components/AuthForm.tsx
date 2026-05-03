@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
+import { PinInput } from "@/components/PinInput";
 import { useAuth } from "@/contexts/AuthContext";
 import { api, type ApiError, type SessionUserDto } from "@/lib/api";
 
@@ -86,17 +87,14 @@ export function AuthForm({ mode }: AuthFormProps) {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <Label htmlFor="pin">PIN (4 digits)</Label>
-              <Input
+              <Label htmlFor="pin" className="text-center">
+                4-digit PIN
+              </Label>
+              <PinInput
                 id="pin"
-                type="password"
-                inputMode="numeric"
-                pattern="[0-9]{4}"
-                maxLength={4}
-                autoComplete={isSignup ? "new-password" : "current-password"}
                 value={pin}
-                onChange={(e) => setPin(e.target.value.replace(/\D/g, ""))}
-                required
+                onChange={setPin}
+                length={4}
               />
             </div>
             {error && (
@@ -104,7 +102,11 @@ export function AuthForm({ mode }: AuthFormProps) {
                 {error}
               </div>
             )}
-            <Button type="submit" disabled={submitting} className="w-full">
+            <Button
+              type="submit"
+              disabled={submitting || pin.length !== 4 || !username.trim()}
+              className="w-full"
+            >
               {submitting
                 ? "..."
                 : isPromotion

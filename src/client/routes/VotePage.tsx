@@ -135,7 +135,7 @@ export default function VotePage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 md:gap-3">
+      <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3">
         <PlayerCard
           imageId={pair.left.id}
           state={
@@ -160,8 +160,13 @@ export default function VotePage() {
         />
       </div>
 
-      <div className="flex justify-center">
-        <Button variant="ghost" size="sm" onClick={handleSkip}>
+      <div className="flex justify-center pt-1">
+        <Button
+          variant="destructive"
+          size="lg"
+          className="h-12 w-full max-w-xs text-base font-semibold"
+          onClick={handleSkip}
+        >
           Skip
         </Button>
       </div>
@@ -181,7 +186,7 @@ function PlayerCard({ imageId, state, onPick }: PlayerCardProps) {
       type="button"
       onClick={onPick}
       className={cn(
-        "group relative aspect-[3/4] overflow-hidden rounded-2xl border bg-muted transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:aspect-[4/3]",
+        "group relative aspect-[5/4] overflow-hidden rounded-2xl border bg-muted transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:aspect-[4/3]",
         state === "winner" && "scale-[1.02] ring-2 ring-primary",
         state === "loser" && "scale-95 opacity-50",
       )}
@@ -200,9 +205,9 @@ function PlayerCard({ imageId, state, onPick }: PlayerCardProps) {
 function VoteScreenSkeleton() {
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-3 px-3 py-4 md:py-8">
-      <div className="grid grid-cols-2 gap-2 md:gap-3">
-        <div className="aspect-[3/4] animate-pulse rounded-2xl bg-muted sm:aspect-[4/3]" />
-        <div className="aspect-[3/4] animate-pulse rounded-2xl bg-muted sm:aspect-[4/3]" />
+      <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3">
+        <div className="aspect-[5/4] animate-pulse rounded-2xl bg-muted md:aspect-[4/3]" />
+        <div className="aspect-[5/4] animate-pulse rounded-2xl bg-muted md:aspect-[4/3]" />
       </div>
     </div>
   );

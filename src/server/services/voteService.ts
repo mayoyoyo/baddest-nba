@@ -1,6 +1,6 @@
 import { calculateImageConfidence, calculateRankingConfidence } from "../domain/confidence.js";
 import { RECENT_PAIR_CACHE_LIMIT, selectNextPair } from "../domain/pairing.js";
-import { applyEloVote } from "../domain/rating.js";
+import { applyEloTie, applyEloVote } from "../domain/rating.js";
 import { toDbClient, type DatabaseLike } from "../lib/db.js";
 import { invalidateSharedLeaderboardCache } from "./leaderboardCache.js";
 import { getImageById, listActiveImages, type ImageRow } from "../repositories/imagesRepo.js";
@@ -187,41 +187,98 @@ export async function skipPairForUser(
     throw new Error("Both images must exist");
   }
 
-  const images = await listActiveImages(db);
-  const personalStates = await listPersonalImageState(db, userId);
-  const userState = await getUserState(db, userId);
-  const stateMap = mapPersonalStates(userId, images, personalStates);
-  const rankingConfidence =
-    userState?.ranking_confidence ??
-    calculateRankingConfidence({
-      totalImages: images.length,
-      comparisonCounts: totalComparisonCounts(images, stateMap),
-    });
-  const skippedPair = normalizePair(input.leftImageId, input.rightImageId);
-  const nextRecentPairs = [
-    skippedPair,
-    ...parseRecentPairs(userState?.recent_pair_cache ?? null).filter(
-      (pair) => pair.join(":") !== skippedPair.join(":"),
-    ),
-  ];
+  // A skip means "I can't decide between these two" — that's a real
+  // ELO signal (effectively a tie). Apply it as such so close pairs
+  // converge on each other and so the user's skipping behavior moves
+  // their personal ranking, not just their pair queue.
+  const result = await toDbClient(db).transaction(async (tx) => {
+    const images = await listActiveImages(tx);
+    const personalStates = await listPersonalImageState(tx, userId);
+    const userState = await getUserState(tx, userId);
+    const stateMap = mapPersonalStates(userId, images, personalStates);
 
-  await upsertUserState(db, {
-    user_id: userId,
-    total_votes_cast: userState?.total_votes_cast ?? 0,
-    ranking_confidence: rankingConfidence,
-    recent_pair_cache: encodeRecentPairs(nextRecentPairs),
-    updated_at: new Date().toISOString(),
+    const currentLeft =
+      stateMap.get(input.leftImageId) ??
+      buildDefaultState(userId, input.leftImageId);
+    const currentRight =
+      stateMap.get(input.rightImageId) ??
+      buildDefaultState(userId, input.rightImageId);
+    const tied = applyEloTie({
+      left: currentLeft.rating,
+      right: currentRight.rating,
+      leftComparisons: currentLeft.comparisons,
+      rightComparisons: currentRight.comparisons,
+    });
+    const now = new Date().toISOString();
+
+    const updatedLeft: PersonalImageStateRow = {
+      ...currentLeft,
+      rating: tied.left,
+      comparisons: currentLeft.comparisons + 1,
+      last_compared_at: now,
+    };
+    const updatedRight: PersonalImageStateRow = {
+      ...currentRight,
+      rating: tied.right,
+      comparisons: currentRight.comparisons + 1,
+      last_compared_at: now,
+    };
+
+    stateMap.set(updatedLeft.image_id, updatedLeft);
+    stateMap.set(updatedRight.image_id, updatedRight);
+
+    const comparisonCounts = totalComparisonCounts(images, stateMap);
+    const averageComparisons =
+      comparisonCounts.reduce((sum, count) => sum + count, 0) /
+      Math.max(images.length, 1);
+
+    updatedLeft.confidence = calculateImageConfidence({
+      comparisons: updatedLeft.comparisons,
+      poolAverageComparisons: averageComparisons,
+    });
+    updatedRight.confidence = calculateImageConfidence({
+      comparisons: updatedRight.comparisons,
+      poolAverageComparisons: averageComparisons,
+    });
+
+    await upsertPersonalImageState(tx, updatedLeft);
+    await upsertPersonalImageState(tx, updatedRight);
+
+    const skippedPair = normalizePair(input.leftImageId, input.rightImageId);
+    const nextRecentPairs = [
+      skippedPair,
+      ...parseRecentPairs(userState?.recent_pair_cache ?? null).filter(
+        (pair) => pair.join(":") !== skippedPair.join(":"),
+      ),
+    ];
+    const rankingConfidence = calculateRankingConfidence({
+      totalImages: images.length,
+      comparisonCounts,
+    });
+
+    await upsertUserState(tx, {
+      user_id: userId,
+      // Skips don't count as "votes cast" in the marketing sense
+      // (they're declines), so don't bump total_votes_cast.
+      total_votes_cast: userState?.total_votes_cast ?? 0,
+      ranking_confidence: rankingConfidence,
+      recent_pair_cache: encodeRecentPairs(nextRecentPairs),
+      updated_at: now,
+    });
+
+    return {
+      nextPair: buildNextPair(
+        images,
+        stateMap,
+        rankingConfidence,
+        nextRecentPairs,
+        [...new Set(nextRecentPairs.flat())],
+      ),
+    };
   });
 
-  return {
-    nextPair: buildNextPair(
-      images,
-      stateMap,
-      rankingConfidence,
-      nextRecentPairs,
-      [...new Set(nextRecentPairs.flat())],
-    ),
-  };
+  invalidateSharedLeaderboardCache();
+  return result;
 }
 
 export async function recordVoteForUser(

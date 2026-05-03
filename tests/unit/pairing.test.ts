@@ -31,7 +31,13 @@ describe("pairing", () => {
     });
 
     expect(pair).not.toBeNull();
-    expect(pair?.slice().sort()).toEqual(["img-b", "img-d"]);
+    // Anchor must be img-b (highest exploratory need); opponent is
+    // chosen from a pool of equally-good candidates so we accept
+    // either img-c or img-d.
+    expect(pair).toContain("img-b");
+    expect(["img-c", "img-d"]).toContain(
+      pair!.find((id) => id !== "img-b"),
+    );
   });
 
   it("does not force the anchor image to stay on the left side", () => {

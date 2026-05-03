@@ -4,6 +4,7 @@ import { aggregateSharedRanking } from "../domain/sharedAggregation.js";
 import { isPublicVoter } from "../lib/auth.js";
 import { isVisibleUser } from "../lib/visibleUsers.js";
 import {
+  getGlobalImageRatingAverages,
   getUserState,
   listAllPersonalImageState,
   listAllUserStates,
@@ -226,21 +227,27 @@ export async function getUserLeaderboard(
   }
 
   const images = await listActiveImages(db);
-  const personalState = await listPersonalImageState(db, user.id);
-  const userState = await getUserState(db, user.id);
+  const [personalState, userState, playersMap, globalAverages] =
+    await Promise.all([
+      listPersonalImageState(db, user.id),
+      getUserState(db, user.id),
+      loadPlayersMap(db, images.map((image) => image.id)),
+      getGlobalImageRatingAverages(db),
+    ]);
   const personalStateMap = new Map(personalState.map((row) => [row.image_id, row]));
-  const playersMap = await loadPlayersMap(
-    db,
-    images.map((image) => image.id),
-  );
 
   const leaderboard = images
     .map((image) => {
       const row = personalStateMap.get(image.id);
+      // Pre-seed unvoted images with the crowd's average personal
+      // rating, not 1200. This means a new user's leaderboard reflects
+      // consensus from vote 1 and gradually drifts toward their taste,
+      // instead of being a wall of 1200s with one player at 1216.
+      const seededRating = globalAverages.get(image.id) ?? 1200;
       return {
         image: { id: image.id },
         player: toPlayerMeta(playersMap.get(image.id)),
-        rating: row?.rating ?? 1200,
+        rating: row?.rating ?? seededRating,
         comparisons: row?.comparisons ?? 0,
         wins: row?.wins ?? 0,
         losses: row?.losses ?? 0,

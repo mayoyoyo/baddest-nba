@@ -210,12 +210,36 @@ export async function getTopRatedImageIdForUser(
   db: DatabaseLike,
   userId: string,
 ): Promise<string | null> {
+  // Require at least 2 personal comparisons. Otherwise a player you
+  // beat once on their first appearance becomes your permanent avatar
+  // even though no one's challenged them yet.
   const result = await toDbClient(db).query<{ image_id: string }>(
     `SELECT image_id FROM personal_image_state
-     WHERE user_id = $1
+     WHERE user_id = $1 AND comparisons >= 2
      ORDER BY rating DESC, comparisons DESC, image_id ASC
      LIMIT 1`,
     [userId],
   );
   return result.rows[0]?.image_id ?? null;
+}
+
+export interface ImageRatingAverage {
+  image_id: string;
+  avg_rating: number;
+}
+
+// Average personal ELO across all real (non-guest, non-system) voters,
+// per image. Used to pre-seed a fresh user's personal leaderboard so
+// it's meaningful from vote 1 instead of a wall of 1200s.
+export async function getGlobalImageRatingAverages(
+  db: DatabaseLike,
+): Promise<Map<string, number>> {
+  const result = await toDbClient(db).query<ImageRatingAverage>(
+    `SELECT pis.image_id, AVG(pis.rating)::float8 AS avg_rating
+     FROM personal_image_state pis
+     JOIN users u ON u.id = pis.user_id
+     WHERE u.role IN ('user', 'admin')
+     GROUP BY pis.image_id`,
+  );
+  return new Map(result.rows.map((row) => [row.image_id, row.avg_rating]));
 }
