@@ -1,12 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <meta charset="UTF-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Baddest in the game</title>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a" />
+    <title>Baddest in the L</title>
+    <script>
+      // Apply theme class before paint to avoid a flash. Stored choice
+      // wins; otherwise follow the OS preference.
+      (function () {
+        try {
+          var stored = localStorage.getItem("baddest-nba-theme");
+          var prefersDark =
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var dark = stored ? stored === "dark" : prefersDark;
+          if (dark) document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="h-full bg-background text-foreground antialiased">
+    <div id="root" class="min-h-full"></div>
     <script src="/src/client/main.tsx" type="module"></script>
   </body>
 </html>

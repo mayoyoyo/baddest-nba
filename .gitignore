@@ -1,12 +1,9 @@
-Kura/
-.superpowers/
 node_modules/
 .DS_Store
 dist/
+dist-server/
 build/
-.wrangler/
-playwright-report/
-test-results/
-.dev.vars
 .env
 .env.*
+.fly/
+*.log

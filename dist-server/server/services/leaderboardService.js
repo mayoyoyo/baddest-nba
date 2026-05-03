@@ -2,7 +2,24 @@ import { listActiveImages } from "../repositories/imagesRepo.js";
 import { aggregateSharedRanking } from "../domain/sharedAggregation.js";
 import { isVisibleUser } from "../lib/visibleUsers.js";
 import { getUserState, listAllPersonalImageState, listAllUserStates, listPersonalImageState, } from "../repositories/leaderboardsRepo.js";
+import { listPlayersByImageIds, } from "../repositories/playersRepo.js";
 import { getUserByUsername, listUsers } from "../repositories/usersRepo.js";
+function toPlayerMeta(row) {
+    if (!row)
+        return null;
+    return {
+        first: row.first,
+        last: row.last,
+        team: row.team,
+        teamFull: row.team_full,
+        jersey: row.jersey,
+        pos: row.pos,
+    };
+}
+async function loadPlayersMap(db, imageIds) {
+    const players = await listPlayersByImageIds(db, imageIds);
+    return new Map(players.map((player) => [player.id, player]));
+}
 function buildSharedStateRows(input) {
     const statesByUser = new Map();
     for (const state of input.allPersonalState) {
@@ -47,6 +64,7 @@ export async function getSharedLeaderboard(db) {
         listAllPersonalImageState(db),
         listAllUserStates(db),
     ]);
+    const playersMap = await loadPlayersMap(db, images.map((image) => image.id));
     const visibleUserIds = new Set(users.filter((user) => isVisibleUser(user.username)).map((user) => user.id));
     const visiblePersonalState = allPersonalState.filter((row) => visibleUserIds.has(row.user_id));
     const visibleUserStates = allUserStates.filter((row) => visibleUserIds.has(row.user_id));
@@ -65,6 +83,7 @@ export async function getSharedLeaderboard(db) {
         const row = sharedStateMap.get(image.id);
         return {
             image: { id: image.id },
+            player: toPlayerMeta(playersMap.get(image.id)),
             aggregateScore: row?.aggregateScore ?? 0,
             confidence: row?.confidence ?? 0,
             effectiveVoterWeight: row?.effectiveVoterWeight ?? 0,
@@ -90,11 +109,13 @@ export async function getUserLeaderboard(db, username) {
     const personalState = await listPersonalImageState(db, user.id);
     const userState = await getUserState(db, user.id);
     const personalStateMap = new Map(personalState.map((row) => [row.image_id, row]));
+    const playersMap = await loadPlayersMap(db, images.map((image) => image.id));
     const leaderboard = images
         .map((image) => {
         const row = personalStateMap.get(image.id);
         return {
             image: { id: image.id },
+            player: toPlayerMeta(playersMap.get(image.id)),
             rating: row?.rating ?? 1200,
             comparisons: row?.comparisons ?? 0,
             wins: row?.wins ?? 0,
