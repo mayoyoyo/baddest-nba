@@ -32,12 +32,18 @@ export function UserProfileView({
   headerTrailing,
   headline,
 }: UserProfileViewProps) {
+  // Filter out players the user hasn't actually voted on. The full
+  // leaderboard pre-seeds unvoted entries with the crowd's average
+  // rating, which is fine for "what does everyone think" but wrong for
+  // "your picks". Without this, mayo's MVP crown lands on a player
+  // chris and evan voted up.
+  const personalEntries = entries.filter((row) => row.comparisons >= 1);
   const showFirstTeam = totalVotesCast >= AVATAR_VOTE_THRESHOLD;
-  const firstTeam = entries.slice(0, ALL_NBA_TEAM_SIZE);
-  const east = entries
+  const firstTeam = personalEntries.slice(0, ALL_NBA_TEAM_SIZE);
+  const east = personalEntries
     .filter((row) => row.player?.conference === "East")
     .slice(0, ALL_STARS_PER_CONFERENCE);
-  const west = entries
+  const west = personalEntries
     .filter((row) => row.player?.conference === "West")
     .slice(0, ALL_STARS_PER_CONFERENCE);
 

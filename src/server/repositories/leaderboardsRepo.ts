@@ -210,12 +210,14 @@ export async function getTopRatedImageIdForUser(
   db: DatabaseLike,
   userId: string,
 ): Promise<string | null> {
-  // Require at least 2 personal comparisons. Otherwise a player you
-  // beat once on their first appearance becomes your permanent avatar
-  // even though no one's challenged them yet.
+  // Require at least 1 personal comparison. The 10-vote unlock
+  // threshold gates this upstream, so by the time we run this the user
+  // has voted enough that a single-comparison anchor is fine. Tiebreak
+  // on comparisons DESC so a player you've voted on more wins out
+  // among rating ties.
   const result = await toDbClient(db).query<{ image_id: string }>(
     `SELECT image_id FROM personal_image_state
-     WHERE user_id = $1 AND comparisons >= 2
+     WHERE user_id = $1 AND comparisons >= 1
      ORDER BY rating DESC, comparisons DESC, image_id ASC
      LIMIT 1`,
     [userId],
