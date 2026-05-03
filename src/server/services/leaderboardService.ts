@@ -5,6 +5,7 @@ import { isPublicVoter } from "../lib/auth.js";
 import { type Conference, getConference } from "../lib/conferences.js";
 import { isVisibleUser } from "../lib/visibleUsers.js";
 import {
+  getBaddestTeamForUser,
   getGlobalImageRatingAverages,
   getTopRatedImageIdForUser,
   getUserState,
@@ -210,12 +211,18 @@ export async function getSharedLeaderboard(
 
 const AVATAR_VOTE_THRESHOLD = 10;
 
+export interface BaddestTeam {
+  abbr: string;
+  avgRating: number;
+  playerCount: number;
+}
+
 export async function getUserLeaderboard(
   db: DatabaseLike,
   username: string,
 ): Promise<{
   avatarImageId: string | null;
-  avatarTeam: string | null;
+  baddestTeam: BaddestTeam | null;
   leaderboard: Array<{
     comparisons: number;
     confidence: number;
@@ -242,12 +249,13 @@ export async function getUserLeaderboard(
   }
 
   const images = await listActiveImages(db);
-  const [personalState, userState, playersMap, globalAverages] =
+  const [personalState, userState, playersMap, globalAverages, baddestTeamRow] =
     await Promise.all([
       listPersonalImageState(db, user.id),
       getUserState(db, user.id),
       loadPlayersMap(db, images.map((image) => image.id)),
       getGlobalImageRatingAverages(db),
+      getBaddestTeamForUser(db, user.id),
     ]);
   const personalStateMap = new Map(personalState.map((row) => [row.image_id, row]));
   const totalVotesCast = userState?.total_votes_cast ?? 0;
@@ -255,9 +263,14 @@ export async function getUserLeaderboard(
     totalVotesCast >= AVATAR_VOTE_THRESHOLD
       ? await getTopRatedImageIdForUser(db, user.id)
       : null;
-  const avatarTeam = avatarImageId
-    ? (playersMap.get(avatarImageId)?.team ?? null)
-    : null;
+  const baddestTeam: BaddestTeam | null =
+    totalVotesCast >= AVATAR_VOTE_THRESHOLD && baddestTeamRow
+      ? {
+          abbr: baddestTeamRow.team,
+          avgRating: baddestTeamRow.avg_rating,
+          playerCount: baddestTeamRow.player_count,
+        }
+      : null;
 
   const leaderboard = images
     .map((image) => {
@@ -305,7 +318,7 @@ export async function getUserLeaderboard(
       rankingConfidence: userState?.ranking_confidence ?? 0,
     },
     avatarImageId,
-    avatarTeam,
+    baddestTeam,
     leaderboard,
   };
 }
@@ -314,7 +327,7 @@ export interface VoterSummary {
   username: string;
   totalVotesCast: number;
   avatarImageId: string | null;
-  avatarTeam: string | null;
+  baddestTeam: BaddestTeam | null;
 }
 
 export async function getVoters(
@@ -334,44 +347,41 @@ export async function getVoters(
       (stateByUserId.get(user.id)?.total_votes_cast ?? 0) > 0,
   );
 
-  const avatarPairs = await Promise.all(
+  const voterRows = await Promise.all(
     eligible.map(async (user) => {
       const totalVotesCast =
         stateByUserId.get(user.id)?.total_votes_cast ?? 0;
-      const avatarImageId =
-        totalVotesCast >= AVATAR_VOTE_THRESHOLD
-          ? await getTopRatedImageIdForUser(db, user.id)
-          : null;
-      return { user, avatarImageId, totalVotesCast };
+      const eligibleForAvatar = totalVotesCast >= AVATAR_VOTE_THRESHOLD;
+      const [avatarImageId, baddestTeamRow] = await Promise.all([
+        eligibleForAvatar
+          ? getTopRatedImageIdForUser(db, user.id)
+          : Promise.resolve(null),
+        eligibleForAvatar
+          ? getBaddestTeamForUser(db, user.id)
+          : Promise.resolve(null),
+      ]);
+      const baddestTeam: BaddestTeam | null = baddestTeamRow
+        ? {
+            abbr: baddestTeamRow.team,
+            avgRating: baddestTeamRow.avg_rating,
+            playerCount: baddestTeamRow.player_count,
+          }
+        : null;
+      return {
+        username: user.username,
+        totalVotesCast,
+        avatarImageId,
+        baddestTeam,
+      };
     }),
   );
 
-  const avatarImageIds = avatarPairs
-    .map((row) => row.avatarImageId)
-    .filter((id): id is string => id !== null);
-  const teamByImageId = new Map<string, string | null>();
-  if (avatarImageIds.length > 0) {
-    const players = await listPlayersByImageIds(db, avatarImageIds);
-    for (const player of players) {
-      teamByImageId.set(player.id, player.team);
-    }
-  }
-
   return {
-    voters: avatarPairs
-      .map((row) => ({
-        username: row.user.username,
-        totalVotesCast: row.totalVotesCast,
-        avatarImageId: row.avatarImageId,
-        avatarTeam: row.avatarImageId
-          ? (teamByImageId.get(row.avatarImageId) ?? null)
-          : null,
-      }))
-      .sort(
-        (a, b) =>
-          b.totalVotesCast - a.totalVotesCast ||
-          a.username.localeCompare(b.username),
-      ),
+    voters: voterRows.sort(
+      (a, b) =>
+        b.totalVotesCast - a.totalVotesCast ||
+        a.username.localeCompare(b.username),
+    ),
   };
 }
 

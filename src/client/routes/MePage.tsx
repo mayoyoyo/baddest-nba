@@ -15,7 +15,7 @@ import {
 } from "@/lib/api";
 
 export default function MePage() {
-  const { user, totalVotesCast, avatarImageId, avatarTeam, signOut } =
+  const { user, totalVotesCast, avatarImageId, baddestTeam, signOut } =
     useAuth();
   const navigate = useNavigate();
   const [data, setData] = useState<UserLeaderboardResponseDto | null>(null);
@@ -63,7 +63,11 @@ export default function MePage() {
         <div className="mx-auto max-w-md px-3 py-4 md:py-8">
           <Card className="mb-4">
             <CardContent className="flex items-center gap-4 p-5">
-              <Avatar imageId={avatarImageId} team={avatarTeam} size="lg" />
+              <Avatar
+                imageId={avatarImageId}
+                team={baddestTeam?.abbr ?? null}
+                size="lg"
+              />
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-semibold">Your taste, so far</p>
                 <p className="text-xs text-muted-foreground">
@@ -91,7 +95,7 @@ export default function MePage() {
           username={user.username}
           totalVotesCast={totalVotesCast}
           avatarImageId={avatarImageId}
-          avatarTeam={avatarTeam}
+          baddestTeam={baddestTeam}
           entries={data?.leaderboard ?? []}
           headerTrailing={
             <Button

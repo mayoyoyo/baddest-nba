@@ -6,6 +6,8 @@ import {
   ALL_STARS_PER_CONFERENCE,
   AVATAR_VOTE_THRESHOLD,
   NBA_HEADSHOT_SMALL,
+  NBA_TEAM_LOGO,
+  type BaddestTeamDto,
   type ConferenceDto,
   type UserLeaderboardEntryDto,
 } from "@/lib/api";
@@ -15,7 +17,7 @@ export interface UserProfileViewProps {
   username: string;
   totalVotesCast: number;
   avatarImageId: string | null;
-  avatarTeam: string | null;
+  baddestTeam: BaddestTeamDto | null;
   entries: UserLeaderboardEntryDto[];
   headerTrailing?: React.ReactNode;
   headline?: string;
@@ -25,7 +27,7 @@ export function UserProfileView({
   username,
   totalVotesCast,
   avatarImageId,
-  avatarTeam,
+  baddestTeam,
   entries,
   headerTrailing,
   headline,
@@ -45,7 +47,7 @@ export function UserProfileView({
         <div className="flex min-w-0 items-center gap-3">
           <Avatar
             imageId={avatarImageId}
-            team={avatarTeam}
+            team={baddestTeam?.abbr ?? null}
             size="lg"
           />
           <div className="min-w-0">
@@ -62,6 +64,31 @@ export function UserProfileView({
         </div>
         {headerTrailing}
       </header>
+
+      {baddestTeam && (
+        <div className="mb-4 flex items-center gap-3 rounded-xl border bg-card px-4 py-3">
+          <img
+            src={NBA_TEAM_LOGO(baddestTeam.abbr)}
+            alt=""
+            className="size-10 shrink-0 rounded-full bg-background object-contain p-0.5"
+            draggable={false}
+          />
+          <div className="min-w-0 flex-1">
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+              Baddest team
+            </p>
+            <p className="truncate text-sm font-semibold">{baddestTeam.abbr}</p>
+          </div>
+          <div className="text-right">
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+              Avg ELO
+            </p>
+            <p className="text-sm font-semibold tabular-nums">
+              {Math.round(baddestTeam.avgRating)}
+            </p>
+          </div>
+        </div>
+      )}
 
       {entries.length === 0 ? (
         <Card>

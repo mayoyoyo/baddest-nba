@@ -71,7 +71,7 @@ export default function VotersPage() {
                 >
                   <Avatar
                     imageId={voter.avatarImageId}
-                    team={voter.avatarTeam}
+                    team={voter.baddestTeam?.abbr ?? null}
                     size="md"
                   />
                   <div className="min-w-0 flex-1">

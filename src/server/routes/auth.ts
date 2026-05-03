@@ -8,10 +8,10 @@ import {
 import { ensureViewer, getViewer, requireAuth } from "../lib/auth.js";
 import { getAppBindings, getDb } from "../lib/runtime.js";
 import {
+  getBaddestTeamForUser,
   getTopRatedImageIdForUser,
   getUserState,
 } from "../repositories/leaderboardsRepo.js";
-import { listPlayersByImageIds } from "../repositories/playersRepo.js";
 import {
   AuthServiceError,
   login,
@@ -57,13 +57,19 @@ async function parseAuthPayload(request: Request): Promise<{
   };
 }
 
+interface BaddestTeamPayload {
+  abbr: string;
+  avgRating: number;
+  playerCount: number;
+}
+
 async function buildMePayload(c: AppContext, viewer: AuthViewer | null) {
   if (!viewer) {
     return {
       user: null,
       totalVotesCast: 0,
       avatarImageId: null as string | null,
-      avatarTeam: null as string | null,
+      baddestTeam: null as BaddestTeamPayload | null,
     };
   }
 
@@ -74,11 +80,17 @@ async function buildMePayload(c: AppContext, viewer: AuthViewer | null) {
     totalVotesCast >= AVATAR_VOTE_THRESHOLD
       ? await getTopRatedImageIdForUser(db, viewer.user.id)
       : null;
-  let avatarTeam: string | null = null;
-  if (avatarImageId) {
-    const players = await listPlayersByImageIds(db, [avatarImageId]);
-    avatarTeam = players[0]?.team ?? null;
-  }
+  const baddestTeamRow =
+    totalVotesCast >= AVATAR_VOTE_THRESHOLD
+      ? await getBaddestTeamForUser(db, viewer.user.id)
+      : null;
+  const baddestTeam: BaddestTeamPayload | null = baddestTeamRow
+    ? {
+        abbr: baddestTeamRow.team,
+        avgRating: baddestTeamRow.avg_rating,
+        playerCount: baddestTeamRow.player_count,
+      }
+    : null;
 
   return {
     user: {
@@ -88,7 +100,7 @@ async function buildMePayload(c: AppContext, viewer: AuthViewer | null) {
     },
     totalVotesCast,
     avatarImageId,
-    avatarTeam,
+    baddestTeam,
   };
 }
 

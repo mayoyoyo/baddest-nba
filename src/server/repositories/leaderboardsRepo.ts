@@ -228,6 +228,37 @@ export interface ImageRatingAverage {
   avg_rating: number;
 }
 
+export interface BaddestTeamRow {
+  team: string;
+  avg_rating: number;
+  player_count: number;
+}
+
+// User's "baddest team": highest average personal rating across the
+// team's players you've actually voted on. Requires >= 3 rated players
+// per team so a single hot rookie doesn't carry a team.
+export async function getBaddestTeamForUser(
+  db: DatabaseLike,
+  userId: string,
+): Promise<BaddestTeamRow | null> {
+  const result = await toDbClient(db).query<BaddestTeamRow>(
+    `SELECT p.team,
+            AVG(pis.rating)::float8 AS avg_rating,
+            COUNT(*)::int AS player_count
+     FROM personal_image_state pis
+     JOIN players p ON p.id = pis.image_id
+     WHERE pis.user_id = $1
+       AND pis.comparisons >= 1
+       AND p.team IS NOT NULL
+     GROUP BY p.team
+     HAVING COUNT(*) >= 3
+     ORDER BY avg_rating DESC
+     LIMIT 1`,
+    [userId],
+  );
+  return result.rows[0] ?? null;
+}
+
 // Average personal ELO across all real (non-guest, non-system) voters,
 // per image. Used to pre-seed a fresh user's personal leaderboard so
 // it's meaningful from vote 1 instead of a wall of 1200s.

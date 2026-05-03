@@ -60,11 +60,17 @@ export interface SessionUserDto {
   role: "admin" | "user" | "guest";
 }
 
+export interface BaddestTeamDto {
+  abbr: string;
+  avgRating: number;
+  playerCount: number;
+}
+
 export interface MeDto {
   user: SessionUserDto | null;
   totalVotesCast: number;
   avatarImageId: string | null;
-  avatarTeam: string | null;
+  baddestTeam: BaddestTeamDto | null;
 }
 
 export const AVATAR_VOTE_THRESHOLD = 10;
@@ -131,7 +137,7 @@ export interface UserLeaderboardResponseDto {
   user: SessionUserDto;
   summary: { totalVotesCast: number; rankingConfidence: number };
   avatarImageId: string | null;
-  avatarTeam: string | null;
+  baddestTeam: BaddestTeamDto | null;
   leaderboard: UserLeaderboardEntryDto[];
 }
 
@@ -139,7 +145,7 @@ export interface VoterDto {
   username: string;
   totalVotesCast: number;
   avatarImageId: string | null;
-  avatarTeam: string | null;
+  baddestTeam: BaddestTeamDto | null;
 }
 
 export interface VotersResponseDto {

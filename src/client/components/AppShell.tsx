@@ -26,7 +26,7 @@ const PRIMARY_NAV = [
 
 export function AppShell() {
   const location = useLocation();
-  const { avatarImageId, avatarTeam, user } = useAuth();
+  const { avatarImageId, baddestTeam, user } = useAuth();
   const meLabel = user && user.role !== "guest" ? user.username : "Me";
 
   const minimalChrome =
@@ -80,7 +80,7 @@ export function AppShell() {
               )
             }
           >
-            <Avatar imageId={avatarImageId} team={avatarTeam} size="sm" />
+            <Avatar imageId={avatarImageId} team={baddestTeam?.abbr ?? null} size="sm" />
             <span className="max-w-[8rem] truncate">{meLabel}</span>
           </NavLink>
           <ThemeToggle />
@@ -127,7 +127,7 @@ export function AppShell() {
             )
           }
         >
-          <Avatar imageId={avatarImageId} team={avatarTeam} size="sm" />
+          <Avatar imageId={avatarImageId} team={baddestTeam?.abbr ?? null} size="sm" />
           <span className="max-w-[6rem] truncate">{meLabel}</span>
         </NavLink>
       </nav>

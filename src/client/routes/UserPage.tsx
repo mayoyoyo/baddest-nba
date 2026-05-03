@@ -64,7 +64,7 @@ export default function UserPage() {
             username={data.user.username}
             totalVotesCast={data.summary.totalVotesCast}
             avatarImageId={data.avatarImageId}
-            avatarTeam={data.avatarTeam}
+            baddestTeam={data.baddestTeam}
             entries={data.leaderboard}
           />
         )}

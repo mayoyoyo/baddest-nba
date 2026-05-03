@@ -10,6 +10,7 @@ import {
 import {
   api,
   type ApiError,
+  type BaddestTeamDto,
   type MeDto,
   type SessionUserDto,
 } from "@/lib/api";
@@ -18,7 +19,7 @@ interface AuthContextValue {
   user: SessionUserDto | null;
   totalVotesCast: number;
   avatarImageId: string | null;
-  avatarTeam: string | null;
+  baddestTeam: BaddestTeamDto | null;
   loading: boolean;
   refresh: () => Promise<void>;
   signOut: () => Promise<void>;
@@ -31,7 +32,7 @@ const EMPTY_ME: MeDto = {
   user: null,
   totalVotesCast: 0,
   avatarImageId: null,
-  avatarTeam: null,
+  baddestTeam: null,
 };
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -72,7 +73,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       user: me.user,
       totalVotesCast: me.totalVotesCast,
       avatarImageId: me.avatarImageId,
-      avatarTeam: me.avatarTeam,
+      baddestTeam: me.baddestTeam,
       loading,
       refresh,
       signOut,

@@ -48,7 +48,7 @@ export function Avatar({
           <span className="leading-none">🏀</span>
         )}
       </span>
-      {imageId && team && (
+      {team && (
         <span
           className={cn(
             "absolute -bottom-0.5 -right-0.5 inline-flex items-center justify-center rounded-full border border-background bg-background shadow-sm",
