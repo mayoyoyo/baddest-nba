@@ -5,7 +5,6 @@ import { Button, buttonVariants } from "@/components/ui/Button";
 import { useAuth } from "@/contexts/AuthContext";
 import {
   api,
-  ALL_NBA_ELIGIBILITY_FLOOR,
   ALL_NBA_TEAM_COUNT,
   ALL_NBA_TEAM_SIZE,
   NBA_HEADSHOT_SMALL,
@@ -105,20 +104,18 @@ function AllNbaView({
   rows: SharedLeaderboardEntryDto[];
   onSeeFull: () => void;
 }) {
-  const eligible = useMemo(
-    () => rows.filter((r) => r.totalComparisons >= ALL_NBA_ELIGIBILITY_FLOOR),
-    [rows],
-  );
-
+  // No eligibility floor: the server applies Bayesian smoothing on the
+  // crowd score against a popularity prior, so unrated names still
+  // surface a meaningful default. Top 15 by smoothed score, sliced
+  // into 1st/2nd/3rd tiers.
   const teams: SharedLeaderboardEntryDto[][] = useMemo(() => {
     const out: SharedLeaderboardEntryDto[][] = [];
     for (let i = 0; i < ALL_NBA_TEAM_COUNT; i++) {
-      out.push(eligible.slice(i * ALL_NBA_TEAM_SIZE, (i + 1) * ALL_NBA_TEAM_SIZE));
+      out.push(rows.slice(i * ALL_NBA_TEAM_SIZE, (i + 1) * ALL_NBA_TEAM_SIZE));
     }
     return out;
-  }, [eligible]);
+  }, [rows]);
 
-  const hasFirstTeam = teams[0]?.length === ALL_NBA_TEAM_SIZE;
   const tierLabels = ["1st Team", "2nd Team", "3rd Team"];
 
   return (
@@ -134,14 +131,10 @@ function AllNbaView({
           </p>
         </header>
 
-        {!hasFirstTeam ? (
+        {rows.length === 0 ? (
           <div className="rounded-xl border bg-card px-4 py-10 text-center">
             <Trophy className="mx-auto mb-2 size-6 text-muted-foreground" />
-            <p className="text-sm font-medium">All-NBA awarded soon</p>
-            <p className="mt-1 text-xs text-muted-foreground">
-              Players need {ALL_NBA_ELIGIBILITY_FLOOR}+ votes to qualify.
-              Keep voting to fill out the teams.
-            </p>
+            <p className="text-sm font-medium">No players ranked yet</p>
           </div>
         ) : (
           <div className="flex flex-col gap-4">

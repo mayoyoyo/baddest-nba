@@ -3,6 +3,7 @@ import type { DatabaseLike } from "../lib/db.js";
 import { aggregateSharedRanking } from "../domain/sharedAggregation.js";
 import { isPublicVoter } from "../lib/auth.js";
 import { type Conference, getConference } from "../lib/conferences.js";
+import { getPopularityPrior } from "../lib/popularity.js";
 import { isVisibleUser } from "../lib/visibleUsers.js";
 import {
   getBaddestTeamForUser,
@@ -140,6 +141,23 @@ function toDisplayScore(zscore: number): number {
   return SHARED_DISPLAY_BASE + zscore * SHARED_DISPLAY_STDDEV;
 }
 
+// Bayesian smoothing: how many phantom prior-votes to weight against
+// the actual data. Higher m => prior dominates longer; lower m => data
+// takes over faster. m=20 means the displayed score sits halfway
+// between prior and data once a player has 20 total comparisons.
+const SMOOTHING_PHANTOM_VOTES = 20;
+function bayesianSmooth(
+  rawScore: number,
+  prior: number,
+  totalComparisons: number,
+): number {
+  if (totalComparisons <= 0) return prior;
+  return (
+    (totalComparisons * rawScore + SMOOTHING_PHANTOM_VOTES * prior) /
+    (totalComparisons + SMOOTHING_PHANTOM_VOTES)
+  );
+}
+
 export interface SharedLeaderboardResponse {
   leaderboard: SharedLeaderboardEntry[];
 }
@@ -221,15 +239,24 @@ async function getSharedLeaderboardBase(
 
   const leaderboard = images
     .map((image) => {
-      const row = sharedStateMap.get(image.id);
+      const playerRow = playersMap.get(image.id);
+      const aggRow = sharedStateMap.get(image.id);
+      const totalCmp = comparisonsByImage.get(image.id) ?? 0;
+      const rawScore = toDisplayScore(aggRow?.aggregateScore ?? 0);
+      const prior = getPopularityPrior(playerRow);
+      // Bayesian-smoothed crowd score. Players with no votes show the
+      // popularity prior; players with many votes converge to the
+      // crowd-aggregated raw score. Reorders the leaderboard from
+      // pure data-rank to prior-shaped data-rank.
+      const aggregateScore = bayesianSmooth(rawScore, prior, totalCmp);
       return {
         image: { id: image.id },
-        player: toPlayerMeta(playersMap.get(image.id)),
-        aggregateScore: toDisplayScore(row?.aggregateScore ?? 0),
-        confidence: row?.confidence ?? 0,
-        effectiveVoterWeight: row?.effectiveVoterWeight ?? 0,
-        rankPosition: row?.rankPosition ?? Number.MAX_SAFE_INTEGER,
-        totalComparisons: comparisonsByImage.get(image.id) ?? 0,
+        player: toPlayerMeta(playerRow),
+        aggregateScore,
+        confidence: aggRow?.confidence ?? 0,
+        effectiveVoterWeight: aggRow?.effectiveVoterWeight ?? 0,
+        rankPosition: 0,
+        totalComparisons: totalCmp,
         viewerWins: 0,
         viewerLosses: 0,
         viewerComparisons: 0,
@@ -238,8 +265,8 @@ async function getSharedLeaderboardBase(
     })
     .sort(
       (left, right) =>
-        left.rankPosition - right.rankPosition ||
         right.aggregateScore - left.aggregateScore ||
+        right.totalComparisons - left.totalComparisons ||
         left.image.id.localeCompare(right.image.id),
     )
     .map((row, index) => ({
