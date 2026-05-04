@@ -123,6 +123,7 @@ export interface SharedLeaderboardEntryDto {
   viewerLosses: number;
   viewerComparisons: number;
   wins: number;
+  losses: number;
 }
 
 export interface UserLeaderboardEntryDto {

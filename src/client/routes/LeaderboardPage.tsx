@@ -189,9 +189,11 @@ function AllNbaView({
   );
 }
 
-function viewerRecordLabel(row: SharedLeaderboardEntryDto): string | null {
-  if (row.viewerComparisons <= 0) return null;
-  return `You ${row.viewerWins}-${row.viewerLosses}`;
+function crowdRecordLabel(row: SharedLeaderboardEntryDto): string | null {
+  // Crowd aggregate W-L across all non-guest voters. Hidden until the
+  // player has at least one decided matchup (skips don't count).
+  if (row.wins + row.losses <= 0) return null;
+  return `${row.wins}-${row.losses}`;
 }
 
 function AllNbaRow({
@@ -206,8 +208,8 @@ function AllNbaRow({
   const teamLineParts: string[] = [];
   if (player?.team) teamLineParts.push(player.team);
   if (player?.pos) teamLineParts.push(player.pos);
-  const viewerLabel = viewerRecordLabel(row);
-  if (viewerLabel) teamLineParts.push(viewerLabel);
+  const recordLabel = crowdRecordLabel(row);
+  if (recordLabel) teamLineParts.push(recordLabel);
   const teamLine = teamLineParts.join(" · ");
 
   return (
@@ -365,8 +367,8 @@ function LeaderboardRow({ row }: { row: SharedLeaderboardEntryDto }) {
   if (player?.team) teamLineParts.push(player.team);
   if (player?.pos) teamLineParts.push(player.pos);
   if (player?.jersey) teamLineParts.push(`#${player.jersey}`);
-  const viewerLabel = viewerRecordLabel(row);
-  if (viewerLabel) teamLineParts.push(viewerLabel);
+  const recordLabel = crowdRecordLabel(row);
+  if (recordLabel) teamLineParts.push(recordLabel);
   const teamLine = teamLineParts.join(" · ");
 
   return (

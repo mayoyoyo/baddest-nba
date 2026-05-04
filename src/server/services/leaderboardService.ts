@@ -128,7 +128,10 @@ export interface SharedLeaderboardEntry {
   viewerWins: number;
   viewerLosses: number;
   viewerComparisons: number;
+  // Crowd aggregate: sum of wins / losses across visible non-guest
+  // voters. comparisons - wins - losses = skips.
   wins: number;
+  losses: number;
 }
 
 // Aggregate score arrives from sharedAggregation as a Z-score across
@@ -227,10 +230,15 @@ async function getSharedLeaderboardBase(
     sharedStateRows.map((row) => [row.imageId, row]),
   );
   const winsByImage = new Map<string, number>();
+  const lossesByImage = new Map<string, number>();
   const comparisonsByImage = new Map<string, number>();
 
   for (const row of visiblePersonalState) {
     winsByImage.set(row.image_id, (winsByImage.get(row.image_id) ?? 0) + row.wins);
+    lossesByImage.set(
+      row.image_id,
+      (lossesByImage.get(row.image_id) ?? 0) + row.losses,
+    );
     comparisonsByImage.set(
       row.image_id,
       (comparisonsByImage.get(row.image_id) ?? 0) + row.comparisons,
@@ -261,6 +269,7 @@ async function getSharedLeaderboardBase(
         viewerLosses: 0,
         viewerComparisons: 0,
         wins: winsByImage.get(image.id) ?? 0,
+        losses: lossesByImage.get(image.id) ?? 0,
       };
     })
     .sort(
