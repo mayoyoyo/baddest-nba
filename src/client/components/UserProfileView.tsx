@@ -147,9 +147,7 @@ function FirstTeamRow({
 }) {
   const player = row.player;
   const name = player ? `${player.first} ${player.last}` : row.image.id;
-  const teamLine = player?.team
-    ? `${player.team}${player.pos ? ` · ${player.pos}` : ""}`
-    : (player?.pos ?? "");
+  const teamLine = personalRecordLine(row);
 
   return (
     <li
@@ -202,13 +200,14 @@ function FirstTeamRow({
   );
 }
 
-function allStarsLine(row: UserLeaderboardEntryDto): string {
+function personalRecordLine(row: UserLeaderboardEntryDto): string {
+  // Used by both 1st Team and East/West All-Stars rows. Format is
+  // "TEAM · POS · W-L"; falls back to comparisons count when only
+  // skips happened.
   const parts: string[] = [];
   if (row.player?.team) parts.push(row.player.team);
   if (row.player?.pos) parts.push(row.player.pos);
   if (row.wins + row.losses > 0) {
-    // Personal record. Skip-only matchups (no wins/losses) fall back
-    // to the comparisons count below.
     parts.push(`${row.wins}-${row.losses}`);
   } else if (row.comparisons > 0) {
     parts.push(`${row.comparisons} ${row.comparisons === 1 ? "vote" : "votes"}`);
@@ -255,7 +254,7 @@ function AllStarsCard({
                     : row.image.id}
                 </p>
                 <p className="truncate text-xs text-muted-foreground">
-                  {allStarsLine(row)}
+                  {personalRecordLine(row)}
                 </p>
               </div>
               <span className="text-sm font-semibold tabular-nums">
