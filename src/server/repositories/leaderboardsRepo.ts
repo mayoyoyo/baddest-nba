@@ -211,12 +211,13 @@ export async function getTopRatedImageIdForUser(
   userId: string,
 ): Promise<string | null> {
   // Mirror the personal leaderboard sort: rating DESC, comparisons
-  // DESC, then most recent compare. Without the recency tiebreak the
-  // avatar would disagree with the displayed #1 in the user's 1st
-  // Team card whenever ratings cluster.
+  // DESC, then most recent compare. Avatar requires >= 3 personal
+  // comparisons so a single fluke vote (or a few wins on a brand-new
+  // anchor) can't mint your permanent face. Below 3, /me falls back to
+  // the basketball emoji.
   const result = await toDbClient(db).query<{ image_id: string }>(
     `SELECT image_id FROM personal_image_state
-     WHERE user_id = $1 AND comparisons >= 1
+     WHERE user_id = $1 AND comparisons >= 3
      ORDER BY rating DESC,
               comparisons DESC,
               last_compared_at DESC NULLS LAST,

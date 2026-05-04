@@ -202,6 +202,20 @@ function FirstTeamRow({
   );
 }
 
+function allStarsLine(row: UserLeaderboardEntryDto): string {
+  const parts: string[] = [];
+  if (row.player?.team) parts.push(row.player.team);
+  if (row.player?.pos) parts.push(row.player.pos);
+  if (row.wins + row.losses > 0) {
+    // Personal record. Skip-only matchups (no wins/losses) fall back
+    // to the comparisons count below.
+    parts.push(`${row.wins}-${row.losses}`);
+  } else if (row.comparisons > 0) {
+    parts.push(`${row.comparisons} ${row.comparisons === 1 ? "vote" : "votes"}`);
+  }
+  return parts.join(" · ");
+}
+
 function AllStarsCard({
   conference,
   entries,
@@ -241,11 +255,7 @@ function AllStarsCard({
                     : row.image.id}
                 </p>
                 <p className="truncate text-xs text-muted-foreground">
-                  {row.player?.team ?? ""}
-                  {row.player?.team && row.player?.pos ? " · " : ""}
-                  {row.player?.pos ?? ""}
-                  {(row.player?.team || row.player?.pos) ? " · " : ""}
-                  {row.comparisons} {row.comparisons === 1 ? "vote" : "votes"}
+                  {allStarsLine(row)}
                 </p>
               </div>
               <span className="text-sm font-semibold tabular-nums">
