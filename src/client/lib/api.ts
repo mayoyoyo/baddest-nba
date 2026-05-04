@@ -161,8 +161,17 @@ export const NBA_HEADSHOT_LARGE = (id: string) =>
 export const NBA_HEADSHOT_SMALL = (id: string) =>
   `https://cdn.nba.com/headshots/nba/latest/260x190/${id}.png`;
 
-// ESPN serves clean transparent team logos by lowercase abbreviation.
-export const NBA_TEAM_LOGO = (team: string) =>
-  `https://a.espncdn.com/i/teamlogos/nba/500/${team.toLowerCase()}.png`;
+// ESPN serves clean transparent team logos by lowercase abbreviation,
+// but uses non-NBA-standard slugs for two teams (Utah Jazz: "utah",
+// not "uta"; New Orleans Pelicans: "no", not "nop").
+const TEAM_LOGO_SLUG_OVERRIDES: Record<string, string> = {
+  UTA: "utah",
+  NOP: "no",
+};
+export const NBA_TEAM_LOGO = (team: string) => {
+  const upper = team.toUpperCase();
+  const slug = TEAM_LOGO_SLUG_OVERRIDES[upper] ?? upper.toLowerCase();
+  return `https://a.espncdn.com/i/teamlogos/nba/500/${slug}.png`;
+};
 
 export const CURRENT_SEASON_LABEL = "'25-'26";
